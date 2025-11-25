@@ -8,12 +8,12 @@
 
 ## 📋 Información General
 
-| Campo | Valor |
-|-------|-------|
-| **Dificultad** | ⭐⭐⭐ Intermedio |
-| **Tiempo estimado** | 30 minutos |
-| **Componentes** | Arduino Uno, 5 LEDs, 5 Resistencias 220Ω, Protoboard |
-| **Conceptos** | Arrays, bucles for, patrones, creatividad, código modular |
+| Campo               | Valor                                                     |
+| ------------------- | --------------------------------------------------------- |
+| **Dificultad**      | ⭐⭐⭐ Intermedio                                         |
+| **Tiempo estimado** | 30 minutos                                                |
+| **Componentes**     | Arduino Uno, 5 LEDs, 5 Resistencias 220Ω, Protoboard      |
+| **Conceptos**       | Arrays, bucles for, patrones, creatividad, código modular |
 
 ---
 
@@ -39,13 +39,13 @@ En esta práctica diseñarás tu propio **patrón de luces** usando 5 LEDs. Apre
 
 ### Componentes
 
-| Componente | Cantidad | Notas |
-|------------|----------|-------|
-| Arduino Uno R3 | 1 | |
-| LEDs (cualquier color) | 5 | Pueden ser del mismo color o diferentes |
-| Resistencia 220Ω | 5 | Una por LED |
-| Protoboard | 1 | |
-| Cables jumper | 8+ | |
+| Componente             | Cantidad | Notas                                   |
+| ---------------------- | -------- | --------------------------------------- |
+| Arduino Uno R3         | 1        |                                         |
+| LEDs (cualquier color) | 5        | Pueden ser del mismo color o diferentes |
+| Resistencia 220Ω       | 5        | Una por LED                             |
+| Protoboard             | 1        |                                         |
+| Cables jumper          | 8+       |                                         |
 
 ---
 
@@ -186,13 +186,13 @@ void setup() {
     for(int i = 0; i < NUM_LEDS; i++) {
         pinMode(LED_PINS[i], OUTPUT);
     }
-    
+
     // Iniciar Serial
     Serial.begin(9600);
     Serial.println("================================");
     Serial.println("  PATRÓN DE LUCES - Práctica 04");
     Serial.println("================================");
-    
+
     // Apagar todos los LEDs al inicio
     allOff();
 }
@@ -204,23 +204,23 @@ void loop() {
     // Patrón 1: Secuencia simple (izquierda a derecha)
     Serial.println("\n>> Patrón 1: Secuencia simple");
     patternSequence(3);
-    
+
     // Patrón 2: Knight Rider (ida y vuelta)
     Serial.println("\n>> Patrón 2: Knight Rider");
     patternKnightRider(3);
-    
+
     // Patrón 3: Llenado progresivo
     Serial.println("\n>> Patrón 3: Llenado");
     patternFill(2);
-    
+
     // Patrón 4: Parpadeo alternado
     Serial.println("\n>> Patrón 4: Alternado");
     patternAlternate(5);
-    
+
     // Patrón 5: Todos parpadean
     Serial.println("\n>> Patrón 5: Parpadeo total");
     patternBlinkAll(5);
-    
+
     // Pausa entre ciclos completos
     delay(1000);
 }
@@ -292,7 +292,7 @@ void patternKnightRider(int repetitions) {
             lightOnly(i);
             delay(SPEED_FAST);
         }
-        
+
         // Vuelta (derecha a izquierda, sin repetir extremos)
         for(int i = NUM_LEDS - 2; i > 0; i--) {
             lightOnly(i);
@@ -314,15 +314,15 @@ void patternFill(int repetitions) {
             digitalWrite(LED_PINS[i], HIGH);
             delay(SPEED_SLOW);
         }
-        
+
         delay(300);  // Pausa con todos encendidos
-        
+
         // Vaciar (apagar uno a uno)
         for(int i = NUM_LEDS - 1; i >= 0; i--) {
             digitalWrite(LED_PINS[i], LOW);
             delay(SPEED_SLOW);
         }
-        
+
         delay(200);
     }
 }
@@ -339,7 +339,7 @@ void patternAlternate(int repetitions) {
             digitalWrite(LED_PINS[i], (i % 2 == 0) ? HIGH : LOW);
         }
         delay(SPEED_SLOW);
-        
+
         // Encender impares, apagar pares
         for(int i = 0; i < NUM_LEDS; i++) {
             digitalWrite(LED_PINS[i], (i % 2 == 1) ? HIGH : LOW);
@@ -418,7 +418,7 @@ T0    T1    T2    T3    T4    T5    T6    T7    T8
 ```cpp
 void patternFromCenter(int reps) {
     int center = NUM_LEDS / 2;  // LED del centro (índice 2)
-    
+
     for(int r = 0; r < reps; r++) {
         // Expandir desde el centro
         for(int offset = 0; offset <= center; offset++) {
@@ -431,7 +431,7 @@ void patternFromCenter(int reps) {
             }
             delay(SPEED_NORMAL);
         }
-        
+
         // Contraer hacia el centro
         for(int offset = center; offset >= 0; offset--) {
             allOff();
@@ -455,10 +455,10 @@ void patternFromCenter(int reps) {
 ```cpp
 void patternRandom(int duration) {
     unsigned long startTime = millis();
-    
+
     while(millis() - startTime < duration) {
         int randomLed = random(0, NUM_LEDS);  // LED aleatorio
-        
+
         // Encender LED aleatorio
         digitalWrite(LED_PINS[randomLed], HIGH);
         delay(50);
@@ -470,6 +470,7 @@ void patternRandom(int duration) {
 ```
 
 **Nota:** `random()` necesita inicializarse en setup():
+
 ```cpp
 void setup() {
     randomSeed(analogRead(0));  // Semilla desde pin analógico flotante
@@ -509,21 +510,21 @@ void patternWave(int reps) {
 
 ## ✅ Criterios de Evaluación
 
-| Criterio | Puntos | Descripción |
-|----------|--------|-------------|
-| **Creatividad** | 4 | Patrón original y elaborado |
-| **Implementación** | 4 | Código eficiente con arrays/loops |
-| **Documentación** | 4 | Explicación completa del patrón |
-| **Total** | **12** | |
+| Criterio           | Puntos | Descripción                       |
+| ------------------ | ------ | --------------------------------- |
+| **Creatividad**    | 4      | Patrón original y elaborado       |
+| **Implementación** | 4      | Código eficiente con arrays/loops |
+| **Documentación**  | 4      | Explicación completa del patrón   |
+| **Total**          | **12** |                                   |
 
 ### Niveles de Logro
 
-| Nivel | Puntos | Descripción |
-|-------|--------|-------------|
-| Excelente | 10-12 | Patrón creativo, código eficiente, documentación completa |
-| Muy Bueno | 7-9 | Buen patrón, código funcional, documentación básica |
-| Bueno | 4-6 | Patrón simple, código funciona |
-| Insuficiente | 0-3 | No implementa patrón propio |
+| Nivel        | Puntos | Descripción                                               |
+| ------------ | ------ | --------------------------------------------------------- |
+| Excelente    | 10-12  | Patrón creativo, código eficiente, documentación completa |
+| Muy Bueno    | 7-9    | Buen patrón, código funcional, documentación básica       |
+| Bueno        | 4-6    | Patrón simple, código funciona                            |
+| Insuficiente | 0-3    | No implementa patrón propio                               |
 
 ---
 
@@ -532,6 +533,7 @@ void patternWave(int reps) {
 ### Desafío A: Tu Patrón Original
 
 Diseña y documenta un patrón completamente original. Incluye:
+
 - Nombre del patrón
 - Descripción del efecto visual
 - Pseudocódigo o diagrama
@@ -545,7 +547,7 @@ Usa Serial para que el usuario seleccione qué patrón ejecutar:
 void loop() {
     if(Serial.available() > 0) {
         char input = Serial.read();
-        
+
         switch(input) {
             case '1': patternSequence(3); break;
             case '2': patternKnightRider(3); break;
@@ -567,11 +569,11 @@ Crea un "mega patrón" que combine elementos de varios patrones en una secuencia
 
 ## 📚 Recursos Relacionados
 
-| Recurso | Enlace |
-|---------|--------|
-| Arrays en Arduino | [arduino.cc](https://www.arduino.cc/reference/en/language/variables/data-types/array/) |
-| Bucle for | [arduino.cc](https://www.arduino.cc/reference/en/language/structure/control-structure/for/) |
-| LED Patterns | [instructables.com](https://www.instructables.com/LED-Patterns/) |
+| Recurso           | Enlace                                                                                      |
+| ----------------- | ------------------------------------------------------------------------------------------- |
+| Arrays en Arduino | [arduino.cc](https://www.arduino.cc/reference/en/language/variables/data-types/array/)      |
+| Bucle for         | [arduino.cc](https://www.arduino.cc/reference/en/language/structure/control-structure/for/) |
+| LED Patterns      | [instructables.com](https://www.instructables.com/LED-Patterns/)                            |
 
 ---
 

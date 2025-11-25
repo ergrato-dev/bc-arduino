@@ -23,7 +23,7 @@ void patternKnightRider() {
         lightOnly(i);
         delay(DELAY_MS);
     }
-    
+
     // VUELTA: 4 → 3 → 2 → 1
     for (int i = NUM_LEDS - 2; i > 0; i--) {
         lightOnly(i);
@@ -33,6 +33,7 @@ void patternKnightRider() {
 ```
 
 **Visualización:**
+
 ```
 T0:  ●○○○○○  →  T1:  ○●○○○○  →  T2:  ○○●○○○
 T3:  ○○○●○○  →  T4:  ○○○○●○  →  T5:  ○○○○○●
@@ -63,7 +64,7 @@ void patternWithTrail() {
         }
         delay(DELAY_MS);
     }
-    
+
     // VUELTA con estela
     for (int i = NUM_LEDS - 2; i > 0; i--) {
         allOff();
@@ -77,6 +78,7 @@ void patternWithTrail() {
 ```
 
 **Visualización:**
+
 ```
 T0:  ●○○○○○  →  T1:  ●●○○○○  →  T2:  ○●●○○○
 T3:  ○○●●○○  →  T4:  ○○○●●○  →  T5:  ○○○○●●
@@ -102,7 +104,7 @@ void patternPingPong() {
         lightOnly(i);
         delay(DELAY_MS);
     }
-    
+
     // VUELTA completa (incluyendo extremos)
     for (int i = NUM_LEDS - 1; i >= 0; i--) {
         lightOnly(i);
@@ -130,20 +132,21 @@ void patternFillDrain() {
         digitalWrite(LED_PINS[i], HIGH);
         delay(DELAY_MS);
     }
-    
+
     delay(200);  // Pausa con todos encendidos
-    
+
     // Vaciado: quitar LEDs uno a uno
     for (int i = NUM_LEDS - 1; i >= 0; i--) {
         digitalWrite(LED_PINS[i], LOW);
         delay(DELAY_MS);
     }
-    
+
     delay(200);  // Pausa con todos apagados
 }
 ```
 
 **Visualización:**
+
 ```
 LLENADO:
 T0:  ●○○○○○  →  T1:  ●●○○○○  →  T2:  ●●●○○○
@@ -169,11 +172,11 @@ Iluminación que expande desde el centro.
 
 void patternCenterOut() {
     int center = NUM_LEDS / 2;  // Índice 3 para 6 LEDs
-    
+
     // Expandir desde centro
     for (int offset = 0; offset <= center; offset++) {
         allOff();
-        
+
         // LED izquierdo desde centro
         if (center - offset >= 0) {
             digitalWrite(LED_PINS[center - offset], HIGH);
@@ -186,14 +189,14 @@ void patternCenterOut() {
         if (offset == 0 && center - 1 >= 0) {
             digitalWrite(LED_PINS[center - 1], HIGH);
         }
-        
+
         delay(DELAY_MS);
     }
-    
+
     // Contraer hacia centro
     for (int offset = center; offset >= 0; offset--) {
         allOff();
-        
+
         if (center - offset >= 0) {
             digitalWrite(LED_PINS[center - offset], HIGH);
         }
@@ -203,13 +206,14 @@ void patternCenterOut() {
         if (offset == 0 && center - 1 >= 0) {
             digitalWrite(LED_PINS[center - 1], HIGH);
         }
-        
+
         delay(DELAY_MS);
     }
 }
 ```
 
 **Visualización:**
+
 ```
 EXPANDIR:
 T0:  ○○●●○○  →  T1:  ○●●●●○  →  T2:  ●●●●●●
@@ -237,7 +241,7 @@ void patternAlternate(int repetitions) {
             digitalWrite(LED_PINS[i], (i % 2 == 0) ? HIGH : LOW);
         }
         delay(DELAY_MS * 2);
-        
+
         // Encender impares (1, 3, 5)
         for (int i = 0; i < NUM_LEDS; i++) {
             digitalWrite(LED_PINS[i], (i % 2 == 1) ? HIGH : LOW);
@@ -249,6 +253,7 @@ void patternAlternate(int repetitions) {
 ```
 
 **Visualización:**
+
 ```
 T0:  ●○●○●○  →  T1:  ○●○●○●  →  T2:  ●○●○●○  →  ...
 ```
@@ -268,22 +273,23 @@ Dos LEDs moviéndose en direcciones opuestas.
 void patternDoubleWave() {
     for (int i = 0; i < NUM_LEDS; i++) {
         allOff();
-        
+
         // LED moviéndose hacia la derecha
         digitalWrite(LED_PINS[i], HIGH);
-        
+
         // LED moviéndose hacia la izquierda
         int oppositeIndex = NUM_LEDS - 1 - i;
         if (oppositeIndex != i) {  // Evitar encender el mismo
             digitalWrite(LED_PINS[oppositeIndex], HIGH);
         }
-        
+
         delay(DELAY_MS);
     }
 }
 ```
 
 **Visualización:**
+
 ```
 T0:  ●○○○○●  →  T1:  ○●○○●○  →  T2:  ○○●●○○
 T3:  ○○●●○○  →  T4:  ○●○○●○  →  T5:  ●○○○○●
@@ -293,13 +299,13 @@ T3:  ○○●●○○  →  T4:  ○●○○●○  →  T5:  ●○○○○
 
 ## 📊 Tabla de Velocidades
 
-| Nombre | DELAY_MS | Ciclos/seg | Efecto |
-|--------|----------|------------|--------|
-| Ultra rápido | 30 | 3.3 | Casi continuo |
-| Rápido | 50 | 2.0 | Ágil, dinámico |
-| Normal | 80 | 1.25 | **Recomendado** |
-| Lento | 120 | 0.83 | Relajado |
-| Muy lento | 200 | 0.5 | Dramático |
+| Nombre       | DELAY_MS | Ciclos/seg | Efecto          |
+| ------------ | -------- | ---------- | --------------- |
+| Ultra rápido | 30       | 3.3        | Casi continuo   |
+| Rápido       | 50       | 2.0        | Ágil, dinámico  |
+| Normal       | 80       | 1.25       | **Recomendado** |
+| Lento        | 120      | 0.83       | Relajado        |
+| Muy lento    | 200      | 0.5        | Dramático       |
 
 ---
 
@@ -311,18 +317,18 @@ T3:  ○○●●○○  →  T4:  ○●○○●○  →  T5:  ●○○○○
 // Usar este código para verificar cada LED individualmente
 void testSequence() {
     Serial.println("=== TEST DE LEDs ===");
-    
+
     for (int i = 0; i < NUM_LEDS; i++) {
         Serial.print("LED ");
         Serial.print(i);
         Serial.print(" (Pin ");
         Serial.print(LED_PINS[i]);
         Serial.println(")");
-        
+
         lightOnly(i);
         delay(1000);  // 1 segundo por LED para verificar
     }
-    
+
     Serial.println("=== TEST COMPLETO ===");
     allOff();
 }
@@ -353,6 +359,7 @@ LED 4 → LED 3 → LED 2 → LED 1
 ```cpp
 const int LED_PINS[NUM_LEDS] = {3, 4, 5, 6, 7, 8};
 ```
+
 - ✅ Pines contiguos, fácil de cablear
 - ✅ Evita pines 0, 1 (Serial)
 - ✅ Evita pin 13 (LED integrado)
@@ -362,6 +369,7 @@ const int LED_PINS[NUM_LEDS] = {3, 4, 5, 6, 7, 8};
 ```cpp
 const int LED_PINS[NUM_LEDS] = {2, 3, 4, 5, 6, 7};
 ```
+
 - ✅ Empieza desde el primer pin digital disponible
 - ⚠️ Pin 2 a veces se usa para interrupciones
 
@@ -370,6 +378,7 @@ const int LED_PINS[NUM_LEDS] = {2, 3, 4, 5, 6, 7};
 ```cpp
 const int LED_PINS[NUM_LEDS] = {3, 5, 6, 9, 10, 11};
 ```
+
 - ✅ Todos son pines PWM (~)
 - ✅ Permite añadir efectos de fade después
 - ⚠️ No son contiguos físicamente
@@ -383,21 +392,21 @@ const int LED_PINS[NUM_LEDS] = {3, 5, 6, 9, 10, 11};
  * =================================================
  * PROYECTO: Knight Rider - Secuenciador de LEDs
  * =================================================
- * 
+ *
  * Versión: 1.0
  * Autor: [TU NOMBRE]
  * Fecha: [FECHA]
- * 
+ *
  * Descripción:
  * [Describe tu implementación]
- * 
+ *
  * Funcionalidades:
  * [x] Secuencia ida (izq → der)
  * [x] Secuencia vuelta (der → izq)
  * [ ] Velocidad variable
  * [ ] Efecto estela
  * [ ] Otros...
- * 
+ *
  * Conexiones:
  * Pin 3 → LED 0
  * Pin 4 → LED 1
@@ -406,7 +415,7 @@ const int LED_PINS[NUM_LEDS] = {3, 5, 6, 9, 10, 11};
  * Pin 7 → LED 4
  * Pin 8 → LED 5
  * Todos cátodos → GND
- * 
+ *
  * Compatibilidad Tinkercad: ✅
  * =================================================
  */
@@ -431,11 +440,11 @@ void setup() {
     for (int i = 0; i < NUM_LEDS; i++) {
         pinMode(LED_PINS[i], OUTPUT);
     }
-    
+
     // Serial
     Serial.begin(9600);
     Serial.println("Knight Rider iniciado");
-    
+
     // Animación de inicio
     startupAnimation();
 }
@@ -505,12 +514,12 @@ void startupAnimation() {
 
 ## 🔗 Enlaces de Referencia
 
-| Recurso | URL |
-|---------|-----|
-| Video: Auto Fantástico Original | [YouTube](https://www.youtube.com/results?search_query=knight+rider+car+lights) |
-| Proyecto Tinkercad Ejemplo | [tinkercad.com](https://www.tinkercad.com/things/example-knight-rider) |
-| Arduino Arrays | [arduino.cc](https://www.arduino.cc/reference/en/language/variables/data-types/array/) |
-| Loops en Arduino | [arduino.cc](https://www.arduino.cc/reference/en/language/structure/control-structure/for/) |
+| Recurso                         | URL                                                                                         |
+| ------------------------------- | ------------------------------------------------------------------------------------------- |
+| Video: Auto Fantástico Original | [YouTube](https://www.youtube.com/results?search_query=knight+rider+car+lights)             |
+| Proyecto Tinkercad Ejemplo      | [tinkercad.com](https://www.tinkercad.com/things/example-knight-rider)                      |
+| Arduino Arrays                  | [arduino.cc](https://www.arduino.cc/reference/en/language/variables/data-types/array/)      |
+| Loops en Arduino                | [arduino.cc](https://www.arduino.cc/reference/en/language/structure/control-structure/for/) |
 
 ---
 

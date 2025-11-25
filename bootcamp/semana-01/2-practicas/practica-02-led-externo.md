@@ -8,12 +8,12 @@
 
 ## 📋 Información General
 
-| Campo | Valor |
-|-------|-------|
-| **Dificultad** | ⭐⭐ Básico |
-| **Tiempo estimado** | 25 minutos |
-| **Componentes** | Arduino Uno, LED, Resistencia 220Ω, Protoboard, Cables |
-| **Conceptos** | Circuitos, Ley de Ohm, polaridad LED, resistencia limitadora |
+| Campo               | Valor                                                        |
+| ------------------- | ------------------------------------------------------------ |
+| **Dificultad**      | ⭐⭐ Básico                                                  |
+| **Tiempo estimado** | 25 minutos                                                   |
+| **Componentes**     | Arduino Uno, LED, Resistencia 220Ω, Protoboard, Cables       |
+| **Conceptos**       | Circuitos, Ley de Ohm, polaridad LED, resistencia limitadora |
 
 ---
 
@@ -39,13 +39,13 @@ En esta práctica conectarás un **LED externo** al Arduino usando una **resiste
 
 ### Componentes
 
-| Componente | Cantidad | Notas |
-|------------|----------|-------|
-| Arduino Uno R3 | 1 | Físico o Tinkercad |
-| LED Rojo | 1 | Cualquier color funciona |
-| Resistencia 220Ω | 1 | Rojo-Rojo-Marrón-Dorado |
-| Protoboard | 1 | Mini o estándar |
-| Cables jumper | 2 | Macho-macho |
+| Componente       | Cantidad | Notas                    |
+| ---------------- | -------- | ------------------------ |
+| Arduino Uno R3   | 1        | Físico o Tinkercad       |
+| LED Rojo         | 1        | Cualquier color funciona |
+| Resistencia 220Ω | 1        | Rojo-Rojo-Marrón-Dorado  |
+| Protoboard       | 1        | Mini o estándar          |
+| Cables jumper    | 2        | Macho-macho              |
 
 ### Diagrama de Componentes
 
@@ -78,11 +78,11 @@ Antes de armar el circuito, calculemos la resistencia necesaria:
 
 ### Datos
 
-| Parámetro | Valor | Descripción |
-|-----------|-------|-------------|
-| Vs | 5V | Voltaje de salida del Arduino |
-| Vf | 2V | Voltaje directo del LED rojo |
-| If | 20mA | Corriente deseada (0.020A) |
+| Parámetro | Valor | Descripción                   |
+| --------- | ----- | ----------------------------- |
+| Vs        | 5V    | Voltaje de salida del Arduino |
+| Vf        | 2V    | Voltaje directo del LED rojo  |
+| If        | 20mA  | Corriente deseada (0.020A)    |
 
 ### Fórmula
 
@@ -96,11 +96,13 @@ R = 150Ω
 ### Valor Comercial
 
 El valor calculado es 150Ω, pero usaremos **220Ω** porque:
+
 - Es un valor comercial muy común
 - Proporciona un margen de seguridad
 - El LED brillará un poco menos pero durará más
 
 Con 220Ω, la corriente real será:
+
 ```
 I = (5V - 2V) / 220Ω = 13.6mA (seguro y suficiente)
 ```
@@ -112,6 +114,7 @@ I = (5V - 2V) / 220Ω = 13.6mA (seguro y suficiente)
 ### Paso 1: Preparar el Entorno
 
 **En Tinkercad:**
+
 1. Crea un nuevo circuito
 2. Arrastra: Arduino Uno, Protoboard pequeña, LED, Resistencia
 3. En la resistencia, cambia el valor a **220Ω**
@@ -172,12 +175,12 @@ I = (5V - 2V) / 220Ω = 13.6mA (seguro y suficiente)
 
 **Conexiones paso a paso:**
 
-| Paso | Desde | Hacia | Cable/Componente |
-|------|-------|-------|------------------|
-| 1 | Arduino Pin 8 | Protoboard fila 1, columna a | Cable jumper |
-| 2 | Protoboard fila 1, columna c | Protoboard fila 2, columna c | Resistencia 220Ω |
-| 3 | Protoboard fila 2, columna e | Protoboard fila 3, columna e | LED (ánodo arriba) |
-| 4 | Protoboard fila 3, columna a | Arduino GND | Cable jumper |
+| Paso | Desde                        | Hacia                        | Cable/Componente   |
+| ---- | ---------------------------- | ---------------------------- | ------------------ |
+| 1    | Arduino Pin 8                | Protoboard fila 1, columna a | Cable jumper       |
+| 2    | Protoboard fila 1, columna c | Protoboard fila 2, columna c | Resistencia 220Ω   |
+| 3    | Protoboard fila 2, columna e | Protoboard fila 3, columna e | LED (ánodo arriba) |
+| 4    | Protoboard fila 3, columna a | Arduino GND                  | Cable jumper       |
 
 ### Paso 4: Verificar Polaridad del LED
 
@@ -262,7 +265,7 @@ const int TIME_OFF = 500;  // Tiempo apagado
 void setup() {
     // Configurar pin del LED como salida
     pinMode(LED_PIN, OUTPUT);
-    
+
     // Iniciar Serial para debugging
     Serial.begin(9600);
     Serial.println("LED Externo - Práctica 02");
@@ -277,7 +280,7 @@ void loop() {
     digitalWrite(LED_PIN, HIGH);
     Serial.println("LED: ON");
     delay(TIME_ON);
-    
+
     // Apagar LED
     digitalWrite(LED_PIN, LOW);
     Serial.println("LED: OFF");
@@ -327,6 +330,7 @@ void loop() {
 <summary>Pista 1: El LED no enciende</summary>
 
 Verifica:
+
 1. **Polaridad del LED** - ¿Está el ánodo (pata larga) hacia el pin 8?
 2. **Conexiones** - ¿Están en la misma fila de la protoboard?
 3. **GND** - ¿Está conectado el circuito a tierra?
@@ -338,6 +342,7 @@ Verifica:
 <summary>Pista 2: El LED está muy tenue</summary>
 
 Posibles causas:
+
 - Resistencia muy alta (¿usaste 2.2kΩ en lugar de 220Ω?)
 - Verifica el código de colores de la resistencia
 - En Tinkercad, haz clic en la resistencia y verifica el valor
@@ -348,6 +353,7 @@ Posibles causas:
 <summary>Pista 3: El LED se quemó (en hardware real)</summary>
 
 Esto pasa si:
+
 - No usaste resistencia
 - Usaste resistencia muy pequeña (<100Ω)
 - Conectaste a Vin (12V) en lugar de un pin digital (5V)
@@ -360,20 +366,20 @@ Esto pasa si:
 
 ## ✅ Criterios de Evaluación
 
-| Criterio | Puntos | Descripción |
-|----------|--------|-------------|
-| **Circuito correcto** | 4 | Conexiones correctas, resistencia calculada |
-| **Funcionalidad** | 3 | LED parpadea según especificación |
-| **Código documentado** | 3 | Comentarios explicando qué, para qué, cómo |
-| **Total** | **10** | |
+| Criterio               | Puntos | Descripción                                 |
+| ---------------------- | ------ | ------------------------------------------- |
+| **Circuito correcto**  | 4      | Conexiones correctas, resistencia calculada |
+| **Funcionalidad**      | 3      | LED parpadea según especificación           |
+| **Código documentado** | 3      | Comentarios explicando qué, para qué, cómo  |
+| **Total**              | **10** |                                             |
 
 ### Rúbrica Detallada
 
-| Criterio | Excelente (100%) | Bueno (75%) | Suficiente (50%) | Insuficiente |
-|----------|-----------------|-------------|------------------|--------------|
-| Circuito | Perfecto, cálculo documentado | Correcto, sin cálculo | Funciona con errores menores | No funciona |
-| Funcionalidad | LED funciona perfectamente | Funciona con ajustes | Funciona parcialmente | No funciona |
-| Documentación | Completa (qué, para qué, cómo) | Comentarios básicos | Pocos comentarios | Sin comentarios |
+| Criterio      | Excelente (100%)               | Bueno (75%)           | Suficiente (50%)             | Insuficiente    |
+| ------------- | ------------------------------ | --------------------- | ---------------------------- | --------------- |
+| Circuito      | Perfecto, cálculo documentado  | Correcto, sin cálculo | Funciona con errores menores | No funciona     |
+| Funcionalidad | LED funciona perfectamente     | Funciona con ajustes  | Funciona parcialmente        | No funciona     |
+| Documentación | Completa (qué, para qué, cómo) | Comentarios básicos   | Pocos comentarios            | Sin comentarios |
 
 ---
 
@@ -392,7 +398,7 @@ void loop() {
         digitalWrite(LED_PIN, LOW);
         delay((11-i) * 10);  // 100, 90, 80... 10ms
     }
-    
+
     // Simular fade-out
     for(int i = 10; i >= 1; i--) {
         digitalWrite(LED_PIN, HIGH);
@@ -416,9 +422,9 @@ void loop() {
     delay(currentDelay);
     digitalWrite(LED_PIN, LOW);
     delay(currentDelay);
-    
+
     blinkCount++;
-    
+
     if(blinkCount >= 10) {
         blinkCount = 0;
         currentDelay = currentDelay / 2;  // Más rápido
@@ -435,11 +441,11 @@ void loop() {
 
 ## 📚 Recursos Relacionados
 
-| Recurso | Enlace |
-|---------|--------|
-| Teoría: Electrónica Básica | [Módulo 02](../1-teoria/02-electronica-basica.md) |
+| Recurso                     | Enlace                                                                                                               |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Teoría: Electrónica Básica  | [Módulo 02](../1-teoria/02-electronica-basica.md)                                                                    |
 | Calculadora de Resistencias | [digikey.com](https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-resistor-color-code) |
-| LEDs - Guía Completa | [sparkfun.com](https://learn.sparkfun.com/tutorials/light-emitting-diodes-leds) |
+| LEDs - Guía Completa        | [sparkfun.com](https://learn.sparkfun.com/tutorials/light-emitting-diodes-leds)                                      |
 
 ---
 

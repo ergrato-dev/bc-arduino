@@ -8,12 +8,12 @@
 
 ### Parámetros Eléctricos
 
-| Parámetro | Valor | Notas |
-|-----------|-------|-------|
-| Voltaje de operación | 5V DC | Desde Arduino |
-| Corriente por LED | ~13.6 mA | Con R = 220Ω |
-| Corriente total máxima | ~82 mA | 6 LEDs simultáneos |
-| Consumo típico | ~13.6 mA | 1 LED a la vez |
+| Parámetro              | Valor    | Notas              |
+| ---------------------- | -------- | ------------------ |
+| Voltaje de operación   | 5V DC    | Desde Arduino      |
+| Corriente por LED      | ~13.6 mA | Con R = 220Ω       |
+| Corriente total máxima | ~82 mA   | 6 LEDs simultáneos |
+| Consumo típico         | ~13.6 mA | 1 LED a la vez     |
 
 ### Cálculo de Resistencia
 
@@ -55,7 +55,7 @@
         │      │       │       │       │       │     cada uno
         │      │       │       │       │       │
        ▼│     ▼│      ▼│      ▼│      ▼│      ▼│     LED
-       ─┼─    ─┼─     ─┼─     ─┼─     ─┼─     ─┼─    
+       ─┼─    ─┼─     ─┼─     ─┼─     ─┼─     ─┼─
         │      │       │       │       │       │
         └──────┴───────┴───────┴───────┴───────┴──────┐
                                                        │
@@ -225,13 +225,13 @@
 ```cpp
 /**
  * @brief Apaga todos los LEDs del array
- * 
+ *
  * @details Itera sobre todos los pines definidos en LED_PINS
  *          y establece cada uno en LOW (0V)
- * 
+ *
  * @param ninguno
  * @return void
- * 
+ *
  * @example
  *   allOff();  // Todos los LEDs se apagan
  */
@@ -247,15 +247,15 @@ void allOff() {
 ```cpp
 /**
  * @brief Enciende todos los LEDs del array
- * 
+ *
  * @details Itera sobre todos los pines definidos en LED_PINS
  *          y establece cada uno en HIGH (5V)
- * 
+ *
  * @param ninguno
  * @return void
- * 
+ *
  * @warning Consumo máximo: ~82mA con 6 LEDs
- * 
+ *
  * @example
  *   allOn();  // Todos los LEDs se encienden
  */
@@ -271,17 +271,17 @@ void allOn() {
 ```cpp
 /**
  * @brief Enciende únicamente el LED en la posición especificada
- * 
+ *
  * @details Apaga todos los LEDs excepto el indicado por 'position'.
  *          Útil para crear efectos de secuencia donde solo un LED
  *          está encendido a la vez.
- * 
+ *
  * @param position Índice del LED a encender (0 a NUM_LEDS-1)
- * 
+ *
  * @return void
- * 
+ *
  * @note Si position está fuera de rango, todos los LEDs se apagan
- * 
+ *
  * @example
  *   lightOnly(0);  // Enciende solo el primer LED
  *   lightOnly(3);  // Enciende solo el cuarto LED
@@ -335,11 +335,11 @@ void lightOnly(int position) {
 
 ### Separación Entre LEDs
 
-| Separación | Efecto Visual | Uso Recomendado |
-|------------|---------------|-----------------|
-| 1 cm | Compacto, luz continua | Indicadores pequeños |
-| 2 cm | Distinción clara | **Recomendado para proyecto** |
-| 3+ cm | Muy separado | Instalaciones grandes |
+| Separación | Efecto Visual          | Uso Recomendado               |
+| ---------- | ---------------------- | ----------------------------- |
+| 1 cm       | Compacto, luz continua | Indicadores pequeños          |
+| 2 cm       | Distinción clara       | **Recomendado para proyecto** |
+| 3+ cm      | Muy separado           | Instalaciones grandes         |
 
 ---
 
@@ -352,7 +352,7 @@ void lightOnly(int position) {
 void lightWithTrail(int position) {
     allOff();
     digitalWrite(LED_PINS[position], HIGH);
-    
+
     // LED anterior (más tenue si usáramos PWM)
     if (position > 0) {
         digitalWrite(LED_PINS[position - 1], HIGH);
@@ -369,12 +369,12 @@ bool goingForward = true;
 
 void loop() {
     unsigned long currentMillis = millis();
-    
+
     if (currentMillis - previousMillis >= DELAY_MS) {
         previousMillis = currentMillis;
-        
+
         lightOnly(currentLed);
-        
+
         if (goingForward) {
             currentLed++;
             if (currentLed >= NUM_LEDS) {

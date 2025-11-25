@@ -7,12 +7,12 @@
 
 ## 📋 Índice de Prácticas
 
-| # | Práctica | Dificultad | Tiempo | Descripción |
-|---|----------|------------|--------|-------------|
-| 01 | [Blink LED Integrado](./practica-01-blink-led.md) | ⭐ | 20 min | LED integrado parpadeando |
-| 02 | [LED Externo con Resistencia](./practica-02-led-externo.md) | ⭐⭐ | 25 min | Circuito con LED externo |
-| 03 | [Semáforo Básico](./practica-03-semaforo.md) | ⭐⭐ | 25 min | Secuencia de 3 LEDs |
-| 04 | [Patrón de Luces Personalizado](./practica-04-patron-luces.md) | ⭐⭐⭐ | 30 min | Diseño creativo con múltiples LEDs |
+| #   | Práctica                                                       | Dificultad | Tiempo | Descripción                        |
+| --- | -------------------------------------------------------------- | ---------- | ------ | ---------------------------------- |
+| 01  | [Blink LED Integrado](./practica-01-blink-led.md)              | ⭐         | 20 min | LED integrado parpadeando          |
+| 02  | [LED Externo con Resistencia](./practica-02-led-externo.md)    | ⭐⭐       | 25 min | Circuito con LED externo           |
+| 03  | [Semáforo Básico](./practica-03-semaforo.md)                   | ⭐⭐       | 25 min | Secuencia de 3 LEDs                |
+| 04  | [Patrón de Luces Personalizado](./practica-04-patron-luces.md) | ⭐⭐⭐     | 30 min | Diseño creativo con múltiples LEDs |
 
 ---
 
@@ -72,15 +72,15 @@ Al completar todas las prácticas, habrás:
 
 ### Lista Completa para Todas las Prácticas
 
-| Componente | Cantidad | Usado en |
-|------------|----------|----------|
-| Arduino Uno R3 | 1 | Todas |
-| LED Rojo | 2 | P02, P03, P04 |
-| LED Amarillo | 1 | P03, P04 |
-| LED Verde | 2 | P03, P04 |
-| Resistencia 220Ω | 5 | P02, P03, P04 |
-| Cables jumper | ~15 | P02, P03, P04 |
-| Protoboard | 1 | P02, P03, P04 |
+| Componente       | Cantidad | Usado en      |
+| ---------------- | -------- | ------------- |
+| Arduino Uno R3   | 1        | Todas         |
+| LED Rojo         | 2        | P02, P03, P04 |
+| LED Amarillo     | 1        | P03, P04      |
+| LED Verde        | 2        | P03, P04      |
+| Resistencia 220Ω | 5        | P02, P03, P04 |
+| Cables jumper    | ~15      | P02, P03, P04 |
+| Protoboard       | 1        | P02, P03, P04 |
 
 > 💡 **Nota:** Si usas Tinkercad, todos estos componentes están disponibles en el simulador.
 
@@ -100,19 +100,19 @@ Al completar todas las prácticas, habrás:
 1. Conecta Arduino al computador via USB
 2. Abre Arduino IDE
 3. Selecciona **Tools** → **Board** → **Arduino Uno**
-4. Selecciona **Tools** → **Port** → *tu puerto COM*
+4. Selecciona **Tools** → **Port** → _tu puerto COM_
 
 ---
 
 ## 📊 Criterios de Evaluación
 
-| Práctica | Puntos | Criterios Principales |
-|----------|--------|----------------------|
-| P01 | 8 pts | Funcionalidad, código limpio, variaciones |
-| P02 | 10 pts | Circuito correcto, cálculos, documentación |
-| P03 | 10 pts | Secuencia correcta, tiempos, organización |
-| P04 | 12 pts | Creatividad, implementación, documentación |
-| **Total** | **40 pts** | |
+| Práctica  | Puntos     | Criterios Principales                      |
+| --------- | ---------- | ------------------------------------------ |
+| P01       | 8 pts      | Funcionalidad, código limpio, variaciones  |
+| P02       | 10 pts     | Circuito correcto, cálculos, documentación |
+| P03       | 10 pts     | Secuencia correcta, tiempos, organización  |
+| P04       | 12 pts     | Creatividad, implementación, documentación |
+| **Total** | **40 pts** |                                            |
 
 Ver [Rúbrica Completa](../RUBRICA-EVALUACION.md) para detalles.
 
@@ -143,34 +143,38 @@ Ver [Rúbrica Completa](../RUBRICA-EVALUACION.md) para detalles.
 
 ## ⚠️ Errores Comunes a Evitar
 
-| Error | Consecuencia | Prevención |
-|-------|--------------|------------|
-| LED sin resistencia | LED quemado | Siempre usar 220Ω mínimo |
-| Conexiones flojas | Comportamiento errático | Verificar conexiones |
-| Pin incorrecto | No funciona | Verificar número de pin |
-| Olvidar GND | Circuito no cierra | Siempre conectar tierra |
-| Polaridad LED | LED no enciende | Pata larga = positivo |
+| Error               | Consecuencia            | Prevención               |
+| ------------------- | ----------------------- | ------------------------ |
+| LED sin resistencia | LED quemado             | Siempre usar 220Ω mínimo |
+| Conexiones flojas   | Comportamiento errático | Verificar conexiones     |
+| Pin incorrecto      | No funciona             | Verificar número de pin  |
+| Olvidar GND         | Circuito no cierra      | Siempre conectar tierra  |
+| Polaridad LED       | LED no enciende         | Pata larga = positivo    |
 
 ---
 
 ## ✅ Checklist de Completitud
 
 ### Práctica 01: Blink LED
+
 - [ ] LED parpadea a 1 segundo
 - [ ] Código documentado
 - [ ] Variación de tiempo implementada
 
 ### Práctica 02: LED Externo
+
 - [ ] Circuito armado correctamente
 - [ ] Resistencia calculada
 - [ ] LED funciona con código
 
 ### Práctica 03: Semáforo
+
 - [ ] Secuencia Verde→Amarillo→Rojo
 - [ ] Tiempos realistas
 - [ ] Código organizado en funciones
 
 ### Práctica 04: Patrón Personalizado
+
 - [ ] Patrón creativo implementado
 - [ ] Uso de arrays
 - [ ] Documentación completa
@@ -179,12 +183,12 @@ Ver [Rúbrica Completa](../RUBRICA-EVALUACION.md) para detalles.
 
 ## 🔗 Recursos de Apoyo
 
-| Recurso | Enlace |
-|---------|--------|
-| Teoría Módulo 02 | [Electrónica Básica](../1-teoria/02-electronica-basica.md) |
-| Teoría Módulo 03 | [Arduino IDE y Tinkercad](../1-teoria/03-arduino-ide-tinkercad.md) |
-| Arduino Reference | [arduino.cc/reference](https://www.arduino.cc/reference/en/) |
-| Simulador | [tinkercad.com/circuits](https://www.tinkercad.com/circuits) |
+| Recurso           | Enlace                                                             |
+| ----------------- | ------------------------------------------------------------------ |
+| Teoría Módulo 02  | [Electrónica Básica](../1-teoria/02-electronica-basica.md)         |
+| Teoría Módulo 03  | [Arduino IDE y Tinkercad](../1-teoria/03-arduino-ide-tinkercad.md) |
+| Arduino Reference | [arduino.cc/reference](https://www.arduino.cc/reference/en/)       |
+| Simulador         | [tinkercad.com/circuits](https://www.tinkercad.com/circuits)       |
 
 ---
 

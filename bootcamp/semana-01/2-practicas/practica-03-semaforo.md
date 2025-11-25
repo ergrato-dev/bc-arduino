@@ -8,12 +8,12 @@
 
 ## 📋 Información General
 
-| Campo | Valor |
-|-------|-------|
-| **Dificultad** | ⭐⭐ Básico |
-| **Tiempo estimado** | 25 minutos |
-| **Componentes** | Arduino Uno, 3 LEDs (R/Y/G), 3 Resistencias 220Ω, Protoboard |
-| **Conceptos** | Secuencias, múltiples salidas, tiempos, funciones |
+| Campo               | Valor                                                        |
+| ------------------- | ------------------------------------------------------------ |
+| **Dificultad**      | ⭐⭐ Básico                                                  |
+| **Tiempo estimado** | 25 minutos                                                   |
+| **Componentes**     | Arduino Uno, 3 LEDs (R/Y/G), 3 Resistencias 220Ω, Protoboard |
+| **Conceptos**       | Secuencias, múltiples salidas, tiempos, funciones            |
 
 ---
 
@@ -38,15 +38,15 @@ Construirás un **semáforo funcional** con tres LEDs (rojo, amarillo, verde) qu
 
 ### Componentes
 
-| Componente | Cantidad | Notas |
-|------------|----------|-------|
-| Arduino Uno R3 | 1 | |
-| LED Rojo | 1 | |
-| LED Amarillo | 1 | |
-| LED Verde | 1 | |
-| Resistencia 220Ω | 3 | Una por LED |
-| Protoboard | 1 | |
-| Cables jumper | 6 | |
+| Componente       | Cantidad | Notas       |
+| ---------------- | -------- | ----------- |
+| Arduino Uno R3   | 1        |             |
+| LED Rojo         | 1        |             |
+| LED Amarillo     | 1        |             |
+| LED Verde        | 1        |             |
+| Resistencia 220Ω | 3        | Una por LED |
+| Protoboard       | 1        |             |
+| Cables jumper    | 6        |             |
 
 ---
 
@@ -111,18 +111,18 @@ Construirás un **semáforo funcional** con tres LEDs (rojo, amarillo, verde) qu
 
 ### Tabla de Conexiones
 
-| Componente | Terminal | Conectar a |
-|------------|----------|------------|
-| Arduino Pin 10 | - | Resistencia 1, terminal A |
-| Resistencia 1 | Terminal B | LED Rojo, Ánodo (+) |
-| LED Rojo | Cátodo (-) | Línea GND |
-| Arduino Pin 9 | - | Resistencia 2, terminal A |
-| Resistencia 2 | Terminal B | LED Amarillo, Ánodo (+) |
-| LED Amarillo | Cátodo (-) | Línea GND |
-| Arduino Pin 8 | - | Resistencia 3, terminal A |
-| Resistencia 3 | Terminal B | LED Verde, Ánodo (+) |
-| LED Verde | Cátodo (-) | Línea GND |
-| Arduino GND | - | Línea (-) de protoboard |
+| Componente     | Terminal   | Conectar a                |
+| -------------- | ---------- | ------------------------- |
+| Arduino Pin 10 | -          | Resistencia 1, terminal A |
+| Resistencia 1  | Terminal B | LED Rojo, Ánodo (+)       |
+| LED Rojo       | Cátodo (-) | Línea GND                 |
+| Arduino Pin 9  | -          | Resistencia 2, terminal A |
+| Resistencia 2  | Terminal B | LED Amarillo, Ánodo (+)   |
+| LED Amarillo   | Cátodo (-) | Línea GND                 |
+| Arduino Pin 8  | -          | Resistencia 3, terminal A |
+| Resistencia 3  | Terminal B | LED Verde, Ánodo (+)      |
+| LED Verde      | Cátodo (-) | Línea GND                 |
+| Arduino GND    | -          | Línea (-) de protoboard   |
 
 ---
 
@@ -197,10 +197,10 @@ void setup() {
     pinMode(PIN_RED, OUTPUT);
     pinMode(PIN_YELLOW, OUTPUT);
     pinMode(PIN_GREEN, OUTPUT);
-    
+
     // Iniciar con todos los LEDs apagados
     turnAllOff();
-    
+
     // Iniciar Serial para debugging
     Serial.begin(9600);
     Serial.println("=========================");
@@ -214,10 +214,10 @@ void setup() {
 void loop() {
     // Fase 1: Verde (Paso permitido)
     greenPhase();
-    
+
     // Fase 2: Amarillo (Precaución)
     yellowPhase();
-    
+
     // Fase 3: Rojo (Alto)
     redPhase();
 }
@@ -327,6 +327,7 @@ void redPhase() {
 <summary>Pista 1: Solo un LED enciende</summary>
 
 Verifica:
+
 - Cada LED tiene su propia resistencia
 - Cada LED está conectado a un pin diferente
 - Todos los cátodos van a GND (tierra común)
@@ -337,6 +338,7 @@ Verifica:
 <summary>Pista 2: El orden de los colores está mal</summary>
 
 Revisa las conexiones físicas vs el código:
+
 - ¿Pin 10 está conectado al LED rojo?
 - ¿Pin 9 está conectado al LED amarillo?
 - ¿Pin 8 está conectado al LED verde?
@@ -354,7 +356,7 @@ Modifica la función `yellowPhase()`:
 void yellowPhase() {
     turnAllOff();
     Serial.println("🟡 AMARILLO - Precaución");
-    
+
     // Parpadear 4 veces (2 segundos total)
     for(int i = 0; i < 4; i++) {
         digitalWrite(PIN_YELLOW, HIGH);
@@ -371,12 +373,12 @@ void yellowPhase() {
 
 ## ✅ Criterios de Evaluación
 
-| Criterio | Puntos | Descripción |
-|----------|--------|-------------|
-| **Secuencia correcta** | 4 | Verde→Amarillo→Rojo con tiempos realistas |
-| **Conexiones** | 3 | 3 LEDs con resistencias individuales |
-| **Organización código** | 3 | Funciones separadas, constantes claras |
-| **Total** | **10** | |
+| Criterio                | Puntos | Descripción                               |
+| ----------------------- | ------ | ----------------------------------------- |
+| **Secuencia correcta**  | 4      | Verde→Amarillo→Rojo con tiempos realistas |
+| **Conexiones**          | 3      | 3 LEDs con resistencias individuales      |
+| **Organización código** | 3      | Funciones separadas, constantes claras    |
+| **Total**               | **10** |                                           |
 
 ---
 
@@ -404,7 +406,7 @@ const int NIGHT_MODE_AFTER = 10;  // Después de 10 ciclos
 
 void loop() {
     cycleCount++;
-    
+
     if(cycleCount > NIGHT_MODE_AFTER) {
         nightMode();
     } else {
@@ -432,11 +434,11 @@ Implementa dos semáforos sincronizados (Norte-Sur y Este-Oeste) donde cuando un
 
 ## 📚 Recursos Relacionados
 
-| Recurso | Enlace |
-|---------|--------|
-| Teoría: Electrónica Básica | [Módulo 02](../1-teoria/02-electronica-basica.md) |
-| Funciones en Arduino | [arduino.cc](https://www.arduino.cc/reference/en/language/structure/functions/) |
-| Proyecto similar | [Arduino Traffic Light](https://create.arduino.cc/projecthub/techno_z/arduino-traffic-light-simulator-2ec9f7) |
+| Recurso                    | Enlace                                                                                                        |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Teoría: Electrónica Básica | [Módulo 02](../1-teoria/02-electronica-basica.md)                                                             |
+| Funciones en Arduino       | [arduino.cc](https://www.arduino.cc/reference/en/language/structure/functions/)                               |
+| Proyecto similar           | [Arduino Traffic Light](https://create.arduino.cc/projecthub/techno_z/arduino-traffic-light-simulator-2ec9f7) |
 
 ---
 
