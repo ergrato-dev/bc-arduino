@@ -30,14 +30,14 @@ Esta estructura está diseñada siguiendo los principios de:
 
 ### Formato del Bootcamp
 
-| Parámetro           | Valor            |
-| ------------------- | ---------------- |
-| Duración por semana | 8 horas          |
-| Dedicación teoría   | 2-3 horas (~30%) |
-| Dedicación práctica | 2-3 horas (~30%) |
-| Dedicación proyecto | 3-4 horas (~40%) |
-| Número de prácticas | 5 por semana     |
-| Proyecto integrador | 1 por semana     |
+| Parámetro           | Valor              |
+| ------------------- | ------------------ |
+| Duración por semana | 4 horas            |
+| Dedicación teoría   | 1 hora (~25%)      |
+| Dedicación práctica | 1.5 horas (~37.5%) |
+| Dedicación proyecto | 1.5 horas (~37.5%) |
+| Número de prácticas | 3-4 por semana     |
+| Proyecto integrador | 1 por semana       |
 
 ---
 
