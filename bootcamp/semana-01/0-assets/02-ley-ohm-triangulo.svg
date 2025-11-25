@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <!-- Fondo oscuro -->
+  <rect width="100%" height="100%" fill="#1e1e1e"/>
+  
+  <!-- Título -->
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="24" fill="#ffffff" text-anchor="middle" font-weight="bold">Ley de Ohm</text>
+  <text x="400" y="65" font-family="Arial, sans-serif" font-size="14" fill="#aaaaaa" text-anchor="middle">V = I × R</text>
+  
+  <!-- Triángulo principal -->
+  <g transform="translate(400, 250)">
+    <!-- Triángulo exterior -->
+    <polygon points="0,-120 140,100 -140,100" fill="none" stroke="#00979c" stroke-width="4"/>
+    
+    <!-- Línea divisoria horizontal -->
+    <line x1="-100" y1="0" x2="100" y2="0" stroke="#00979c" stroke-width="3"/>
+    
+    <!-- V arriba -->
+    <text x="0" y="-40" font-family="Arial" font-size="48" fill="#ff4444" text-anchor="middle" font-weight="bold">V</text>
+    <text x="0" y="-10" font-family="Arial" font-size="12" fill="#aaaaaa" text-anchor="middle">(Voltios)</text>
+    
+    <!-- I abajo izquierda -->
+    <text x="-55" y="70" font-family="Arial" font-size="48" fill="#44ff44" text-anchor="middle" font-weight="bold">I</text>
+    <text x="-55" y="95" font-family="Arial" font-size="12" fill="#aaaaaa" text-anchor="middle">(Amperios)</text>
+    
+    <!-- R abajo derecha -->
+    <text x="55" y="70" font-family="Arial" font-size="48" fill="#4444ff" text-anchor="middle" font-weight="bold">R</text>
+    <text x="55" y="95" font-family="Arial" font-size="12" fill="#aaaaaa" text-anchor="middle">(Ohmios)</text>
+    
+    <!-- Símbolo × entre I y R -->
+    <text x="0" y="70" font-family="Arial" font-size="24" fill="#ffffff" text-anchor="middle">×</text>
+  </g>
+  
+  <!-- Fórmulas -->
+  <g id="formulas">
+    <!-- Fórmula 1: V = I × R -->
+    <rect x="80" y="380" width="180" height="60" rx="8" fill="#2a2a2a" stroke="#ff4444" stroke-width="2"/>
+    <text x="170" y="400" font-family="Arial" font-size="12" fill="#aaaaaa" text-anchor="middle">Para calcular Voltaje:</text>
+    <text x="170" y="425" font-family="Arial" font-size="20" fill="#ff4444" text-anchor="middle" font-weight="bold">V = I × R</text>
+    
+    <!-- Fórmula 2: I = V / R -->
+    <rect x="310" y="380" width="180" height="60" rx="8" fill="#2a2a2a" stroke="#44ff44" stroke-width="2"/>
+    <text x="400" y="400" font-family="Arial" font-size="12" fill="#aaaaaa" text-anchor="middle">Para calcular Corriente:</text>
+    <text x="400" y="425" font-family="Arial" font-size="20" fill="#44ff44" text-anchor="middle" font-weight="bold">I = V / R</text>
+    
+    <!-- Fórmula 3: R = V / I -->
+    <rect x="540" y="380" width="180" height="60" rx="8" fill="#2a2a2a" stroke="#4444ff" stroke-width="2"/>
+    <text x="630" y="400" font-family="Arial" font-size="12" fill="#aaaaaa" text-anchor="middle">Para calcular Resistencia:</text>
+    <text x="630" y="425" font-family="Arial" font-size="20" fill="#4444ff" text-anchor="middle" font-weight="bold">R = V / I</text>
+  </g>
+  
+  <!-- Unidades -->
+  <g id="units" transform="translate(680, 120)">
+    <text x="0" y="0" font-family="Arial" font-size="14" fill="#ffffff" font-weight="bold">Unidades:</text>
+    <text x="0" y="25" font-family="Arial" font-size="12" fill="#ff4444">V = Voltios (V)</text>
+    <text x="0" y="45" font-family="Arial" font-size="12" fill="#44ff44">I = Amperios (A)</text>
+    <text x="0" y="65" font-family="Arial" font-size="12" fill="#4444ff">R = Ohmios (Ω)</text>
+  </g>
+  
+  <!-- Ejemplo práctico -->
+  <g id="example" transform="translate(50, 120)">
+    <rect x="0" y="0" width="200" height="130" rx="8" fill="#2a2a2a" stroke="#00979c" stroke-width="2"/>
+    <text x="100" y="25" font-family="Arial" font-size="12" fill="#00979c" text-anchor="middle" font-weight="bold">Ejemplo: LED en Arduino</text>
+    <text x="10" y="50" font-family="Arial" font-size="11" fill="#ffffff">Fuente: 5V</text>
+    <text x="10" y="70" font-family="Arial" font-size="11" fill="#ffffff">LED Vf: 2V</text>
+    <text x="10" y="90" font-family="Arial" font-size="11" fill="#ffffff">Corriente: 20mA</text>
+    <line x1="10" y1="100" x2="190" y2="100" stroke="#444444"/>
+    <text x="100" y="120" font-family="Arial" font-size="12" fill="#ffaa00" text-anchor="middle" font-weight="bold">R = (5-2)/0.02 = 150Ω</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="400" y="480" font-family="Arial" font-size="10" fill="#666666" text-anchor="middle">Bootcamp Arduino - Semana 01 - Electrónica Básica</text>
+</svg>
