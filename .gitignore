@@ -1,0 +1,212 @@
+# ===========================================
+# Bootcamp Arduino - .gitignore
+# ===========================================
+
+# -------------------------------------------
+# Arduino IDE
+# -------------------------------------------
+# Build files
+*.elf
+*.hex
+*.bin
+*.eep
+*.lst
+*.sym
+*.lss
+*.map
+
+# Arduino IDE 2.x build directory
+build/
+.build/
+
+# Arduino IDE preferences
+.arduino15/
+arduino-cli.yaml
+
+# Compiled libraries
+*.a
+*.o
+
+# -------------------------------------------
+# PlatformIO
+# -------------------------------------------
+.pio/
+.pioenvs/
+.piolibdeps/
+.clang_complete
+.gcc-flags.json
+
+# -------------------------------------------
+# VS Code
+# -------------------------------------------
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+*.code-workspace
+
+# Local History for VS Code
+.history/
+
+# -------------------------------------------
+# Tinkercad / Simuladores
+# -------------------------------------------
+# Exportaciones temporales
+*.autosave
+*_backup.ino
+
+# -------------------------------------------
+# Sistema Operativo
+# -------------------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# -------------------------------------------
+# IDEs y Editores
+# -------------------------------------------
+# JetBrains (CLion, etc.)
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Eclipse
+.project
+.cproject
+.settings/
+.metadata/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*.swn
+*~
+.netrwhist
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+auto-save-list
+tramp
+.\#*
+
+# -------------------------------------------
+# Archivos de Documentación Generados
+# -------------------------------------------
+# Documentación generada
+docs/_build/
+site/
+
+# PDFs generados (mantener solo los originales)
+# *.pdf
+
+# -------------------------------------------
+# Archivos Temporales y Logs
+# -------------------------------------------
+*.log
+*.tmp
+*.temp
+*.bak
+*.backup
+*.cache
+
+# -------------------------------------------
+# Dependencias y Librerías Locales
+# -------------------------------------------
+# Librerías descargadas localmente
+libraries/
+!libraries/.gitkeep
+
+# Node modules (si se usa para documentación)
+node_modules/
+
+# Python (si se usa para scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv/
+venv/
+ENV/
+
+# -------------------------------------------
+# Archivos de Configuración Local
+# -------------------------------------------
+# Configuraciones locales del usuario
+*.local
+config.local.*
+secrets.*
+
+# -------------------------------------------
+# Archivos de Proyecto Específicos
+# -------------------------------------------
+# Proyectos de estudiantes (carpeta personal)
+mis-proyectos/
+proyectos-personales/
+sandbox/
+test/
+pruebas/
+
+# Notas personales
+notas-personales/
+*.notes
+TODO.md
+NOTES.md
+
+# -------------------------------------------
+# Fritzing (Diseño de circuitos)
+# -------------------------------------------
+*.fzz.autosave
+*_autosave.fzz
+
+# -------------------------------------------
+# KiCad (Diseño de PCBs)
+# -------------------------------------------
+# Archivos de backup de KiCad
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*-backups/
+fp-info-cache
+
+# -------------------------------------------
+# Eagle (Diseño de PCBs)
+# -------------------------------------------
+*.b#*
+*.s#*
+*.l#*
+
+# -------------------------------------------
+# Proteus
+# -------------------------------------------
+*.DBK
+*.PWI
+
+# ===========================================
+# FIN DEL ARCHIVO
+# ===========================================
