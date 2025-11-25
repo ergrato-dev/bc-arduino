@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <!-- Fondo oscuro -->
+  <rect width="100%" height="100%" fill="#1e1e1e"/>
+  
+  <!-- Título -->
+  <text x="400" y="35" font-family="Arial, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="bold">Estructura de un Sketch Arduino</text>
+  
+  <!-- Flujo del programa -->
+  <g transform="translate(100, 60)">
+    <!-- Inicio -->
+    <ellipse cx="300" cy="30" rx="60" ry="25" fill="#44ff44" stroke="#228b22" stroke-width="2"/>
+    <text x="300" y="35" font-family="Arial" font-size="14" fill="#000000" text-anchor="middle" font-weight="bold">INICIO</text>
+    
+    <!-- Flecha a Declaraciones -->
+    <line x1="300" y1="55" x2="300" y2="80" stroke="#ffffff" stroke-width="2"/>
+    <polygon points="295,75 305,75 300,85" fill="#ffffff"/>
+    
+    <!-- Declaraciones globales -->
+    <rect x="175" y="90" width="250" height="50" rx="5" fill="#4444ff" stroke="#0000aa" stroke-width="2"/>
+    <text x="300" y="110" font-family="Courier" font-size="12" fill="#ffffff" text-anchor="middle">// Variables globales</text>
+    <text x="300" y="128" font-family="Courier" font-size="11" fill="#aaaaff" text-anchor="middle">const int LED_PIN = 13;</text>
+    
+    <!-- Flecha a Setup -->
+    <line x1="300" y1="140" x2="300" y2="165" stroke="#ffffff" stroke-width="2"/>
+    <polygon points="295,160 305,160 300,170" fill="#ffffff"/>
+    
+    <!-- Setup -->
+    <rect x="175" y="175" width="250" height="80" rx="5" fill="#ff8c00" stroke="#cc6600" stroke-width="2"/>
+    <text x="300" y="195" font-family="Courier" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="bold">void setup() {</text>
+    <text x="300" y="215" font-family="Courier" font-size="11" fill="#ffcc88" text-anchor="middle">// Se ejecuta UNA vez</text>
+    <text x="300" y="235" font-family="Courier" font-size="11" fill="#ffcc88" text-anchor="middle">pinMode(LED_PIN, OUTPUT);</text>
+    <text x="300" y="250" font-family="Courier" font-size="14" fill="#ffffff" text-anchor="middle">}</text>
+    
+    <!-- Etiqueta "1 vez" -->
+    <rect x="440" y="190" width="80" height="30" rx="15" fill="#ff8c00"/>
+    <text x="480" y="210" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">1 vez</text>
+    
+    <!-- Flecha a Loop -->
+    <line x1="300" y1="255" x2="300" y2="280" stroke="#ffffff" stroke-width="2"/>
+    <polygon points="295,275 305,275 300,285" fill="#ffffff"/>
+    
+    <!-- Loop -->
+    <rect x="175" y="290" width="250" height="100" rx="5" fill="#00979c" stroke="#006064" stroke-width="2"/>
+    <text x="300" y="310" font-family="Courier" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="bold">void loop() {</text>
+    <text x="300" y="330" font-family="Courier" font-size="11" fill="#88ffff" text-anchor="middle">// Se ejecuta INFINITAMENTE</text>
+    <text x="300" y="350" font-family="Courier" font-size="11" fill="#88ffff" text-anchor="middle">digitalWrite(LED_PIN, HIGH);</text>
+    <text x="300" y="370" font-family="Courier" font-size="11" fill="#88ffff" text-anchor="middle">delay(1000);</text>
+    <text x="300" y="385" font-family="Courier" font-size="14" fill="#ffffff" text-anchor="middle">}</text>
+    
+    <!-- Etiqueta "∞ veces" -->
+    <rect x="440" y="320" width="80" height="30" rx="15" fill="#00979c"/>
+    <text x="480" y="340" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">∞ veces</text>
+    
+    <!-- Flecha de retorno (loop infinito) -->
+    <path d="M 425,390 L 525,390 L 525,340 L 535,340" stroke="#ffffff" stroke-width="2" fill="none"/>
+    <path d="M 525,290 L 525,285 L 425,285" stroke="#ffffff" stroke-width="2" fill="none" marker-end="url(#arrowback)"/>
+    <defs>
+      <marker id="arrowback" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+        <polygon points="10 0, 0 3.5, 10 7" fill="#ffffff"/>
+      </marker>
+    </defs>
+    
+    <!-- Texto del ciclo -->
+    <text x="550" y="340" font-family="Arial" font-size="10" fill="#aaaaaa" text-anchor="middle">repite</text>
+  </g>
+  
+  <!-- Notas -->
+  <g transform="translate(50, 420)">
+    <text x="0" y="0" font-family="Arial" font-size="12" fill="#ff8c00">● setup()</text>
+    <text x="80" y="0" font-family="Arial" font-size="11" fill="#aaaaaa">- Configuración inicial (pines, serial, etc.)</text>
+    
+    <text x="0" y="25" font-family="Arial" font-size="12" fill="#00979c">● loop()</text>
+    <text x="80" y="25" font-family="Arial" font-size="11" fill="#aaaaaa">- Código principal que se repite constantemente</text>
+    
+    <text x="400" y="0" font-family="Arial" font-size="12" fill="#4444ff">● Variables</text>
+    <text x="480" y="0" font-family="Arial" font-size="11" fill="#aaaaaa">- Declarar antes de setup()</text>
+    
+    <text x="400" y="25" font-family="Arial" font-size="12" fill="#ffffff">● Funciones</text>
+    <text x="480" y="25" font-family="Arial" font-size="11" fill="#aaaaaa">- Crear después de loop()</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="400" y="485" font-family="Arial" font-size="10" fill="#666666" text-anchor="middle">Bootcamp Arduino - Semana 01</text>
+</svg>

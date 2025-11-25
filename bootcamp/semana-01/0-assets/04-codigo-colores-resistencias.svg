@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <!-- Fondo oscuro -->
+  <rect width="100%" height="100%" fill="#1e1e1e"/>
+  
+  <!-- Título -->
+  <text x="400" y="35" font-family="Arial, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="bold">Código de Colores de Resistencias</text>
+  
+  <!-- Resistencia ejemplo -->
+  <g transform="translate(250, 60)">
+    <rect x="0" y="0" width="300" height="60" fill="#d4b896" stroke="#8b7355" stroke-width="3" rx="8"/>
+    <rect x="30" y="0" width="20" height="60" fill="#ff0000"/>
+    <rect x="70" y="0" width="20" height="60" fill="#ff0000"/>
+    <rect x="110" y="0" width="20" height="60" fill="#8b4513"/>
+    <rect x="250" y="0" width="15" height="60" fill="#c0a060"/>
+    
+    <text x="40" y="85" font-family="Arial" font-size="10" fill="#ff0000" text-anchor="middle">2</text>
+    <text x="80" y="85" font-family="Arial" font-size="10" fill="#ff0000" text-anchor="middle">2</text>
+    <text x="120" y="85" font-family="Arial" font-size="10" fill="#8b4513" text-anchor="middle">×10</text>
+    <text x="257" y="85" font-family="Arial" font-size="10" fill="#c0a060" text-anchor="middle">±5%</text>
+    
+    <text x="150" y="105" font-family="Arial" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="bold">= 220Ω ±5%</text>
+  </g>
+  
+  <!-- Tabla de colores -->
+  <g transform="translate(50, 150)">
+    <!-- Encabezados -->
+    <rect x="0" y="0" width="700" height="30" fill="#333333"/>
+    <text x="60" y="22" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">Color</text>
+    <text x="180" y="22" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">Dígito</text>
+    <text x="300" y="22" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">Multiplicador</text>
+    <text x="450" y="22" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">Tolerancia</text>
+    <text x="600" y="22" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">Muestra</text>
+    
+    <!-- Negro -->
+    <rect x="0" y="35" width="700" height="25" fill="#2a2a2a"/>
+    <text x="60" y="52" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">Negro</text>
+    <text x="180" y="52" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">0</text>
+    <text x="300" y="52" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">×1</text>
+    <text x="450" y="52" font-family="Arial" font-size="11" fill="#666666" text-anchor="middle">-</text>
+    <rect x="570" y="40" width="60" height="15" fill="#000000" stroke="#ffffff"/>
+    
+    <!-- Marrón -->
+    <rect x="0" y="60" width="700" height="25" fill="#252525"/>
+    <text x="60" y="77" font-family="Arial" font-size="11" fill="#8b4513" text-anchor="middle">Marrón</text>
+    <text x="180" y="77" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">1</text>
+    <text x="300" y="77" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">×10</text>
+    <text x="450" y="77" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">±1%</text>
+    <rect x="570" y="65" width="60" height="15" fill="#8b4513"/>
+    
+    <!-- Rojo -->
+    <rect x="0" y="85" width="700" height="25" fill="#2a2a2a"/>
+    <text x="60" y="102" font-family="Arial" font-size="11" fill="#ff0000" text-anchor="middle">Rojo</text>
+    <text x="180" y="102" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">2</text>
+    <text x="300" y="102" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">×100</text>
+    <text x="450" y="102" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">±2%</text>
+    <rect x="570" y="90" width="60" height="15" fill="#ff0000"/>
+    
+    <!-- Naranja -->
+    <rect x="0" y="110" width="700" height="25" fill="#252525"/>
+    <text x="60" y="127" font-family="Arial" font-size="11" fill="#ff8c00" text-anchor="middle">Naranja</text>
+    <text x="180" y="127" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">3</text>
+    <text x="300" y="127" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">×1K</text>
+    <text x="450" y="127" font-family="Arial" font-size="11" fill="#666666" text-anchor="middle">-</text>
+    <rect x="570" y="115" width="60" height="15" fill="#ff8c00"/>
+    
+    <!-- Amarillo -->
+    <rect x="0" y="135" width="700" height="25" fill="#2a2a2a"/>
+    <text x="60" y="152" font-family="Arial" font-size="11" fill="#ffff00" text-anchor="middle">Amarillo</text>
+    <text x="180" y="152" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">4</text>
+    <text x="300" y="152" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">×10K</text>
+    <text x="450" y="152" font-family="Arial" font-size="11" fill="#666666" text-anchor="middle">-</text>
+    <rect x="570" y="140" width="60" height="15" fill="#ffff00"/>
+    
+    <!-- Verde -->
+    <rect x="0" y="160" width="700" height="25" fill="#252525"/>
+    <text x="60" y="177" font-family="Arial" font-size="11" fill="#00ff00" text-anchor="middle">Verde</text>
+    <text x="180" y="177" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">5</text>
+    <text x="300" y="177" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">×100K</text>
+    <text x="450" y="177" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">±0.5%</text>
+    <rect x="570" y="165" width="60" height="15" fill="#00aa00"/>
+    
+    <!-- Azul -->
+    <rect x="0" y="185" width="700" height="25" fill="#2a2a2a"/>
+    <text x="60" y="202" font-family="Arial" font-size="11" fill="#4444ff" text-anchor="middle">Azul</text>
+    <text x="180" y="202" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">6</text>
+    <text x="300" y="202" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">×1M</text>
+    <text x="450" y="202" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">±0.25%</text>
+    <rect x="570" y="190" width="60" height="15" fill="#4444ff"/>
+    
+    <!-- Violeta -->
+    <rect x="0" y="210" width="700" height="25" fill="#252525"/>
+    <text x="60" y="227" font-family="Arial" font-size="11" fill="#ee82ee" text-anchor="middle">Violeta</text>
+    <text x="180" y="227" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">7</text>
+    <text x="300" y="227" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">×10M</text>
+    <text x="450" y="227" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">±0.1%</text>
+    <rect x="570" y="215" width="60" height="15" fill="#ee82ee"/>
+    
+    <!-- Gris -->
+    <rect x="0" y="235" width="700" height="25" fill="#2a2a2a"/>
+    <text x="60" y="252" font-family="Arial" font-size="11" fill="#888888" text-anchor="middle">Gris</text>
+    <text x="180" y="252" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">8</text>
+    <text x="300" y="252" font-family="Arial" font-size="11" fill="#666666" text-anchor="middle">-</text>
+    <text x="450" y="252" font-family="Arial" font-size="11" fill="#666666" text-anchor="middle">-</text>
+    <rect x="570" y="240" width="60" height="15" fill="#888888"/>
+    
+    <!-- Blanco -->
+    <rect x="0" y="260" width="700" height="25" fill="#252525"/>
+    <text x="60" y="277" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">Blanco</text>
+    <text x="180" y="277" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">9</text>
+    <text x="300" y="277" font-family="Arial" font-size="11" fill="#666666" text-anchor="middle">-</text>
+    <text x="450" y="277" font-family="Arial" font-size="11" fill="#666666" text-anchor="middle">-</text>
+    <rect x="570" y="265" width="60" height="15" fill="#ffffff"/>
+    
+    <!-- Dorado -->
+    <rect x="0" y="285" width="700" height="25" fill="#2a2a2a"/>
+    <text x="60" y="302" font-family="Arial" font-size="11" fill="#ffd700" text-anchor="middle">Dorado</text>
+    <text x="180" y="302" font-family="Arial" font-size="11" fill="#666666" text-anchor="middle">-</text>
+    <text x="300" y="302" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">×0.1</text>
+    <text x="450" y="302" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">±5%</text>
+    <rect x="570" y="290" width="60" height="15" fill="#ffd700"/>
+    
+    <!-- Plateado -->
+    <rect x="0" y="310" width="700" height="25" fill="#252525"/>
+    <text x="60" y="327" font-family="Arial" font-size="11" fill="#c0c0c0" text-anchor="middle">Plateado</text>
+    <text x="180" y="327" font-family="Arial" font-size="11" fill="#666666" text-anchor="middle">-</text>
+    <text x="300" y="327" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">×0.01</text>
+    <text x="450" y="327" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">±10%</text>
+    <rect x="570" y="315" width="60" height="15" fill="#c0c0c0"/>
+  </g>
+  
+  <!-- Footer -->
+  <text x="400" y="485" font-family="Arial" font-size="10" fill="#666666" text-anchor="middle">Bootcamp Arduino - Semana 01</text>
+</svg>

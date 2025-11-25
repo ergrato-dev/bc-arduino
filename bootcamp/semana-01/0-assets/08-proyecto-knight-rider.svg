@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <!-- Fondo oscuro -->
+  <rect width="100%" height="100%" fill="#1e1e1e"/>
+  
+  <!-- Título -->
+  <text x="400" y="35" font-family="Arial, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="bold">Proyecto Knight Rider - Secuenciador LEDs</text>
+  
+  <!-- Arduino -->
+  <rect x="30" y="120" width="110" height="200" rx="8" fill="#00979c" stroke="#006064" stroke-width="2"/>
+  <text x="85" y="155" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">Arduino</text>
+  <text x="85" y="175" font-family="Arial" font-size="10" fill="#ffffff" text-anchor="middle">Uno R3</text>
+  
+  <!-- Pines -->
+  <g id="pins">
+    <rect x="130" y="140" width="25" height="15" fill="#ffaa00"/>
+    <text x="143" y="152" font-family="Arial" font-size="9" fill="#000" text-anchor="middle">3</text>
+    
+    <rect x="130" y="165" width="25" height="15" fill="#ffaa00"/>
+    <text x="143" y="177" font-family="Arial" font-size="9" fill="#000" text-anchor="middle">4</text>
+    
+    <rect x="130" y="190" width="25" height="15" fill="#ffaa00"/>
+    <text x="143" y="202" font-family="Arial" font-size="9" fill="#000" text-anchor="middle">5</text>
+    
+    <rect x="130" y="215" width="25" height="15" fill="#ffaa00"/>
+    <text x="143" y="227" font-family="Arial" font-size="9" fill="#000" text-anchor="middle">6</text>
+    
+    <rect x="130" y="240" width="25" height="15" fill="#ffaa00"/>
+    <text x="143" y="252" font-family="Arial" font-size="9" fill="#000" text-anchor="middle">7</text>
+    
+    <rect x="130" y="265" width="25" height="15" fill="#ffaa00"/>
+    <text x="143" y="277" font-family="Arial" font-size="9" fill="#000" text-anchor="middle">8</text>
+    
+    <rect x="130" y="295" width="25" height="15" fill="#333333" stroke="#fff"/>
+    <text x="143" y="306" font-family="Arial" font-size="8" fill="#fff" text-anchor="middle">GND</text>
+  </g>
+  
+  <!-- Cables a resistencias -->
+  <line x1="155" y1="148" x2="200" y2="148" stroke="#ff4444" stroke-width="2"/>
+  <line x1="155" y1="173" x2="200" y2="173" stroke="#ff4444" stroke-width="2"/>
+  <line x1="155" y1="198" x2="200" y2="198" stroke="#ff4444" stroke-width="2"/>
+  <line x1="155" y1="223" x2="200" y2="223" stroke="#ff4444" stroke-width="2"/>
+  <line x1="155" y1="248" x2="200" y2="248" stroke="#ff4444" stroke-width="2"/>
+  <line x1="155" y1="273" x2="200" y2="273" stroke="#ff4444" stroke-width="2"/>
+  
+  <!-- Resistencias (6) -->
+  <g id="resistors">
+    <rect x="200" y="140" width="45" height="16" fill="#d4b896" rx="2"/>
+    <rect x="200" y="165" width="45" height="16" fill="#d4b896" rx="2"/>
+    <rect x="200" y="190" width="45" height="16" fill="#d4b896" rx="2"/>
+    <rect x="200" y="215" width="45" height="16" fill="#d4b896" rx="2"/>
+    <rect x="200" y="240" width="45" height="16" fill="#d4b896" rx="2"/>
+    <rect x="200" y="265" width="45" height="16" fill="#d4b896" rx="2"/>
+  </g>
+  <text x="222" y="295" font-family="Arial" font-size="9" fill="#aaaaaa" text-anchor="middle">220Ω ×6</text>
+  
+  <!-- Cables a LEDs -->
+  <line x1="245" y1="148" x2="290" y2="148" stroke="#ff4444" stroke-width="2"/>
+  <line x1="245" y1="173" x2="290" y2="173" stroke="#ff4444" stroke-width="2"/>
+  <line x1="245" y1="198" x2="290" y2="198" stroke="#ff4444" stroke-width="2"/>
+  <line x1="245" y1="223" x2="290" y2="223" stroke="#ff4444" stroke-width="2"/>
+  <line x1="245" y1="248" x2="290" y2="248" stroke="#ff4444" stroke-width="2"/>
+  <line x1="245" y1="273" x2="290" y2="273" stroke="#ff4444" stroke-width="2"/>
+  
+  <!-- Barra de LEDs (efecto Knight Rider) -->
+  <rect x="285" y="105" width="250" height="200" rx="10" fill="#222222" stroke="#333333" stroke-width="3"/>
+  <text x="410" y="100" font-family="Arial" font-size="11" fill="#ff4444" text-anchor="middle">KNIGHT RIDER</text>
+  
+  <!-- 6 LEDs rojos -->
+  <g id="leds">
+    <!-- LED 1 - encendido (efecto) -->
+    <circle cx="320" cy="205" r="25" fill="#ff0000" opacity="0.3"/>
+    <circle cx="320" cy="205" r="18" fill="#ff4444"/>
+    <text x="320" y="250" font-family="Arial" font-size="9" fill="#aaaaaa" text-anchor="middle">1</text>
+    
+    <!-- LED 2 -->
+    <circle cx="360" cy="205" r="25" fill="#ff0000" opacity="0.5"/>
+    <circle cx="360" cy="205" r="18" fill="#ff6666"/>
+    <text x="360" y="250" font-family="Arial" font-size="9" fill="#aaaaaa" text-anchor="middle">2</text>
+    
+    <!-- LED 3 - más brillante -->
+    <circle cx="400" cy="205" r="28" fill="#ff0000" opacity="0.8"/>
+    <circle cx="400" cy="205" r="18" fill="#ff8888"/>
+    <text x="400" y="250" font-family="Arial" font-size="9" fill="#aaaaaa" text-anchor="middle">3</text>
+    
+    <!-- LED 4 - activo (el más brillante) -->
+    <circle cx="440" cy="205" r="30" fill="#ff0000" opacity="1"/>
+    <circle cx="440" cy="205" r="18" fill="#ffffff"/>
+    <text x="440" y="250" font-family="Arial" font-size="9" fill="#ffffff" text-anchor="middle">4</text>
+    
+    <!-- LED 5 -->
+    <circle cx="480" cy="205" r="18" fill="#660000"/>
+    <text x="480" y="250" font-family="Arial" font-size="9" fill="#aaaaaa" text-anchor="middle">5</text>
+    
+    <!-- LED 6 -->
+    <circle cx="520" cy="205" r="18" fill="#440000"/>
+    <text x="520" y="250" font-family="Arial" font-size="9" fill="#aaaaaa" text-anchor="middle">6</text>
+  </g>
+  
+  <!-- Flecha de dirección -->
+  <line x1="310" y1="270" x2="530" y2="270" stroke="#ffaa00" stroke-width="2" stroke-dasharray="5,5"/>
+  <polygon points="530,265 530,275 545,270" fill="#ffaa00"/>
+  <text x="420" y="290" font-family="Arial" font-size="10" fill="#ffaa00" text-anchor="middle">→ Dirección de animación →</text>
+  
+  <!-- GND común -->
+  <line x1="545" y1="148" x2="570" y2="148" stroke="#333333" stroke-width="2"/>
+  <line x1="545" y1="173" x2="570" y2="173" stroke="#333333" stroke-width="2"/>
+  <line x1="545" y1="198" x2="570" y2="198" stroke="#333333" stroke-width="2"/>
+  <line x1="545" y1="223" x2="570" y2="223" stroke="#333333" stroke-width="2"/>
+  <line x1="545" y1="248" x2="570" y2="248" stroke="#333333" stroke-width="2"/>
+  <line x1="545" y1="273" x2="570" y2="273" stroke="#333333" stroke-width="2"/>
+  <line x1="570" y1="148" x2="570" y2="302" stroke="#333333" stroke-width="3"/>
+  <line x1="570" y1="302" x2="155" y2="302" stroke="#333333" stroke-width="3"/>
+  
+  <!-- Tabla de conexiones -->
+  <g transform="translate(600, 100)">
+    <rect x="0" y="0" width="170" height="200" rx="8" fill="#2a2a2a" stroke="#00979c" stroke-width="2"/>
+    <text x="85" y="25" font-family="Arial" font-size="11" fill="#00979c" text-anchor="middle" font-weight="bold">Conexiones</text>
+    <line x1="10" y1="35" x2="160" y2="35" stroke="#444"/>
+    
+    <text x="40" y="55" font-family="Arial" font-size="10" fill="#aaa" text-anchor="middle">Pin</text>
+    <text x="120" y="55" font-family="Arial" font-size="10" fill="#aaa" text-anchor="middle">LED</text>
+    <line x1="10" y1="65" x2="160" y2="65" stroke="#444"/>
+    
+    <text x="40" y="85" font-family="Arial" font-size="10" fill="#ff4444" text-anchor="middle">3</text>
+    <text x="120" y="85" font-family="Arial" font-size="10" fill="#ff4444" text-anchor="middle">LED 1</text>
+    
+    <text x="40" y="105" font-family="Arial" font-size="10" fill="#ff4444" text-anchor="middle">4</text>
+    <text x="120" y="105" font-family="Arial" font-size="10" fill="#ff4444" text-anchor="middle">LED 2</text>
+    
+    <text x="40" y="125" font-family="Arial" font-size="10" fill="#ff4444" text-anchor="middle">5</text>
+    <text x="120" y="125" font-family="Arial" font-size="10" fill="#ff4444" text-anchor="middle">LED 3</text>
+    
+    <text x="40" y="145" font-family="Arial" font-size="10" fill="#ff4444" text-anchor="middle">6</text>
+    <text x="120" y="145" font-family="Arial" font-size="10" fill="#ff4444" text-anchor="middle">LED 4</text>
+    
+    <text x="40" y="165" font-family="Arial" font-size="10" fill="#ff4444" text-anchor="middle">7</text>
+    <text x="120" y="165" font-family="Arial" font-size="10" fill="#ff4444" text-anchor="middle">LED 5</text>
+    
+    <text x="40" y="185" font-family="Arial" font-size="10" fill="#ff4444" text-anchor="middle">8</text>
+    <text x="120" y="185" font-family="Arial" font-size="10" fill="#ff4444" text-anchor="middle">LED 6</text>
+  </g>
+  
+  <!-- Código clave -->
+  <g transform="translate(600, 320)">
+    <rect x="0" y="0" width="170" height="80" rx="8" fill="#2a2a2a" stroke="#ff8c00" stroke-width="2"/>
+    <text x="85" y="20" font-family="Arial" font-size="10" fill="#ff8c00" text-anchor="middle" font-weight="bold">Código clave</text>
+    <text x="10" y="40" font-family="Courier" font-size="9" fill="#88ffff">const int LEDS[]</text>
+    <text x="10" y="55" font-family="Courier" font-size="9" fill="#88ffff">  = {3,4,5,6,7,8};</text>
+    <text x="10" y="70" font-family="Courier" font-size="9" fill="#aaaaaa">// Array de pines</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="400" y="435" font-family="Arial" font-size="10" fill="#666666" text-anchor="middle">Bootcamp Arduino - Semana 01 - Proyecto Integrador</text>
+</svg>

@@ -51,18 +51,18 @@
 
 ## 📁 Estado de los Assets
 
-| Archivo                              | Estado       | Notas                       |
-| ------------------------------------ | ------------ | --------------------------- |
-| `01-arduino-uno-pinout.svg`          | 📝 Pendiente | Diagrama detallado de pines |
-| `02-ley-ohm-triangulo.svg`           | 📝 Pendiente | Triángulo interactivo       |
-| `03-led-resistencia-circuito.svg`    | 📝 Pendiente | Circuito básico             |
-| `04-codigo-colores-resistencias.svg` | 📝 Pendiente | Tabla visual                |
-| `05-estructura-sketch.svg`           | 📝 Pendiente | Flujo setup/loop            |
-| `06-tinkercad-interfaz.svg`          | 📝 Pendiente | Captura anotada             |
-| `07-practica-semaforo.svg`           | 📝 Pendiente | Circuito práctica 03        |
-| `08-proyecto-knight-rider.svg`       | 📝 Pendiente | Circuito proyecto           |
+| Archivo                              | Estado      | Notas                       |
+| ------------------------------------ | ----------- | --------------------------- |
+| `01-arduino-uno-pinout.svg`          | ✅ Completo | Diagrama detallado de pines |
+| `02-ley-ohm-triangulo.svg`           | ✅ Completo | Triángulo V=I×R             |
+| `03-led-resistencia-circuito.svg`    | ✅ Completo | Circuito básico             |
+| `04-codigo-colores-resistencias.svg` | ✅ Completo | Tabla visual completa       |
+| `05-estructura-sketch.svg`           | ✅ Completo | Flujo setup/loop            |
+| `06-tinkercad-interfaz.svg`          | ✅ Completo | Interfaz anotada            |
+| `07-practica-semaforo.svg`           | ✅ Completo | Circuito práctica 03        |
+| `08-proyecto-knight-rider.svg`       | ✅ Completo | Circuito proyecto           |
 
-> **Nota:** Los diagramas ASCII en el README.md principal sirven como referencia temporal hasta que se creen los SVG definitivos.
+> **Nota:** Todos los diagramas SVG están disponibles en tema oscuro para mejor visualización.
 
 ---
 
