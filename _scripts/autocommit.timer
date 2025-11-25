@@ -1,0 +1,40 @@
+# =============================================================================
+# SYSTEMD TIMER - Autocommit Script (Every 5 minutes)
+# =============================================================================
+#
+# What?
+# Systemd timer unit that triggers the autocommit service every 5 minutes.
+#
+# For?
+# Schedule periodic execution of the autocommit script using systemd.
+#
+# Impact?
+# - Precise scheduling with systemd's timer subsystem
+# - Automatic persistence of timer state across reboots
+# - Integration with systemd's monitoring and logging
+#
+# Quick commands:
+# - Enable:  systemctl --user enable --now autocommit.timer
+# - Disable: systemctl --user disable --now autocommit.timer
+# - Status:  systemctl --user status autocommit.timer
+# - List:    systemctl --user list-timers
+# - Logs:    journalctl --user -u autocommit.service -f
+#
+# =============================================================================
+
+[Unit]
+Description=Run autocommit every 5 minutes for Bootcamp Arduino
+Documentation=https://github.com/ergrato-dev/bc-arduino
+
+[Timer]
+# Run every 5 minutes
+OnCalendar=*:0/5
+# Run immediately if a scheduled run was missed (e.g., system was off)
+Persistent=true
+# Add random delay up to 30 seconds to prevent exact timing
+RandomizedDelaySec=30
+# Accuracy: allow coalescing within 1 minute
+AccuracySec=1min
+
+[Install]
+WantedBy=timers.target

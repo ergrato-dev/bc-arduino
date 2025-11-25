@@ -1,0 +1,70 @@
+# =============================================================================
+# CRON CONFIGURATION - Autocommit Script for Fedora 43
+# =============================================================================
+#
+# What?
+# Cron job configuration to run the autocommit script every 5 minutes.
+#
+# For?
+# Automate periodic commits to maintain continuous backup of work.
+#
+# Impact?
+# - Ensures no work is lost during development
+# - Maintains granular commit history
+# - Automatic synchronization with GitHub
+#
+# =============================================================================
+#
+# INSTALLATION INSTRUCTIONS FOR FEDORA 43:
+#
+# Method 1: User Crontab (Recommended)
+# ------------------------------------
+# 1. Open terminal and edit your crontab:
+#    $ crontab -e
+#
+# 2. Add the following line at the end:
+#    */5 * * * * /home/epti/Documents/epti-dev/bc-channel/bc-arduino/_scripts/autocommit.sh >> /home/epti/Documents/epti-dev/bc-channel/bc-arduino/_scripts/logs/autocommit.log 2>&1
+#
+# 3. Save and exit (in vim: :wq, in nano: Ctrl+O, Ctrl+X)
+#
+# 4. Verify the crontab was saved:
+#    $ crontab -l
+#
+#
+# Method 2: System Crontab
+# ------------------------
+# 1. Create a file in /etc/cron.d/:
+#    $ sudo cp autocommit.cron /etc/cron.d/bc-arduino-autocommit
+#
+# 2. Set permissions:
+#    $ sudo chmod 644 /etc/cron.d/bc-arduino-autocommit
+#
+#
+# Method 3: Systemd Timer (Modern Fedora approach)
+# ------------------------------------------------
+# See: autocommit.service and autocommit.timer files in this directory
+#
+#
+# FEDORA 43 SPECIFIC NOTES:
+# -------------------------
+# - Ensure cronie is installed: sudo dnf install cronie
+# - Start and enable crond service:
+#   $ sudo systemctl enable --now crond
+#
+# - If using SELinux, you may need to adjust contexts:
+#   $ sudo restorecon -v /home/epti/Documents/epti-dev/bc-channel/bc-arduino/_scripts/autocommit.sh
+#
+# - To check cron logs:
+#   $ journalctl -u crond
+#
+# =============================================================================
+
+# Cron format: minute hour day month weekday command
+# */5 = every 5 minutes
+# *   = every hour
+# *   = every day of month
+# *   = every month
+# *   = every day of week
+
+# Autocommit every 5 minutes
+*/5 * * * * epti /home/epti/Documents/epti-dev/bc-channel/bc-arduino/_scripts/autocommit.sh >> /home/epti/Documents/epti-dev/bc-channel/bc-arduino/_scripts/logs/autocommit.log 2>&1

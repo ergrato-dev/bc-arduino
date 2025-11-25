@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300">
+  <!-- Fondo oscuro -->
+  <rect width="1200" height="300" fill="#0d1117"/>
+  
+  <!-- Líneas de circuito decorativas -->
+  <g stroke="#30363d" stroke-width="2" fill="none">
+    <!-- Líneas horizontales -->
+    <line x1="0" y1="50" x2="150" y2="50"/>
+    <line x1="0" y1="250" x2="100" y2="250"/>
+    <line x1="1050" y1="50" x2="1200" y2="50"/>
+    <line x1="1100" y1="250" x2="1200" y2="250"/>
+    
+    <!-- Líneas verticales -->
+    <line x1="150" y1="50" x2="150" y2="100"/>
+    <line x1="100" y1="200" x2="100" y2="250"/>
+    <line x1="1050" y1="50" x2="1050" y2="100"/>
+    <line x1="1100" y1="200" x2="1100" y2="250"/>
+    
+    <!-- Nodos de circuito -->
+    <circle cx="150" cy="50" r="4" fill="#30363d"/>
+    <circle cx="100" cy="250" r="4" fill="#30363d"/>
+    <circle cx="1050" cy="50" r="4" fill="#30363d"/>
+    <circle cx="1100" cy="250" r="4" fill="#30363d"/>
+    <circle cx="150" cy="100" r="4" fill="#30363d"/>
+    <circle cx="100" cy="200" r="4" fill="#30363d"/>
+    <circle cx="1050" cy="100" r="4" fill="#30363d"/>
+    <circle cx="1100" cy="200" r="4" fill="#30363d"/>
+  </g>
+  
+  <!-- Icono Arduino estilizado -->
+  <g transform="translate(200, 100)">
+    <!-- Placa base -->
+    <rect x="0" y="0" width="120" height="100" rx="8" fill="#1f6feb" opacity="0.2" stroke="#1f6feb" stroke-width="2"/>
+    
+    <!-- Chip central -->
+    <rect x="35" y="30" width="50" height="40" rx="4" fill="#238636"/>
+    
+    <!-- Pines superiores -->
+    <rect x="20" y="-5" width="6" height="15" fill="#8b949e"/>
+    <rect x="32" y="-5" width="6" height="15" fill="#8b949e"/>
+    <rect x="44" y="-5" width="6" height="15" fill="#8b949e"/>
+    <rect x="56" y="-5" width="6" height="15" fill="#8b949e"/>
+    <rect x="68" y="-5" width="6" height="15" fill="#8b949e"/>
+    <rect x="80" y="-5" width="6" height="15" fill="#8b949e"/>
+    <rect x="92" y="-5" width="6" height="15" fill="#8b949e"/>
+    
+    <!-- Pines inferiores -->
+    <rect x="20" y="90" width="6" height="15" fill="#8b949e"/>
+    <rect x="32" y="90" width="6" height="15" fill="#8b949e"/>
+    <rect x="44" y="90" width="6" height="15" fill="#8b949e"/>
+    <rect x="56" y="90" width="6" height="15" fill="#8b949e"/>
+    <rect x="68" y="90" width="6" height="15" fill="#8b949e"/>
+    <rect x="80" y="90" width="6" height="15" fill="#8b949e"/>
+    <rect x="92" y="90" width="6" height="15" fill="#8b949e"/>
+    
+    <!-- USB Port -->
+    <rect x="5" y="35" width="20" height="30" rx="2" fill="#8b949e"/>
+    
+    <!-- LED indicadores -->
+    <circle cx="100" cy="20" r="5" fill="#f85149"/>
+    <circle cx="100" cy="80" r="5" fill="#3fb950"/>
+  </g>
+  
+  <!-- Texto principal -->
+  <text x="360" y="135" font-family="Arial, Helvetica, sans-serif" font-size="56" font-weight="bold" fill="#ffffff">
+    Bootcamp Arduino
+  </text>
+  
+  <!-- Subtítulo -->
+  <text x="360" y="175" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#8b949e">
+    Electrónica y Programación de Microcontroladores
+  </text>
+  
+  <!-- Badges informativos -->
+  <g transform="translate(360, 200)">
+    <!-- Badge semanas -->
+    <rect x="0" y="0" width="100" height="28" rx="14" fill="#238636"/>
+    <text x="50" y="19" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#ffffff" text-anchor="middle">10 Semanas</text>
+    
+    <!-- Badge horas -->
+    <rect x="115" y="0" width="90" height="28" rx="14" fill="#1f6feb"/>
+    <text x="160" y="19" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#ffffff" text-anchor="middle">4h/Semana</text>
+    
+    <!-- Badge Tinkercad -->
+    <rect x="220" y="0" width="100" height="28" rx="14" fill="#8957e5"/>
+    <text x="270" y="19" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#ffffff" text-anchor="middle">Tinkercad</text>
+    
+    <!-- Badge nivel -->
+    <rect x="335" y="0" width="140" height="28" rx="14" fill="#f0883e"/>
+    <text x="405" y="19" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#ffffff" text-anchor="middle">Principiante-Int</text>
+  </g>
+  
+  <!-- Iconos de componentes decorativos -->
+  <g fill="#30363d">
+    <!-- Resistencia -->
+    <g transform="translate(950, 120)">
+      <line x1="0" y1="15" x2="15" y2="15" stroke="#30363d" stroke-width="2"/>
+      <rect x="15" y="8" width="40" height="14" rx="2" fill="none" stroke="#30363d" stroke-width="2"/>
+      <line x1="55" y1="15" x2="70" y2="15" stroke="#30363d" stroke-width="2"/>
+    </g>
+    
+    <!-- LED -->
+    <g transform="translate(950, 160)">
+      <polygon points="10,0 30,15 10,30" fill="none" stroke="#3fb950" stroke-width="2"/>
+      <line x1="30" y1="0" x2="30" y2="30" stroke="#3fb950" stroke-width="2"/>
+      <line x1="0" y1="15" x2="10" y2="15" stroke="#30363d" stroke-width="2"/>
+      <line x1="30" y1="15" x2="45" y2="15" stroke="#30363d" stroke-width="2"/>
+    </g>
+  </g>
+  
+  <!-- Versión -->
+  <text x="1150" y="280" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#484f58" text-anchor="end">v1.0</text>
+</svg>

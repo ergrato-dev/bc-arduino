@@ -1,0 +1,59 @@
+# =============================================================================
+# SYSTEMD SERVICE - Autocommit Script
+# =============================================================================
+#
+# What?
+# Systemd service unit for the autocommit script.
+#
+# For?
+# Modern alternative to cron on Fedora 43 systems using systemd timers.
+#
+# Impact?
+# - Better integration with systemd logging (journalctl)
+# - More control over execution environment
+# - Easier debugging and monitoring
+#
+# Installation:
+# 1. Copy to systemd user directory:
+#    $ mkdir -p ~/.config/systemd/user
+#    $ cp autocommit.service ~/.config/systemd/user/
+#    $ cp autocommit.timer ~/.config/systemd/user/
+#
+# 2. Reload systemd daemon:
+#    $ systemctl --user daemon-reload
+#
+# 3. Enable and start the timer:
+#    $ systemctl --user enable --now autocommit.timer
+#
+# 4. Check status:
+#    $ systemctl --user status autocommit.timer
+#    $ systemctl --user list-timers
+#
+# 5. View logs:
+#    $ journalctl --user -u autocommit.service
+#
+# =============================================================================
+
+[Unit]
+Description=Autocommit script for Bootcamp Arduino repository
+Documentation=https://github.com/ergrato-dev/bc-arduino
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/epti/Documents/epti-dev/bc-channel/bc-arduino/_scripts/autocommit.sh
+WorkingDirectory=/home/epti/Documents/epti-dev/bc-channel/bc-arduino
+StandardOutput=append:/home/epti/Documents/epti-dev/bc-channel/bc-arduino/_scripts/logs/autocommit.log
+StandardError=append:/home/epti/Documents/epti-dev/bc-channel/bc-arduino/_scripts/logs/autocommit.log
+
+# Environment variables
+Environment="HOME=/home/epti"
+Environment="PATH=/usr/local/bin:/usr/bin:/bin"
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=default.target
