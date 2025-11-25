@@ -1,5 +1,3 @@
-![Bootcamp Arduino Banner](./_assets/banner.svg)
-
 # Bootcamp Arduino - SENA
 
 ![Bootcamp Arduino](/_assets/banner.svg)
