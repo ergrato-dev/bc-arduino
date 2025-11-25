@@ -57,15 +57,15 @@ Un **microcontrolador** (MCU - Microcontroller Unit) es un pequeño computador c
 └─────────────────────────────────────────────────────────────┘
 ```
 
-| Componente | Función | Analogía |
-|------------|---------|----------|
-| **CPU** | Ejecuta instrucciones del programa | El "pensador" |
-| **Flash** | Almacena el programa (persiste sin energía) | Disco duro |
-| **SRAM** | Memoria temporal para variables | Memoria RAM |
-| **EEPROM** | Almacena datos que deben persistir | Bloc de notas permanente |
-| **GPIO** | Pines de entrada/salida | Brazos y ojos |
-| **ADC** | Convierte señales analógicas a digitales | Traductor |
-| **Timers** | Mide tiempo y genera eventos | Reloj interno |
+| Componente | Función                                     | Analogía                 |
+| ---------- | ------------------------------------------- | ------------------------ |
+| **CPU**    | Ejecuta instrucciones del programa          | El "pensador"            |
+| **Flash**  | Almacena el programa (persiste sin energía) | Disco duro               |
+| **SRAM**   | Memoria temporal para variables             | Memoria RAM              |
+| **EEPROM** | Almacena datos que deben persistir          | Bloc de notas permanente |
+| **GPIO**   | Pines de entrada/salida                     | Brazos y ojos            |
+| **ADC**    | Convierte señales analógicas a digitales    | Traductor                |
+| **Timers** | Mide tiempo y genera eventos                | Reloj interno            |
 
 ---
 
@@ -79,14 +79,14 @@ Un **microcontrolador** (MCU - Microcontroller Unit) es un pequeño computador c
 
 #### ¿Por qué Arduino es tan Popular?
 
-| Ventaja | Descripción |
-|---------|-------------|
-| **Fácil de usar** | No necesitas ser experto en electrónica |
-| **Económico** | Placas desde $5-25 USD |
-| **Multiplataforma** | Funciona en Windows, macOS, Linux |
-| **Gran comunidad** | Miles de ejemplos y ayuda disponible |
-| **Open Source** | Diseños libres, puedes crear tu propia placa |
-| **Extensible** | Shields y módulos para cualquier proyecto |
+| Ventaja             | Descripción                                  |
+| ------------------- | -------------------------------------------- |
+| **Fácil de usar**   | No necesitas ser experto en electrónica      |
+| **Económico**       | Placas desde $5-25 USD                       |
+| **Multiplataforma** | Funciona en Windows, macOS, Linux            |
+| **Gran comunidad**  | Miles de ejemplos y ayuda disponible         |
+| **Open Source**     | Diseños libres, puedes crear tu propia placa |
+| **Extensible**      | Shields y módulos para cualquier proyecto    |
 
 #### Ecosistema Arduino
 
@@ -125,23 +125,23 @@ El **Arduino Uno** es la placa más popular para aprender. Existen varias versio
 
 #### Comparativa de Placas
 
-| Característica | Uno R3 | Uno R4 Minima | Uno R4 WiFi |
-|----------------|--------|---------------|-------------|
-| **Microcontrolador** | ATmega328P | RA4M1 (ARM) | RA4M1 (ARM) |
-| **Arquitectura** | 8-bit AVR | 32-bit ARM | 32-bit ARM |
-| **Velocidad** | 16 MHz | 48 MHz | 48 MHz |
-| **Flash** | 32 KB | 256 KB | 256 KB |
-| **SRAM** | 2 KB | 32 KB | 32 KB |
-| **Voltaje** | 5V | 5V | 5V |
-| **Pines Digitales** | 14 | 14 | 14 |
-| **Pines PWM** | 6 | 6 | 6 |
-| **Pines Analógicos** | 6 | 6 | 6 |
-| **WiFi** | ❌ | ❌ | ✅ |
-| **Bluetooth** | ❌ | ❌ | ✅ |
-| **Matriz LED** | ❌ | ❌ | ✅ 12x8 |
-| **USB** | Type-B | Type-C | Type-C |
-| **Tinkercad** | ✅ | ❌ | ❌ |
-| **Precio aprox.** | $10-15 | $15-20 | $25-30 |
+| Característica       | Uno R3     | Uno R4 Minima | Uno R4 WiFi |
+| -------------------- | ---------- | ------------- | ----------- |
+| **Microcontrolador** | ATmega328P | RA4M1 (ARM)   | RA4M1 (ARM) |
+| **Arquitectura**     | 8-bit AVR  | 32-bit ARM    | 32-bit ARM  |
+| **Velocidad**        | 16 MHz     | 48 MHz        | 48 MHz      |
+| **Flash**            | 32 KB      | 256 KB        | 256 KB      |
+| **SRAM**             | 2 KB       | 32 KB         | 32 KB       |
+| **Voltaje**          | 5V         | 5V            | 5V          |
+| **Pines Digitales**  | 14         | 14            | 14          |
+| **Pines PWM**        | 6          | 6             | 6           |
+| **Pines Analógicos** | 6          | 6             | 6           |
+| **WiFi**             | ❌         | ❌            | ✅          |
+| **Bluetooth**        | ❌         | ❌            | ✅          |
+| **Matriz LED**       | ❌         | ❌            | ✅ 12x8     |
+| **USB**              | Type-B     | Type-C        | Type-C      |
+| **Tinkercad**        | ✅         | ❌            | ❌          |
+| **Precio aprox.**    | $10-15     | $15-20        | $25-30      |
 
 #### ¿Cuál Elegir?
 
@@ -210,14 +210,14 @@ El **Arduino Uno** es la placa más popular para aprender. Existen varias versio
 
 #### Grupos de Pines
 
-| Grupo | Pines | Función |
-|-------|-------|---------|
-| **Alimentación** | 5V, 3.3V, GND, Vin | Proveer energía a componentes |
-| **Digitales** | D0-D13 | Entrada/Salida HIGH(5V) o LOW(0V) |
-| **PWM (~)** | D3, D5, D6, D9, D10, D11 | Salida "analógica" simulada |
-| **Analógicos** | A0-A5 | Lectura de voltajes (0-5V → 0-1023) |
-| **Comunicación** | TX(1), RX(0), SDA(A4), SCL(A5) | Serial, I2C |
-| **Especiales** | RESET, ICSP | Reinicio, programación directa |
+| Grupo            | Pines                          | Función                             |
+| ---------------- | ------------------------------ | ----------------------------------- |
+| **Alimentación** | 5V, 3.3V, GND, Vin             | Proveer energía a componentes       |
+| **Digitales**    | D0-D13                         | Entrada/Salida HIGH(5V) o LOW(0V)   |
+| **PWM (~)**      | D3, D5, D6, D9, D10, D11       | Salida "analógica" simulada         |
+| **Analógicos**   | A0-A5                          | Lectura de voltajes (0-5V → 0-1023) |
+| **Comunicación** | TX(1), RX(0), SDA(A4), SCL(A5) | Serial, I2C                         |
+| **Especiales**   | RESET, ICSP                    | Reinicio, programación directa      |
 
 ---
 
@@ -232,12 +232,12 @@ El **Arduino Uno** es la placa más popular para aprender. Existen varias versio
 
 ## ⚠️ Errores Comunes
 
-| Error | Problema | Solución |
-|-------|----------|----------|
-| Confundir voltajes | Conectar 5V a componente de 3.3V | Verificar especificaciones siempre |
-| Ignorar GND | Circuito no funciona | Todo circuito necesita referencia a tierra |
-| Usar pin 0 o 1 | Conflicto con Serial | Evitar D0/D1 si usas Serial Monitor |
-| Olvidar el `~` | PWM no funciona | Solo pines marcados con `~` soportan analogWrite |
+| Error              | Problema                         | Solución                                         |
+| ------------------ | -------------------------------- | ------------------------------------------------ |
+| Confundir voltajes | Conectar 5V a componente de 3.3V | Verificar especificaciones siempre               |
+| Ignorar GND        | Circuito no funciona             | Todo circuito necesita referencia a tierra       |
+| Usar pin 0 o 1     | Conflicto con Serial             | Evitar D0/D1 si usas Serial Monitor              |
+| Olvidar el `~`     | PWM no funciona                  | Solo pines marcados con `~` soportan analogWrite |
 
 ---
 

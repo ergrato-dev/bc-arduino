@@ -7,11 +7,11 @@
 
 ## 📋 Índice de Módulos
 
-| # | Módulo | Tiempo | Descripción |
-|---|--------|--------|-------------|
-| 01 | [Introducción a Microcontroladores](./01-introduccion-microcontroladores.md) | 20 min | Qué es un microcontrolador, Arduino y sus variantes |
-| 02 | [Electrónica Básica](./02-electronica-basica.md) | 25 min | Ley de Ohm, resistencias, LEDs y cálculos |
-| 03 | [Arduino IDE y Tinkercad](./03-arduino-ide-tinkercad.md) | 15 min | Configuración del entorno y primer programa |
+| #   | Módulo                                                                       | Tiempo | Descripción                                         |
+| --- | ---------------------------------------------------------------------------- | ------ | --------------------------------------------------- |
+| 01  | [Introducción a Microcontroladores](./01-introduccion-microcontroladores.md) | 20 min | Qué es un microcontrolador, Arduino y sus variantes |
+| 02  | [Electrónica Básica](./02-electronica-basica.md)                             | 25 min | Ley de Ohm, resistencias, LEDs y cálculos           |
+| 03  | [Arduino IDE y Tinkercad](./03-arduino-ide-tinkercad.md)                     | 15 min | Configuración del entorno y primer programa         |
 
 ---
 
@@ -88,11 +88,11 @@ Al completar los módulos teóricos, serás capaz de:
 
 ## 🔗 Recursos Rápidos
 
-| Recurso | Enlace |
-|---------|--------|
-| Arduino Reference | [arduino.cc/reference](https://www.arduino.cc/reference/en/) |
-| Tinkercad Circuits | [tinkercad.com/circuits](https://www.tinkercad.com/circuits) |
-| Calculadora Ley de Ohm | [ohmslawcalculator.com](https://www.ohmslawcalculator.com/) |
+| Recurso                | Enlace                                                       |
+| ---------------------- | ------------------------------------------------------------ |
+| Arduino Reference      | [arduino.cc/reference](https://www.arduino.cc/reference/en/) |
+| Tinkercad Circuits     | [tinkercad.com/circuits](https://www.tinkercad.com/circuits) |
+| Calculadora Ley de Ohm | [ohmslawcalculator.com](https://www.ohmslawcalculator.com/)  |
 
 ---
 

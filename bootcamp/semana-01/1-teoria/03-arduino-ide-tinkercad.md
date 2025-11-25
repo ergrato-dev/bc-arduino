@@ -26,21 +26,21 @@ Al finalizar este módulo, serás capaz de:
 
 #### Ventajas de Tinkercad
 
-| Ventaja | Descripción |
-|---------|-------------|
-| **Gratuito** | Sin costo, solo necesitas una cuenta |
-| **Online** | No requiere instalación |
-| **Seguro** | No puedes quemar componentes reales |
-| **Educativo** | Ideal para aprender sin riesgos |
-| **Compartible** | Fácil compartir proyectos |
+| Ventaja         | Descripción                          |
+| --------------- | ------------------------------------ |
+| **Gratuito**    | Sin costo, solo necesitas una cuenta |
+| **Online**      | No requiere instalación              |
+| **Seguro**      | No puedes quemar componentes reales  |
+| **Educativo**   | Ideal para aprender sin riesgos      |
+| **Compartible** | Fácil compartir proyectos            |
 
 #### Limitaciones
 
-| Limitación | Alternativa |
-|------------|-------------|
-| Solo Arduino Uno R3 | Wokwi para otras placas |
+| Limitación             | Alternativa                            |
+| ---------------------- | -------------------------------------- |
+| Solo Arduino Uno R3    | Wokwi para otras placas                |
 | No todas las librerías | Hardware real para proyectos avanzados |
-| Requiere internet | Arduino IDE offline |
+| Requiere internet      | Arduino IDE offline                    |
 
 ---
 
@@ -108,14 +108,14 @@ Al finalizar este módulo, serás capaz de:
 
 #### Elementos de la Interfaz
 
-| Elemento | Función |
-|----------|---------|
-| **Start Simulation** | Inicia/detiene la simulación |
-| **Components** | Panel de componentes arrastrables |
-| **Code** | Editor de código Arduino |
-| **Serial Monitor** | Ver mensajes de Serial.print() |
-| **Share** | Compartir proyecto |
-| **Export** | Descargar código o esquemático |
+| Elemento             | Función                           |
+| -------------------- | --------------------------------- |
+| **Start Simulation** | Inicia/detiene la simulación      |
+| **Components**       | Panel de componentes arrastrables |
+| **Code**             | Editor de código Arduino          |
+| **Serial Monitor**   | Ver mensajes de Serial.print()    |
+| **Share**            | Compartir proyecto                |
+| **Export**           | Descargar código o esquemático    |
 
 ---
 
@@ -190,7 +190,7 @@ void setup() {
 void loop() {
     digitalWrite(LED_PIN, HIGH);  // Enciende el LED (5V)
     delay(1000);                  // Espera 1000 ms (1 segundo)
-    
+
     digitalWrite(LED_PIN, LOW);   // Apaga el LED (0V)
     delay(1000);                  // Espera 1000 ms
 }
@@ -248,13 +248,13 @@ Un programa de Arduino (llamado **sketch**) tiene dos funciones obligatorias:
 
 #### Funciones Básicas
 
-| Función | Descripción | Ejemplo |
-|---------|-------------|---------|
-| `pinMode(pin, mode)` | Configura pin como INPUT o OUTPUT | `pinMode(13, OUTPUT);` |
-| `digitalWrite(pin, value)` | Escribe HIGH (5V) o LOW (0V) | `digitalWrite(13, HIGH);` |
-| `digitalRead(pin)` | Lee estado de un pin (HIGH/LOW) | `int estado = digitalRead(2);` |
-| `delay(ms)` | Pausa ejecución por milisegundos | `delay(1000);` |
-| `millis()` | Tiempo desde inicio en ms | `unsigned long t = millis();` |
+| Función                    | Descripción                       | Ejemplo                        |
+| -------------------------- | --------------------------------- | ------------------------------ |
+| `pinMode(pin, mode)`       | Configura pin como INPUT o OUTPUT | `pinMode(13, OUTPUT);`         |
+| `digitalWrite(pin, value)` | Escribe HIGH (5V) o LOW (0V)      | `digitalWrite(13, HIGH);`      |
+| `digitalRead(pin)`         | Lee estado de un pin (HIGH/LOW)   | `int estado = digitalRead(2);` |
+| `delay(ms)`                | Pausa ejecución por milisegundos  | `delay(1000);`                 |
+| `millis()`                 | Tiempo desde inicio en ms         | `unsigned long t = millis();`  |
 
 ---
 
@@ -280,13 +280,13 @@ void loop() {
 
 #### Funciones Serial
 
-| Función | Descripción |
-|---------|-------------|
+| Función                  | Descripción                        |
+| ------------------------ | ---------------------------------- |
 | `Serial.begin(baudrate)` | Inicia comunicación (típico: 9600) |
-| `Serial.print(dato)` | Imprime sin salto de línea |
-| `Serial.println(dato)` | Imprime con salto de línea |
-| `Serial.read()` | Lee un byte del buffer |
-| `Serial.available()` | Bytes disponibles para leer |
+| `Serial.print(dato)`     | Imprime sin salto de línea         |
+| `Serial.println(dato)`   | Imprime con salto de línea         |
+| `Serial.read()`          | Lee un byte del buffer             |
+| `Serial.available()`     | Bytes disponibles para leer        |
 
 #### Usar Serial en Tinkercad
 
@@ -340,10 +340,10 @@ int blinkCount = 0;  // Contador de parpadeos
 void setup() {
     // Configurar pin del LED
     pinMode(LED_PIN, OUTPUT);
-    
+
     // Iniciar comunicación Serial
     Serial.begin(BAUD_RATE);
-    
+
     // Mensaje de bienvenida
     Serial.println("=================================");
     Serial.println("   Blink LED con Serial Monitor  ");
@@ -354,21 +354,21 @@ void setup() {
 void loop() {
     // Incrementar contador
     blinkCount++;
-    
+
     // Encender LED
     digitalWrite(LED_PIN, HIGH);
     Serial.print("Parpadeo #");
     Serial.print(blinkCount);
     Serial.println(": LED ON");
     delay(BLINK_DELAY);
-    
+
     // Apagar LED
     digitalWrite(LED_PIN, LOW);
     Serial.print("Parpadeo #");
     Serial.print(blinkCount);
     Serial.println(": LED OFF");
     delay(BLINK_DELAY);
-    
+
     Serial.println("---");
 }
 ```
@@ -387,13 +387,13 @@ void loop() {
 
 ## ⚠️ Errores Comunes
 
-| Error | Síntoma | Solución |
-|-------|---------|----------|
-| Olvidar `Serial.begin()` | Serial Monitor vacío | Agregar en setup() |
-| Olvidar `pinMode()` | Pin no responde | Configurar antes de usar |
-| `delay()` muy largo | Programa parece colgado | Reducir tiempo o usar millis() |
-| Baudrate incorrecto | Caracteres extraños en Serial | Verificar mismo baudrate |
-| Falta `;` al final | Error de compilación | Revisar sintaxis |
+| Error                    | Síntoma                       | Solución                       |
+| ------------------------ | ----------------------------- | ------------------------------ |
+| Olvidar `Serial.begin()` | Serial Monitor vacío          | Agregar en setup()             |
+| Olvidar `pinMode()`      | Pin no responde               | Configurar antes de usar       |
+| `delay()` muy largo      | Programa parece colgado       | Reducir tiempo o usar millis() |
+| Baudrate incorrecto      | Caracteres extraños en Serial | Verificar mismo baudrate       |
+| Falta `;` al final       | Error de compilación          | Revisar sintaxis               |
 
 ---
 

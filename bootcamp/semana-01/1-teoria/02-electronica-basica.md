@@ -47,11 +47,11 @@ Antes de conectar cualquier componente, necesitas entender tres conceptos básic
         └───────────────┘   └────────────────┘
 ```
 
-| Concepto | Símbolo | Unidad | Analogía del Agua |
-|----------|---------|--------|-------------------|
-| **Voltaje** | V | Voltios (V) | Presión del agua |
-| **Corriente** | I | Amperios (A) | Cantidad de agua que fluye |
-| **Resistencia** | R | Ohmios (Ω) | Tamaño de la tubería |
+| Concepto        | Símbolo | Unidad       | Analogía del Agua          |
+| --------------- | ------- | ------------ | -------------------------- |
+| **Voltaje**     | V       | Voltios (V)  | Presión del agua           |
+| **Corriente**   | I       | Amperios (A) | Cantidad de agua que fluye |
+| **Resistencia** | R       | Ohmios (Ω)   | Tamaño de la tubería       |
 
 #### Analogía del Sistema de Agua
 
@@ -104,11 +104,11 @@ La **Ley de Ohm** es la fórmula fundamental de la electrónica:
 
 #### Despejando Variables
 
-| Quieres calcular | Fórmula | Ejemplo |
-|------------------|---------|---------|
-| **Voltaje (V)** | V = I × R | I=0.02A, R=220Ω → V=4.4V |
-| **Corriente (I)** | I = V / R | V=5V, R=1000Ω → I=0.005A (5mA) |
-| **Resistencia (R)** | R = V / I | V=3V, I=0.02A → R=150Ω |
+| Quieres calcular    | Fórmula   | Ejemplo                        |
+| ------------------- | --------- | ------------------------------ |
+| **Voltaje (V)**     | V = I × R | I=0.02A, R=220Ω → V=4.4V       |
+| **Corriente (I)**   | I = V / R | V=5V, R=1000Ω → I=0.005A (5mA) |
+| **Resistencia (R)** | R = V / I | V=3V, I=0.02A → R=150Ω         |
 
 #### Truco del Triángulo
 
@@ -150,7 +150,7 @@ Las resistencias son componentes que **limitan el flujo de corriente**. Son esen
 
 ```
 Esquemático (US):      Esquemático (EU):      Físico:
-                                              
+
     ───/\/\/\/───          ───▭▭▭───          ┌──────────────┐
                                               │▐█▌▐█▌▐█▌▐█▌  │
                                               └──────────────┘
@@ -191,6 +191,7 @@ Esquemático (US):      Esquemático (EU):      Físico:
 #### Ejemplos de Lectura
 
 **Resistencia de 220Ω:**
+
 ```
 ┌────────────────────────────────────┐
 │  ▐█▌   ▐█▌   ▐█▌        ▐█▌       │
@@ -202,6 +203,7 @@ Esquemático (US):      Esquemático (EU):      Físico:
 ```
 
 **Resistencia de 1kΩ (1000Ω):**
+
 ```
 ┌────────────────────────────────────┐
 │  ▐█▌   ▐█▌   ▐█▌        ▐█▌       │
@@ -213,6 +215,7 @@ Esquemático (US):      Esquemático (EU):      Físico:
 ```
 
 **Resistencia de 10kΩ:**
+
 ```
 ┌────────────────────────────────────┐
 │  ▐█▌   ▐█▌   ▐█▌        ▐█▌       │
@@ -233,7 +236,7 @@ Los **LEDs** son componentes que emiten luz cuando la corriente fluye a través 
 
 ```
         Vista lateral:           Vista superior:
-        
+
             ┌───┐
             │   │                    ╭───╮
             │ █ │ ◄── Ánodo (+)     │   │
@@ -260,13 +263,13 @@ Los **LEDs** son componentes que emiten luz cuando la corriente fluye a través 
 
 #### Especificaciones Típicas de LEDs
 
-| Color | Voltaje Directo (Vf) | Corriente Típica | Corriente Máxima |
-|-------|---------------------|------------------|------------------|
-| Rojo | 1.8 - 2.2V | 10-20 mA | 30 mA |
-| Amarillo | 2.0 - 2.4V | 10-20 mA | 30 mA |
-| Verde | 2.0 - 3.0V | 10-20 mA | 30 mA |
-| Azul | 3.0 - 3.5V | 10-20 mA | 30 mA |
-| Blanco | 3.0 - 3.5V | 10-20 mA | 30 mA |
+| Color    | Voltaje Directo (Vf) | Corriente Típica | Corriente Máxima |
+| -------- | -------------------- | ---------------- | ---------------- |
+| Rojo     | 1.8 - 2.2V           | 10-20 mA         | 30 mA            |
+| Amarillo | 2.0 - 2.4V           | 10-20 mA         | 30 mA            |
+| Verde    | 2.0 - 3.0V           | 10-20 mA         | 30 mA            |
+| Azul     | 3.0 - 3.5V           | 10-20 mA         | 30 mA            |
+| Blanco   | 3.0 - 3.5V           | 10-20 mA         | 30 mA            |
 
 > ⚠️ **IMPORTANTE:** Nunca conectes un LED directamente a 5V sin resistencia. ¡Se quemará!
 
@@ -379,12 +382,12 @@ void loop() {
 
 ### 2.6 Tabla de Resistencias Comunes para LEDs
 
-| Fuente | LED Rojo/Amarillo (2V) | LED Verde (2.2V) | LED Azul/Blanco (3.2V) |
-|--------|------------------------|------------------|------------------------|
-| **3.3V** | 68Ω | 56Ω | 10Ω (no recomendado) |
-| **5V** | 150-220Ω | 150-220Ω | 100Ω |
-| **9V** | 330-470Ω | 330-470Ω | 270-330Ω |
-| **12V** | 470-560Ω | 470-560Ω | 390-470Ω |
+| Fuente   | LED Rojo/Amarillo (2V) | LED Verde (2.2V) | LED Azul/Blanco (3.2V) |
+| -------- | ---------------------- | ---------------- | ---------------------- |
+| **3.3V** | 68Ω                    | 56Ω              | 10Ω (no recomendado)   |
+| **5V**   | 150-220Ω               | 150-220Ω         | 100Ω                   |
+| **9V**   | 330-470Ω               | 330-470Ω         | 270-330Ω               |
+| **12V**  | 470-560Ω               | 470-560Ω         | 390-470Ω               |
 
 > 💡 **Consejo:** Cuando dudes, usa **220Ω**. Es seguro para la mayoría de LEDs con fuentes de 5V.
 
@@ -402,13 +405,13 @@ void loop() {
 
 ## ⚠️ Errores Comunes
 
-| Error | Consecuencia | Solución |
-|-------|--------------|----------|
-| LED sin resistencia | LED se quema, posible daño al Arduino | Siempre usar resistencia |
-| LED al revés | No enciende | Verificar polaridad (pata larga = +) |
-| Resistencia muy alta | LED muy tenue | Calcular correctamente o usar 220Ω |
-| Resistencia muy baja | LED muy brillante, corta vida | Mínimo 100Ω para LEDs con 5V |
-| Confundir kΩ con Ω | Valores incorrectos | 1kΩ = 1000Ω |
+| Error                | Consecuencia                          | Solución                             |
+| -------------------- | ------------------------------------- | ------------------------------------ |
+| LED sin resistencia  | LED se quema, posible daño al Arduino | Siempre usar resistencia             |
+| LED al revés         | No enciende                           | Verificar polaridad (pata larga = +) |
+| Resistencia muy alta | LED muy tenue                         | Calcular correctamente o usar 220Ω   |
+| Resistencia muy baja | LED muy brillante, corta vida         | Mínimo 100Ω para LEDs con 5V         |
+| Confundir kΩ con Ω   | Valores incorrectos                   | 1kΩ = 1000Ω                          |
 
 ---
 
