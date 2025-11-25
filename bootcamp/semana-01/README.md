@@ -1,19 +1,76 @@
 # Semana 1: Introducción a Arduino y Electrónica Básica
 
+> **Duración:** 4 horas | **Nivel:** Principiante | **Simulador:** Tinkercad ✅
+
+---
+
+## 📁 Estructura de la Semana
+
+```
+semana-01/
+├── README.md                    ← Estás aquí (índice principal)
+├── RUBRICA-EVALUACION.md        # Criterios de evaluación detallados
+├── 0-assets/                    # Diagramas y recursos visuales
+├── 1-teoria/                    # Módulos teóricos (3 módulos)
+│   ├── 01-introduccion-microcontroladores.md
+│   ├── 02-electronica-basica.md
+│   └── 03-arduino-ide-tinkercad.md
+├── 2-practicas/                 # Ejercicios prácticos (4 prácticas)
+│   ├── practica-01-blink-led.md
+│   ├── practica-02-led-externo.md
+│   ├── practica-03-semaforo.md
+│   └── practica-04-patron-luces.md
+├── 3-proyecto/                  # Proyecto integrador Knight Rider
+│   ├── README.md
+│   ├── GUIA-DISENO.md
+│   └── EJEMPLOS-DATOS.md
+├── 4-recursos/                  # Recursos externos curados
+│   ├── ebooks-free/
+│   ├── videografia/
+│   └── webgrafia/
+└── 5-glosario/                  # Terminología técnica
+    └── README.md
+```
+
+---
+
 ## 🎯 Objetivos de Aprendizaje
 
 Al finalizar esta semana, el estudiante será capaz de:
 
-- Comprender qué es un microcontrolador y sus aplicaciones
-- Identificar los componentes principales de una placa Arduino Uno
-- Configurar y utilizar el simulador Tinkercad
-- Entender conceptos básicos de electrónica (V, I, R, Ley de Ohm)
-- Escribir y cargar el primer programa en Arduino
-- Controlar un LED con código
+- [ ] Comprender qué es un microcontrolador y sus aplicaciones
+- [ ] Identificar los componentes principales de una placa Arduino Uno
+- [ ] Configurar y utilizar el simulador Tinkercad
+- [ ] Entender conceptos básicos de electrónica (V, I, R, Ley de Ohm)
+- [ ] Escribir y cargar el primer programa en Arduino
+- [ ] Controlar un LED con código
+
+---
+
+## 🗺️ Navegación Rápida
+
+| Sección                                                               | Descripción              | Tiempo    |
+| --------------------------------------------------------------------- | ------------------------ | --------- |
+| [📚 Teoría](#-contenido-teórico)                                      | 3 módulos teóricos       | 1 hora    |
+| [💻 Prácticas](#-ejercicios-prácticos)                                | 4 ejercicios progresivos | 1.5 horas |
+| [🔨 Proyecto](#-proyecto-de-la-semana-secuencia-de-leds-knight-rider) | Knight Rider             | 1.5 horas |
+| [📖 Recursos](./4-recursos/)                                          | eBooks, videos, webs     | Consulta  |
+| [📖 Glosario](./5-glosario/)                                          | 40+ términos técnicos    | Consulta  |
+| [📋 Evaluación](./RUBRICA-EVALUACION.md)                              | Rúbrica 100 puntos       | —         |
 
 ---
 
 ## 📚 Contenido Teórico
+
+> 📂 **Contenido completo en:** [`1-teoria/`](./1-teoria/)
+
+| Módulo | Título                            | Tiempo | Enlace                                                         |
+| ------ | --------------------------------- | ------ | -------------------------------------------------------------- |
+| 01     | Introducción a Microcontroladores | 25 min | [Ver módulo](./1-teoria/01-introduccion-microcontroladores.md) |
+| 02     | Electrónica Básica                | 20 min | [Ver módulo](./1-teoria/02-electronica-basica.md)              |
+| 03     | Arduino IDE y Tinkercad           | 15 min | [Ver módulo](./1-teoria/03-arduino-ide-tinkercad.md)           |
+
+### Resumen de Contenido Teórico
 
 ### 1. Introducción a Microcontroladores (45 min)
 
@@ -201,7 +258,18 @@ void loop() {
 
 ## 💻 Ejercicios Prácticos
 
-### Ejercicio 1: Hola Mundo - Blink LED (30 min)
+> 📂 **Contenido completo en:** [`2-practicas/`](./2-practicas/)
+
+| #   | Práctica        | Dificultad | Tiempo | Enlace                                                    |
+| --- | --------------- | ---------- | ------ | --------------------------------------------------------- |
+| 01  | Blink LED       | ⭐         | 20 min | [Ver práctica](./2-practicas/practica-01-blink-led.md)    |
+| 02  | LED Externo     | ⭐⭐       | 30 min | [Ver práctica](./2-practicas/practica-02-led-externo.md)  |
+| 03  | Semáforo        | ⭐⭐       | 30 min | [Ver práctica](./2-practicas/practica-03-semaforo.md)     |
+| 04  | Patrón de Luces | ⭐⭐⭐     | 30 min | [Ver práctica](./2-practicas/practica-04-patron-luces.md) |
+
+### Resumen de Ejercicios
+
+#### Ejercicio 1: Hola Mundo - Blink LED (20 min)
 
 **Objetivo:** Hacer parpadear el LED integrado en el pin 13.
 
@@ -474,11 +542,27 @@ void encenderSoloUno(int indice) {
 2. **Efecto estela:** Dejar los LEDs encendidos con desvanecimiento
 3. **Patrones múltiples:** Agregar diferentes modos de animación
 
+> 📂 **Documentación completa del proyecto en:** [`3-proyecto/`](./3-proyecto/)
+>
+> - [Especificaciones y requisitos](./3-proyecto/README.md)
+> - [Guía de diseño técnico](./3-proyecto/GUIA-DISENO.md)
+> - [Ejemplos y patrones](./3-proyecto/EJEMPLOS-DATOS.md)
+
 ---
 
 ## 📖 Recursos
 
-### Documentación Oficial
+> 📂 **Recursos completos y curados en:** [`4-recursos/`](./4-recursos/)
+
+| Categoría | Descripción                   | Enlace                                       |
+| --------- | ----------------------------- | -------------------------------------------- |
+| 📘 eBooks | Libros electrónicos gratuitos | [Ver eBooks](./4-recursos/ebooks-free/)      |
+| 🎬 Videos | Tutoriales y cursos en video  | [Ver videografía](./4-recursos/videografia/) |
+| 🌐 Web    | Documentación y referencias   | [Ver webgrafía](./4-recursos/webgrafia/)     |
+
+### Acceso Rápido
+
+#### Documentación Oficial
 
 - [Arduino Language Reference](https://www.arduino.cc/reference/en/)
 - [Arduino Uno R3 Documentation](https://docs.arduino.cc/hardware/uno-rev3)
@@ -493,6 +577,23 @@ void encenderSoloUno(int indice) {
 
 - [Arduino Course for Beginners - freeCodeCamp](https://www.youtube.com/watch?v=zJ-LqeX_fLU)
 - [Tinkercad Arduino Tutorial](https://www.youtube.com/results?search_query=tinkercad+arduino+tutorial)
+
+---
+
+## 📖 Glosario
+
+> 📂 **Glosario completo en:** [`5-glosario/`](./5-glosario/)
+
+**40+ términos técnicos** organizados alfabéticamente, incluyendo:
+
+| Categoría    | Términos clave                             |
+| ------------ | ------------------------------------------ |
+| Electricidad | Amperio, Voltio, Ohmio, Ley de Ohm, Watt   |
+| Componentes  | LED, Ánodo, Cátodo, Resistor, Protoboard   |
+| Arduino      | ATmega328P, GPIO, Pin, Sketch, Setup, Loop |
+| Funciones    | `pinMode()`, `digitalWrite()`, `delay()`   |
+
+[📖 **Ver glosario completo →**](./5-glosario/)
 
 ---
 
@@ -511,19 +612,26 @@ void encenderSoloUno(int indice) {
 
 ## 🎓 Evaluación
 
-| Componente                    | Porcentaje |
-| ----------------------------- | ---------- |
-| Ejercicios prácticos (1-4)    | 50%        |
-| Proyecto de la semana         | 40%        |
-| Participación y documentación | 10%        |
+> 📂 **Rúbrica detallada en:** [`RUBRICA-EVALUACION.md`](./RUBRICA-EVALUACION.md)
 
-### Criterios de Evaluación del Proyecto:
+| Componente              | Porcentaje | Puntos  |
+| ----------------------- | ---------- | ------- |
+| Conocimientos (Teoría)  | 30%        | 30      |
+| Habilidades (Prácticas) | 40%        | 40      |
+| Competencias (Proyecto) | 30%        | 30      |
+| **TOTAL**               | **100%**   | **100** |
 
-- ✅ Circuito funciona correctamente en simulador
-- ✅ Código limpio y comentado
-- ✅ Variables con nombres descriptivos
-- ✅ Uso correcto de funciones
-- ✅ Implementación de al menos una variante opcional
+### Escala de Calificación
+
+| Nota | Rango  | Descripción  |
+| ---- | ------ | ------------ |
+| A    | 90-100 | Excelente    |
+| B    | 80-89  | Muy Bueno    |
+| C    | 70-79  | Bueno        |
+| D    | 60-69  | Suficiente   |
+| F    | < 60   | Insuficiente |
+
+[📋 **Ver rúbrica completa →**](./RUBRICA-EVALUACION.md)
 
 ---
 
@@ -536,4 +644,16 @@ void encenderSoloUno(int indice) {
 
 ---
 
-**Dedicación:** 4 horas | **Siguiente:** [Semana 2 →](../semana-02/README.md)
+## 🔗 Navegación del Bootcamp
+
+<div align="center">
+
+| ⬅️ Anterior | 🏠 Inicio       | Siguiente ➡️               |
+| ----------- | --------------- | -------------------------- |
+| —           | [Bootcamp](../) | [Semana 02](../semana-02/) |
+
+</div>
+
+---
+
+**⏱️ Dedicación:** 4 horas | **📅 Siguiente:** [Semana 2: Entradas y Salidas Digitales →](../semana-02/)
