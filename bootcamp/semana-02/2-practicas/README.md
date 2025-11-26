@@ -7,12 +7,12 @@
 
 ## 📋 Ejercicios
 
-| # | Práctica | Tiempo | Dificultad | Tinkercad |
-|---|----------|--------|------------|-----------|
-| 01 | [Botón y LED Básico](./01-boton-led-basico.md) | 20 min | ⭐ Básico | ✅ |
-| 02 | [Toggle LED con Debounce](./02-toggle-led-debounce.md) | 25 min | ⭐⭐ Intermedio | ✅ |
-| 03 | [Contador de Pulsaciones](./03-contador-pulsaciones.md) | 25 min | ⭐⭐ Intermedio | ✅ |
-| 04 | [Control Múltiples LEDs](./04-control-multiples-leds.md) | 20 min | ⭐⭐⭐ Avanzado | ✅ |
+| #   | Práctica                                                 | Tiempo | Dificultad      | Tinkercad |
+| --- | -------------------------------------------------------- | ------ | --------------- | --------- |
+| 01  | [Botón y LED Básico](./01-boton-led-basico.md)           | 20 min | ⭐ Básico       | ✅        |
+| 02  | [Toggle LED con Debounce](./02-toggle-led-debounce.md)   | 25 min | ⭐⭐ Intermedio | ✅        |
+| 03  | [Contador de Pulsaciones](./03-contador-pulsaciones.md)  | 25 min | ⭐⭐ Intermedio | ✅        |
+| 04  | [Control Múltiples LEDs](./04-control-multiples-leds.md) | 20 min | ⭐⭐⭐ Avanzado | ✅        |
 
 ---
 
@@ -31,6 +31,7 @@ Al completar estos ejercicios serás capaz de:
 ## 🛠️ Materiales Necesarios
 
 ### Para Tinkercad (Simulación)
+
 - Arduino Uno R3
 - Protoboard
 - LEDs (varios colores)
@@ -39,7 +40,9 @@ Al completar estos ejercicios serás capaz de:
 - Cables de conexión
 
 ### Para Hardware Físico (Opcional)
+
 Los mismos componentes más:
+
 - Cable USB para programar
 - Arduino IDE instalado
 
@@ -97,11 +100,13 @@ Para cada práctica:
 ## 💡 Tips para las Prácticas
 
 ### En Tinkercad
+
 - Usa el botón "Start Simulation" para probar
 - El Serial Monitor está en la parte inferior
 - Puedes pausar la simulación para revisar conexiones
 
 ### Debugging
+
 ```cpp
 // Agrega mensajes de debug para entender el flujo
 Serial.println("Estado actual: " + String(buttonState));
@@ -109,6 +114,7 @@ Serial.println("Tiempo: " + String(millis()));
 ```
 
 ### Errores Comunes
+
 1. **LED no enciende**: Verificar polaridad y resistencia
 2. **Botón no responde**: Verificar INPUT_PULLUP y conexión a GND
 3. **Lecturas erráticas**: Falta debounce
@@ -128,12 +134,12 @@ Serial.println("Tiempo: " + String(millis()));
 
 ## 📊 Criterios de Evaluación
 
-| Criterio | Peso | Descripción |
-|----------|------|-------------|
-| Funcionalidad | 40% | El circuito y código funcionan correctamente |
-| Código limpio | 30% | Nomenclatura, estructura, comentarios |
-| Debounce | 20% | Implementación correcta sin delay() |
-| Desafíos | 10% | Completar retos adicionales |
+| Criterio      | Peso | Descripción                                  |
+| ------------- | ---- | -------------------------------------------- |
+| Funcionalidad | 40%  | El circuito y código funcionan correctamente |
+| Código limpio | 30%  | Nomenclatura, estructura, comentarios        |
+| Debounce      | 20%  | Implementación correcta sin delay()          |
+| Desafíos      | 10%  | Completar retos adicionales                  |
 
 ---
 

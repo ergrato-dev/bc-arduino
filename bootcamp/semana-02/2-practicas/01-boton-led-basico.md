@@ -41,18 +41,19 @@ Arduino Uno R3
 
 ### Lista de Componentes
 
-| Cantidad | Componente | Valor/Tipo |
-|----------|------------|------------|
-| 1 | Arduino Uno R3 | - |
-| 1 | LED | Rojo (cualquier color) |
-| 1 | Resistencia | 220Ω |
-| 1 | Pulsador | Normalmente abierto |
-| 1 | Protoboard | - |
-| 4 | Cables | Jumper |
+| Cantidad | Componente     | Valor/Tipo             |
+| -------- | -------------- | ---------------------- |
+| 1        | Arduino Uno R3 | -                      |
+| 1        | LED            | Rojo (cualquier color) |
+| 1        | Resistencia    | 220Ω                   |
+| 1        | Pulsador       | Normalmente abierto    |
+| 1        | Protoboard     | -                      |
+| 4        | Cables         | Jumper                 |
 
 ### Conexiones Paso a Paso
 
 1. **LED**:
+
    - Ánodo (pata larga, +) → Resistencia 220Ω → Pin 13
    - Cátodo (pata corta, -) → GND
 
@@ -193,6 +194,7 @@ Botón presionado - LED ON
 ## 🎮 Desafíos Extra
 
 ### Desafío 1: Lógica Invertida
+
 Modifica el código para que el LED esté **encendido por defecto** y se **apague** al presionar el botón.
 
 <details>
@@ -218,6 +220,7 @@ void loop() {
 </details>
 
 ### Desafío 2: Dos Botones, Un LED
+
 Agrega un segundo botón en el pin 3. El LED debe encenderse solo si **ambos** botones están presionados.
 
 <details>
@@ -256,6 +259,7 @@ void loop() {
 </details>
 
 ### Desafío 3: LED Parpadea Mientras Presionas
+
 El LED debe **parpadear** mientras el botón está presionado (no solo encenderse).
 
 <details>
@@ -288,7 +292,9 @@ void loop() {
 ## ❌ Errores Comunes
 
 ### 1. LED siempre encendido o apagado
+
 **Causa**: Botón mal conectado o sin conexión a GND
+
 ```cpp
 // Verifica con Serial Monitor
 Serial.println(digitalRead(BUTTON_PIN));
@@ -296,7 +302,9 @@ Serial.println(digitalRead(BUTTON_PIN));
 ```
 
 ### 2. Confundir la lógica
+
 **Causa**: Olvidar que INPUT_PULLUP invierte la lógica
+
 ```cpp
 // ❌ Incorrecto (asume lógica directa)
 if (buttonState == HIGH) { /* presionado */ }
@@ -306,7 +314,9 @@ if (buttonState == LOW) { /* presionado */ }
 ```
 
 ### 3. LED muy tenue
+
 **Causa**: Resistencia demasiado alta o conexión incorrecta
+
 ```cpp
 // Verifica que usas 220Ω, no 22kΩ
 // Revisa la polaridad del LED

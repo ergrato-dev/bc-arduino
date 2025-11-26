@@ -41,14 +41,14 @@ Arduino Uno R3
 
 ### Lista de Componentes
 
-| Cantidad | Componente | Valor/Tipo |
-|----------|------------|------------|
-| 1 | Arduino Uno R3 | - |
-| 1 | LED | Cualquier color |
-| 1 | Resistencia | 220Ω |
-| 1 | Pulsador | Normalmente abierto |
-| 1 | Protoboard | - |
-| 4 | Cables | Jumper |
+| Cantidad | Componente     | Valor/Tipo          |
+| -------- | -------------- | ------------------- |
+| 1        | Arduino Uno R3 | -                   |
+| 1        | LED            | Cualquier color     |
+| 1        | Resistencia    | 220Ω                |
+| 1        | Pulsador       | Normalmente abierto |
+| 1        | Protoboard     | -                   |
+| 4        | Cables         | Jumper              |
 
 ---
 
@@ -286,6 +286,7 @@ Toggle! LED ahora: ENCENDIDO
 ## 🎮 Desafíos Extra
 
 ### Desafío 1: Doble Clic
+
 Implementa detección de doble clic: si presionas dos veces rápido (menos de 500ms), el LED parpadea 3 veces.
 
 <details>
@@ -325,6 +326,7 @@ lastPressTime = currentTime;
 </details>
 
 ### Desafío 2: Presión Larga
+
 Si mantienes presionado más de 2 segundos, el LED parpadea rápidamente mientras está presionado.
 
 <details>
@@ -371,6 +373,7 @@ void loop() {
 </details>
 
 ### Desafío 3: Contador de Estado
+
 Después de 5 toggles, el LED parpadea 5 veces y reinicia el contador.
 
 <details>
@@ -415,7 +418,9 @@ if (toggleCount >= 5) {
 ## ❌ Errores Comunes
 
 ### 1. Toggle múltiple con una pulsación
+
 **Causa**: No detectar el flanco, actuar en el estado
+
 ```cpp
 // ❌ Incorrecto - Actúa mientras está presionado
 if (buttonState == LOW) {
@@ -432,7 +437,9 @@ if (reading != buttonState) {
 ```
 
 ### 2. Olvidar actualizar lastButtonState
+
 **Causa**: El algoritmo no puede detectar cambios
+
 ```cpp
 // ❌ Incorrecto - Falta la última línea
 void loop() {
@@ -446,7 +453,9 @@ void loop() {
 ```
 
 ### 3. Usar delay() para debounce
+
 **Causa**: Bloquea todo el programa
+
 ```cpp
 // ❌ Incorrecto - delay() bloqueante
 if (digitalRead(BUTTON_PIN) == LOW) {

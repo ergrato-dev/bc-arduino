@@ -42,14 +42,14 @@ Arduino Uno R3
 
 ### Lista de Componentes
 
-| Cantidad | Componente | Valor/Tipo |
-|----------|------------|------------|
-| 1 | Arduino Uno R3 | - |
-| 4 | LEDs | Rojo, Amarillo, Verde, Azul |
-| 4 | Resistencias | 220Ω |
-| 1 | Pulsador | Normalmente abierto |
-| 1 | Protoboard | - |
-| 7 | Cables | Jumper |
+| Cantidad | Componente     | Valor/Tipo                  |
+| -------- | -------------- | --------------------------- |
+| 1        | Arduino Uno R3 | -                           |
+| 4        | LEDs           | Rojo, Amarillo, Verde, Azul |
+| 4        | Resistencias   | 220Ω                        |
+| 1        | Pulsador       | Normalmente abierto         |
+| 1        | Protoboard     | -                           |
+| 7        | Cables         | Jumper                      |
 
 ---
 
@@ -393,13 +393,13 @@ if (millis() - lastPatternUpdate >= PATTERN_DELAY) {
 
 ### Por Modo
 
-| Modo | Comportamiento Esperado |
-|------|------------------------|
-| 0 - OFF | Todos los LEDs apagados |
-| 1 - ALL | Todos los LEDs encendidos |
+| Modo    | Comportamiento Esperado         |
+| ------- | ------------------------------- |
+| 0 - OFF | Todos los LEDs apagados         |
+| 1 - ALL | Todos los LEDs encendidos       |
 | 2 - SEQ | LEDs se encienden 1→2→3→4→1→... |
-| 3 - PP | LEDs van 1→2→3→4→3→2→1→... |
-| 4 - RND | Parpadeo aleatorio |
+| 3 - PP  | LEDs van 1→2→3→4→3→2→1→...      |
+| 4 - RND | Parpadeo aleatorio              |
 
 ### Serial Monitor
 
@@ -421,6 +421,7 @@ Modo actual: 0 - APAGADO
 ## 🎮 Desafíos Extra
 
 ### Desafío 1: Control de Velocidad
+
 Agrega un segundo botón para cambiar la velocidad del patrón (lento, medio, rápido).
 
 <details>
@@ -464,6 +465,7 @@ void loop() {
 </details>
 
 ### Desafío 2: Modo "Acumulativo"
+
 Nuevo modo donde cada pulsación enciende un LED más, hasta llegar a 4, luego se apagan todos y reinicia.
 
 <details>
@@ -508,6 +510,7 @@ if (currentMode == MODE_ACCUMULATE) {
 </details>
 
 ### Desafío 3: Guardado de Modo
+
 Al mantener presionado el botón 3 segundos, guarda el modo actual en EEPROM y lo restaura al reiniciar.
 
 <details>
@@ -582,6 +585,7 @@ void loop() {
 ## ❌ Errores Comunes
 
 ### 1. Índice fuera de rango
+
 ```cpp
 // ❌ Incorrecto - puede acceder LED_PINS[4]
 currentLed++;
@@ -593,6 +597,7 @@ digitalWrite(LED_PINS[currentLed], HIGH);
 ```
 
 ### 2. Patrones no fluidos
+
 ```cpp
 // ❌ Incorrecto - delay() bloquea
 void modeSequence() {

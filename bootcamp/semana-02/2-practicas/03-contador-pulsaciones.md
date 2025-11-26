@@ -41,14 +41,14 @@ Arduino Uno R3
 
 ### Lista de Componentes
 
-| Cantidad | Componente | Valor/Tipo |
-|----------|------------|------------|
-| 1 | Arduino Uno R3 | - |
-| 1 | LED | Cualquier color |
-| 1 | Resistencia | 220Ω |
-| 2 | Pulsadores | Normalmente abiertos |
-| 1 | Protoboard | - |
-| 5 | Cables | Jumper |
+| Cantidad | Componente     | Valor/Tipo           |
+| -------- | -------------- | -------------------- |
+| 1        | Arduino Uno R3 | -                    |
+| 1        | LED            | Cualquier color      |
+| 1        | Resistencia    | 220Ω                 |
+| 2        | Pulsadores     | Normalmente abiertos |
+| 1        | Protoboard     | -                    |
+| 5        | Cables         | Jumper               |
 
 ---
 
@@ -346,12 +346,12 @@ Para manejar múltiples botones, usamos **referencias** en C++:
 bool checkButton(int pin, int &state, int &lastState, unsigned long &lastDebounce)
 ```
 
-| Parámetro | Tipo | Descripción |
-|-----------|------|-------------|
-| `pin` | `int` | Número del pin (valor) |
-| `&state` | `int&` | Referencia al estado confirmado |
-| `&lastState` | `int&` | Referencia a la última lectura |
-| `&lastDebounce` | `unsigned long&` | Referencia al timestamp |
+| Parámetro       | Tipo             | Descripción                     |
+| --------------- | ---------------- | ------------------------------- |
+| `pin`           | `int`            | Número del pin (valor)          |
+| `&state`        | `int&`           | Referencia al estado confirmado |
+| `&lastState`    | `int&`           | Referencia a la última lectura  |
+| `&lastDebounce` | `unsigned long&` | Referencia al timestamp         |
 
 > 💡 El símbolo `&` crea una **referencia**: la función modifica directamente las variables originales, no copias.
 
@@ -360,11 +360,13 @@ bool checkButton(int pin, int &state, int &lastState, unsigned long &lastDebounc
 ## 🧪 Pruebas
 
 ### Prueba 1: Contador Básico (Un Botón)
+
 1. ✅ Presionar 5 veces → Contador = 5
 2. ✅ Presionar muy rápido → Cada pulsación cuenta 1
 3. ✅ LED parpadea con cada conteo
 
 ### Prueba 2: Contador Bidireccional
+
 1. ✅ Incrementar de 0 a 5 → Contador = 5
 2. ✅ Decrementar a 3 → Contador = 3
 3. ✅ Decrementar hasta 0 → Se detiene en 0
@@ -392,6 +394,7 @@ Contador: [0]
 ## 🎮 Desafíos Extra
 
 ### Desafío 1: Reinicio con Ambos Botones
+
 Presionar ambos botones simultáneamente reinicia el contador a 0.
 
 <details>
@@ -429,6 +432,7 @@ void loop() {
 </details>
 
 ### Desafío 2: Auto-Incremento
+
 Si mantienes presionado el botón de incremento más de 1 segundo, el contador sube automáticamente cada 200ms.
 
 <details>
@@ -484,6 +488,7 @@ void loop() {
 </details>
 
 ### Desafío 3: Modo Cíclico
+
 Agregar un tercer botón que cambie entre modo "limitado" (0-9) y modo "cíclico" (después de 9 viene 0, antes de 0 viene 9).
 
 <details>
@@ -546,7 +551,9 @@ void loop() {
 ## ❌ Errores Comunes
 
 ### 1. Contador salta valores
+
 **Causa**: Debounce insuficiente o mal implementado
+
 ```cpp
 // Verificar con mensajes de debug
 Serial.print("Reading: ");
@@ -556,7 +563,9 @@ Serial.println(state);
 ```
 
 ### 2. Botones interfieren entre sí
+
 **Causa**: Variables de debounce compartidas
+
 ```cpp
 // ❌ Incorrecto - Mismas variables para ambos botones
 int buttonState = HIGH;  // Compartida
