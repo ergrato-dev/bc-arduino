@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <!-- Fondo oscuro -->
+  <rect width="100%" height="100%" fill="#1e1e1e"/>
+  
+  <!-- Título -->
+  <text x="400" y="35" font-family="Arial, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="bold">INPUT_PULLUP - Resistencia Interna</text>
+  <text x="400" y="55" font-family="Arial, sans-serif" font-size="14" fill="#aaaaaa" text-anchor="middle">Sin componentes externos - Usa la resistencia interna del Arduino (~20kΩ)</text>
+  
+  <!-- Circuito Simplificado -->
+  <g transform="translate(80, 80)">
+    <!-- Arduino con detalle interno -->
+    <rect x="0" y="50" width="200" height="280" rx="10" fill="#00979c" stroke="#006064" stroke-width="3"/>
+    <text x="100" y="85" font-family="Arial" font-size="16" fill="#ffffff" text-anchor="middle" font-weight="bold">Arduino Uno R3</text>
+    
+    <!-- Representación interna -->
+    <rect x="20" y="100" width="160" height="150" rx="8" fill="#1e1e1e" stroke="#444444" stroke-width="2"/>
+    <text x="100" y="120" font-family="Arial" font-size="10" fill="#666666" text-anchor="middle">Circuito Interno</text>
+    
+    <!-- Resistencia interna pull-up -->
+    <line x1="100" y1="130" x2="100" y2="145" stroke="#ff0000" stroke-width="2"/>
+    <text x="100" y="142" font-family="Arial" font-size="9" fill="#ff0000" text-anchor="middle">5V</text>
+    <rect x="88" y="150" width="24" height="40" fill="#d4b896" stroke="#8b7355" stroke-width="1" rx="2"/>
+    <text x="100" y="175" font-family="Arial" font-size="8" fill="#000000" text-anchor="middle">20kΩ</text>
+    <line x1="100" y1="190" x2="100" y2="210" stroke="#00ff00" stroke-width="2"/>
+    
+    <!-- Nodo interno -->
+    <circle cx="100" cy="210" r="5" fill="#00ff00"/>
+    
+    <!-- Pin externo -->
+    <rect x="180" y="200" width="40" height="20" fill="#ffaa00"/>
+    <text x="200" y="215" font-family="Arial" font-size="10" fill="#000000" text-anchor="middle">2</text>
+    <line x1="100" y1="210" x2="180" y2="210" stroke="#00ff00" stroke-width="2"/>
+    
+    <!-- GND interno -->
+    <rect x="180" y="280" width="40" height="20" fill="#333333" stroke="#ffffff"/>
+    <text x="200" y="295" font-family="Arial" font-size="9" fill="#ffffff" text-anchor="middle">GND</text>
+    
+    <!-- Switch interno (representación) -->
+    <rect x="60" y="145" width="20" height="20" rx="3" fill="#444444" stroke="#666666"/>
+    <text x="55" y="180" font-family="Arial" font-size="8" fill="#aaaaaa">SW</text>
+    
+    <!-- Etiqueta resistencia -->
+    <text x="130" y="175" font-family="Arial" font-size="9" fill="#ffaa00">Pull-Up</text>
+    <text x="130" y="187" font-family="Arial" font-size="9" fill="#ffaa00">Interno</text>
+  </g>
+  
+  <!-- Conexión externa simple -->
+  <g transform="translate(300, 180)">
+    <!-- Línea del pin al botón -->
+    <line x1="0" y1="30" x2="80" y2="30" stroke="#00ff00" stroke-width="3"/>
+    
+    <!-- Botón simple -->
+    <rect x="80" y="10" width="80" height="60" rx="8" fill="#666666" stroke="#888888" stroke-width="2"/>
+    <text x="120" y="45" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">BOTÓN</text>
+    <circle cx="100" cy="35" r="6" fill="#888888"/>
+    <circle cx="140" cy="35" r="6" fill="#888888"/>
+    
+    <!-- Línea a GND -->
+    <line x1="160" y1="30" x2="200" y2="30" stroke="#333333" stroke-width="3"/>
+    <line x1="200" y1="30" x2="200" y2="80" stroke="#333333" stroke-width="3"/>
+    
+    <!-- Símbolo GND -->
+    <line x1="185" y1="80" x2="215" y2="80" stroke="#333333" stroke-width="3"/>
+    <line x1="190" y1="87" x2="210" y2="87" stroke="#333333" stroke-width="2"/>
+    <line x1="195" y1="94" x2="205" y2="94" stroke="#333333" stroke-width="2"/>
+    <text x="200" y="115" font-family="Arial" font-size="10" fill="#666666" text-anchor="middle">GND</text>
+  </g>
+  
+  <!-- Ventajas -->
+  <g transform="translate(520, 90)">
+    <rect x="0" y="0" width="250" height="160" rx="10" fill="#2a2a2a" stroke="#44ff44" stroke-width="2"/>
+    <text x="125" y="25" font-family="Arial" font-size="14" fill="#44ff44" text-anchor="middle" font-weight="bold">✅ Ventajas</text>
+    
+    <text x="15" y="50" font-family="Arial" font-size="11" fill="#ffffff">• Sin resistencia externa</text>
+    <text x="15" y="70" font-family="Arial" font-size="11" fill="#ffffff">• Circuito más simple</text>
+    <text x="15" y="90" font-family="Arial" font-size="11" fill="#ffffff">• Solo botón y cable a GND</text>
+    <text x="15" y="110" font-family="Arial" font-size="11" fill="#ffffff">• Menor costo de componentes</text>
+    <text x="15" y="130" font-family="Arial" font-size="11" fill="#ffffff">• Menos errores de conexión</text>
+    <text x="15" y="150" font-family="Arial" font-size="11" fill="#ffffff">• Ideal para prototipos rápidos</text>
+  </g>
+  
+  <!-- Lógica invertida -->
+  <g transform="translate(520, 265)">
+    <rect x="0" y="0" width="250" height="100" rx="10" fill="#2a2a2a" stroke="#ff8c00" stroke-width="2"/>
+    <text x="125" y="25" font-family="Arial" font-size="14" fill="#ff8c00" text-anchor="middle" font-weight="bold">⚠️ Lógica Invertida</text>
+    
+    <text x="15" y="50" font-family="Arial" font-size="12" fill="#44ff44">• NO presionado → HIGH (1)</text>
+    <text x="15" y="75" font-family="Arial" font-size="12" fill="#ff4444">• Presionado → LOW (0)</text>
+  </g>
+  
+  <!-- Código -->
+  <g transform="translate(80, 380)">
+    <rect x="0" y="0" width="350" height="90" rx="10" fill="#2a2a2a" stroke="#00979c" stroke-width="2"/>
+    <text x="175" y="25" font-family="Arial" font-size="12" fill="#00979c" text-anchor="middle" font-weight="bold">Código Arduino</text>
+    
+    <text x="15" y="50" font-family="Courier" font-size="12" fill="#ff8c00">pinMode(2, INPUT_PULLUP);</text>
+    <text x="15" y="70" font-family="Courier" font-size="12" fill="#00b4d8">if (digitalRead(2) == LOW) {</text>
+    <text x="15" y="85" font-family="Courier" font-size="11" fill="#666666">  // Botón presionado</text>
+  </g>
+  
+  <!-- Comparación -->
+  <g transform="translate(450, 380)">
+    <rect x="0" y="0" width="320" height="90" rx="10" fill="#2a2a2a" stroke="#444444" stroke-width="2"/>
+    <text x="160" y="25" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">Comparación</text>
+    
+    <text x="15" y="50" font-family="Arial" font-size="11" fill="#aaaaaa">Pull-Up Externo: Resistencia 10kΩ a 5V</text>
+    <text x="15" y="70" font-family="Arial" font-size="11" fill="#44ff44">INPUT_PULLUP: Resistencia ~20kΩ interna</text>
+    <text x="15" y="85" font-family="Arial" font-size="10" fill="#666666">Ambos tienen la misma lógica invertida</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="400" y="485" font-family="Arial" font-size="10" fill="#666666" text-anchor="middle">Bootcamp Arduino - Semana 02</text>
+</svg>
