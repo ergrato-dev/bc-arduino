@@ -7,16 +7,16 @@
 
 ## 📋 Índice de Diagramas
 
-| #   | Archivo                              | Usado en         | Descripción                              | Estado |
-| --- | ------------------------------------ | ---------------- | ---------------------------------------- | ------ |
-| 01  | `01-digital-io-estados.svg`          | Teoría Módulo 01 | Estados HIGH/LOW y niveles de voltaje    | ✅     |
-| 02  | `02-pull-down-circuito.svg`          | Teoría Módulo 02 | Circuito con resistencia pull-down       | ✅     |
-| 03  | `03-pull-up-circuito.svg`            | Teoría Módulo 02 | Circuito con resistencia pull-up         | ✅     |
-| 04  | `04-input-pullup-interno.svg`        | Teoría Módulo 02 | Resistencia pull-up interna Arduino      | ✅     |
-| 05  | `05-debouncing-diagrama.svg`         | Teoría Módulo 03 | Rebotes y solución con millis()          | ✅     |
-| 06  | `06-boton-led-circuito.svg`          | Práctica 01      | Circuito botón controlando LED           | ✅     |
-| 07  | `07-maquina-estados.svg`             | Teoría Módulo 04 | Diagrama FSM con tabla de transiciones   | ✅     |
-| 08  | `08-proyecto-panel-control.svg`      | Proyecto         | Panel de control con 4 botones y 4 LEDs  | ✅     |
+| #   | Archivo                         | Usado en         | Descripción                             | Estado |
+| --- | ------------------------------- | ---------------- | --------------------------------------- | ------ |
+| 01  | `01-digital-io-estados.svg`     | Teoría Módulo 01 | Estados HIGH/LOW y niveles de voltaje   | ✅     |
+| 02  | `02-pull-down-circuito.svg`     | Teoría Módulo 02 | Circuito con resistencia pull-down      | ✅     |
+| 03  | `03-pull-up-circuito.svg`       | Teoría Módulo 02 | Circuito con resistencia pull-up        | ✅     |
+| 04  | `04-input-pullup-interno.svg`   | Teoría Módulo 02 | Resistencia pull-up interna Arduino     | ✅     |
+| 05  | `05-debouncing-diagrama.svg`    | Teoría Módulo 03 | Rebotes y solución con millis()         | ✅     |
+| 06  | `06-boton-led-circuito.svg`     | Práctica 01      | Circuito botón controlando LED          | ✅     |
+| 07  | `07-maquina-estados.svg`        | Teoría Módulo 04 | Diagrama FSM con tabla de transiciones  | ✅     |
+| 08  | `08-proyecto-panel-control.svg` | Proyecto         | Panel de control con 4 botones y 4 LEDs | ✅     |
 
 ---
 
@@ -24,21 +24,21 @@
 
 ### Paleta de Colores
 
-| Elemento           | Color             | Hex       |
-| ------------------ | ----------------- | --------- |
-| Fondo              | Negro/Gris oscuro | `#1e1e1e` |
-| Texto principal    | Blanco            | `#ffffff` |
-| Texto secundario   | Gris claro        | `#cccccc` |
-| Arduino (placa)    | Azul Arduino      | `#00979c` |
-| Señal HIGH         | Verde brillante   | `#44ff44` |
-| Señal LOW          | Rojo              | `#ff4444` |
-| Estado flotante    | Amarillo          | `#ffaa00` |
-| Resistencias       | Beige             | `#d4b896` |
-| Botón presionado   | Verde             | `#00aa00` |
-| Botón no presionado| Gris              | `#666666` |
-| Cables positivo    | Rojo              | `#ff0000` |
-| Cables negativo    | Negro             | `#333333` |
-| Cables señal       | Verde/Azul        | Variado   |
+| Elemento            | Color             | Hex       |
+| ------------------- | ----------------- | --------- |
+| Fondo               | Negro/Gris oscuro | `#1e1e1e` |
+| Texto principal     | Blanco            | `#ffffff` |
+| Texto secundario    | Gris claro        | `#cccccc` |
+| Arduino (placa)     | Azul Arduino      | `#00979c` |
+| Señal HIGH          | Verde brillante   | `#44ff44` |
+| Señal LOW           | Rojo              | `#ff4444` |
+| Estado flotante     | Amarillo          | `#ffaa00` |
+| Resistencias        | Beige             | `#d4b896` |
+| Botón presionado    | Verde             | `#00aa00` |
+| Botón no presionado | Gris              | `#666666` |
+| Cables positivo     | Rojo              | `#ff0000` |
+| Cables negativo     | Negro             | `#333333` |
+| Cables señal        | Verde/Azul        | Variado   |
 
 ### Especificaciones
 
@@ -52,16 +52,16 @@
 
 ## 📁 Estado de los Assets
 
-| Archivo                              | Estado       | Notas                         |
-| ------------------------------------ | ------------ | ----------------------------- |
-| `01-digital-io-estados.svg`          | ✅ Completo  | Estados HIGH/LOW              |
-| `02-pull-down-circuito.svg`          | ✅ Completo  | Pull-down externo             |
-| `03-pull-up-circuito.svg`            | ✅ Completo  | Pull-up externo               |
-| `04-input-pullup-interno.svg`        | ✅ Completo  | INPUT_PULLUP Arduino          |
-| `05-debounce-problema.svg`           | ✅ Completo  | Señal con rebotes             |
-| `06-debounce-solucion.svg`           | ✅ Completo  | Señal después de debounce     |
-| `07-practica-toggle-led.svg`         | ✅ Completo  | Circuito práctica 03          |
-| `08-proyecto-control-iluminacion.svg`| ✅ Completo  | Circuito proyecto integrador  |
+| Archivo                               | Estado      | Notas                        |
+| ------------------------------------- | ----------- | ---------------------------- |
+| `01-digital-io-estados.svg`           | ✅ Completo | Estados HIGH/LOW             |
+| `02-pull-down-circuito.svg`           | ✅ Completo | Pull-down externo            |
+| `03-pull-up-circuito.svg`             | ✅ Completo | Pull-up externo              |
+| `04-input-pullup-interno.svg`         | ✅ Completo | INPUT_PULLUP Arduino         |
+| `05-debounce-problema.svg`            | ✅ Completo | Señal con rebotes            |
+| `06-debounce-solucion.svg`            | ✅ Completo | Señal después de debounce    |
+| `07-practica-toggle-led.svg`          | ✅ Completo | Circuito práctica 03         |
+| `08-proyecto-control-iluminacion.svg` | ✅ Completo | Circuito proyecto integrador |
 
 ---
 
@@ -76,7 +76,10 @@
 ### Tamaño Recomendado
 
 ```html
-<img src="./0-assets/01-digital-io-estados.svg" width="600" alt="Estados Digital I/O">
+<img
+  src="./0-assets/01-digital-io-estados.svg"
+  width="600"
+  alt="Estados Digital I/O" />
 ```
 
 ---
