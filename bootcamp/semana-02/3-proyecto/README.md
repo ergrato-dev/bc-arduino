@@ -31,14 +31,14 @@ Al completar este proyecto serás capaz de:
 
 ## 🔌 Hardware Requerido
 
-| Cantidad | Componente | Especificación |
-|----------|------------|----------------|
-| 1 | Arduino Uno R3 | - |
-| 4 | LEDs | Rojo, Amarillo, Verde, Azul |
-| 4 | Resistencias | 220Ω (para LEDs) |
-| 4 | Pulsadores | Normalmente abiertos |
-| 1 | Protoboard | 830 puntos recomendado |
-| ~15 | Cables | Jumper M-M |
+| Cantidad | Componente     | Especificación              |
+| -------- | -------------- | --------------------------- |
+| 1        | Arduino Uno R3 | -                           |
+| 4        | LEDs           | Rojo, Amarillo, Verde, Azul |
+| 4        | Resistencias   | 220Ω (para LEDs)            |
+| 4        | Pulsadores     | Normalmente abiertos        |
+| 1        | Protoboard     | 830 puntos recomendado      |
+| ~15      | Cables         | Jumper M-M                  |
 
 ---
 
@@ -48,31 +48,35 @@ Al completar este proyecto serás capaz de:
 
 El sistema debe tener **3 modos de operación**:
 
-| Modo | Nombre | Descripción |
-|------|--------|-------------|
-| 0 | **Individual** | Cada botón controla su LED (toggle) |
-| 1 | **Secuencia** | BTN1 inicia secuencia, BTN2 la detiene |
-| 2 | **Intensidad** | BTN3 y BTN4 controlan velocidad de parpadeo |
+| Modo | Nombre         | Descripción                                 |
+| ---- | -------------- | ------------------------------------------- |
+| 0    | **Individual** | Cada botón controla su LED (toggle)         |
+| 1    | **Secuencia**  | BTN1 inicia secuencia, BTN2 la detiene      |
+| 2    | **Intensidad** | BTN3 y BTN4 controlan velocidad de parpadeo |
 
 ### Cambio de Modo
+
 - **Presión larga** (>2 segundos) en BTN1 cambia al siguiente modo
 - LEDs parpadean 3 veces al cambiar de modo
 
 ### Comportamiento por Modo
 
 #### Modo 0: Individual
+
 - BTN1 → Toggle LED1 (Rojo)
 - BTN2 → Toggle LED2 (Amarillo)
 - BTN3 → Toggle LED3 (Verde)
 - BTN4 → Toggle LED4 (Azul)
 
 #### Modo 1: Secuencia
+
 - BTN1 → Inicia secuencia (LEDs se encienden en orden)
 - BTN2 → Detiene secuencia (todos apagados)
 - BTN3 → Cambia dirección (adelante/atrás)
 - BTN4 → Pausa/Continúa
 
 #### Modo 2: Intensidad (Bono)
+
 - Todos los LEDs parpadean juntos
 - BTN3 → Aumenta velocidad
 - BTN4 → Reduce velocidad
@@ -176,24 +180,24 @@ void blinkAllLeds(int times) { ... }
 
 ## 📄 Archivos del Proyecto
 
-| Archivo | Descripción |
-|---------|-------------|
-| [README.md](./README.md) | Este documento |
-| [panel-control.ino](./panel-control.ino) | Código completo |
-| [DOCUMENTACION.md](./DOCUMENTACION.md) | Documentación técnica |
+| Archivo                                  | Descripción           |
+| ---------------------------------------- | --------------------- |
+| [README.md](./README.md)                 | Este documento        |
+| [panel-control.ino](./panel-control.ino) | Código completo       |
+| [DOCUMENTACION.md](./DOCUMENTACION.md)   | Documentación técnica |
 
 ---
 
 ## ✅ Criterios de Evaluación
 
-| Criterio | Puntos | Descripción |
-|----------|--------|-------------|
-| **Funcionalidad** | 40 | Los 3 modos funcionan correctamente |
-| **Debounce** | 20 | Sin rebotes en ningún botón |
-| **Código limpio** | 20 | Estructura, nomenclatura, comentarios |
-| **Documentación** | 10 | README y comentarios en código |
-| **Extras** | 10 | Desafíos adicionales implementados |
-| **Total** | **100** | |
+| Criterio          | Puntos  | Descripción                           |
+| ----------------- | ------- | ------------------------------------- |
+| **Funcionalidad** | 40      | Los 3 modos funcionan correctamente   |
+| **Debounce**      | 20      | Sin rebotes en ningún botón           |
+| **Código limpio** | 20      | Estructura, nomenclatura, comentarios |
+| **Documentación** | 10      | README y comentarios en código        |
+| **Extras**        | 10      | Desafíos adicionales implementados    |
+| **Total**         | **100** |                                       |
 
 ---
 

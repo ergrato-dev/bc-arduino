@@ -21,9 +21,11 @@
 ## Descripción General
 
 ### Propósito
+
 Sistema de control de iluminación que permite operar 4 LEDs mediante 4 botones, con 3 modos de operación diferentes.
 
 ### Características Principales
+
 - Control individual de 4 LEDs
 - 3 modos de operación intercambiables
 - Debounce implementado en todos los botones
@@ -95,15 +97,15 @@ Sistema de control de iluminación que permite operar 4 LEDs mediante 4 botones,
 
 ### Especificaciones de Componentes
 
-| Componente | Especificación | Función |
-|------------|----------------|---------|
-| Arduino Uno R3 | ATmega328P @ 16MHz | Microcontrolador |
-| LED Rojo | 2V, 20mA | Indicador 1 |
-| LED Amarillo | 2V, 20mA | Indicador 2 |
-| LED Verde | 2.2V, 20mA | Indicador 3 |
-| LED Azul | 3.2V, 20mA | Indicador 4 |
-| Resistencias | 220Ω ±5% | Limitadoras de corriente |
-| Pulsadores | NO, 12mm | Entradas de usuario |
+| Componente     | Especificación     | Función                  |
+| -------------- | ------------------ | ------------------------ |
+| Arduino Uno R3 | ATmega328P @ 16MHz | Microcontrolador         |
+| LED Rojo       | 2V, 20mA           | Indicador 1              |
+| LED Amarillo   | 2V, 20mA           | Indicador 2              |
+| LED Verde      | 2.2V, 20mA         | Indicador 3              |
+| LED Azul       | 3.2V, 20mA         | Indicador 4              |
+| Resistencias   | 220Ω ±5%           | Limitadoras de corriente |
+| Pulsadores     | NO, 12mm           | Entradas de usuario      |
 
 ### Cálculo de Resistencias
 
@@ -120,11 +122,11 @@ I = (5V - 2V) / 220Ω = 13.6mA ✓
 
 ### Consumo de Corriente
 
-| Estado | Corriente | Notas |
-|--------|-----------|-------|
-| Reposo | ~50mA | Solo Arduino |
-| 1 LED | ~64mA | +14mA por LED |
-| 4 LEDs | ~106mA | Todos encendidos |
+| Estado | Corriente | Notas            |
+| ------ | --------- | ---------------- |
+| Reposo | ~50mA     | Solo Arduino     |
+| 1 LED  | ~64mA     | +14mA por LED    |
+| 4 LEDs | ~106mA    | Todos encendidos |
 
 ---
 
@@ -222,31 +224,31 @@ if (reading == LOW && pressStart != 0) {
 
 ### Modo 0: Individual
 
-| Entrada | Acción | Salida |
-|---------|--------|--------|
-| BTN1 (corto) | Toggle | LED1 cambia estado |
-| BTN2 | Toggle | LED2 cambia estado |
-| BTN3 | Toggle | LED3 cambia estado |
-| BTN4 | Toggle | LED4 cambia estado |
-| BTN1 (largo) | Cambio de modo | → Modo 1 |
+| Entrada      | Acción         | Salida             |
+| ------------ | -------------- | ------------------ |
+| BTN1 (corto) | Toggle         | LED1 cambia estado |
+| BTN2         | Toggle         | LED2 cambia estado |
+| BTN3         | Toggle         | LED3 cambia estado |
+| BTN4         | Toggle         | LED4 cambia estado |
+| BTN1 (largo) | Cambio de modo | → Modo 1           |
 
 ### Modo 1: Secuencia
 
-| Entrada | Acción | Efecto |
-|---------|--------|--------|
-| BTN1 (corto) | Iniciar | Comienza secuencia |
-| BTN2 | Detener | Para y apaga LEDs |
-| BTN3 | Dirección | Invierte sentido |
-| BTN4 | Pausa | Congela/Continúa |
-| BTN1 (largo) | Cambio de modo | → Modo 2 |
+| Entrada      | Acción         | Efecto             |
+| ------------ | -------------- | ------------------ |
+| BTN1 (corto) | Iniciar        | Comienza secuencia |
+| BTN2         | Detener        | Para y apaga LEDs  |
+| BTN3         | Dirección      | Invierte sentido   |
+| BTN4         | Pausa          | Congela/Continúa   |
+| BTN1 (largo) | Cambio de modo | → Modo 2           |
 
 ### Modo 2: Intensidad
 
-| Entrada | Acción | Rango |
-|---------|--------|-------|
-| BTN3 | +Velocidad | Min: 50ms |
-| BTN4 | -Velocidad | Max: 500ms |
-| BTN1 (largo) | Cambio de modo | → Modo 0 |
+| Entrada      | Acción         | Rango      |
+| ------------ | -------------- | ---------- |
+| BTN3         | +Velocidad     | Min: 50ms  |
+| BTN4         | -Velocidad     | Max: 500ms |
+| BTN1 (largo) | Cambio de modo | → Modo 0   |
 
 ---
 
@@ -297,6 +299,7 @@ LED4                │   │       │   │       │   │
 ### Lista de Verificación
 
 #### Modo Individual
+
 - [ ] BTN1 hace toggle de LED1
 - [ ] BTN2 hace toggle de LED2
 - [ ] BTN3 hace toggle de LED3
@@ -304,6 +307,7 @@ LED4                │   │       │   │       │   │
 - [ ] No hay rebotes (un toggle por pulsación)
 
 #### Modo Secuencia
+
 - [ ] BTN1 inicia secuencia
 - [ ] BTN2 detiene y apaga
 - [ ] BTN3 invierte dirección
@@ -311,12 +315,14 @@ LED4                │   │       │   │       │   │
 - [ ] Secuencia fluida sin parpadeos
 
 #### Modo Intensidad
+
 - [ ] BTN3 acelera parpadeo
 - [ ] BTN4 ralentiza parpadeo
 - [ ] Límites respetados (50-500ms)
 - [ ] Todos los LEDs sincrónicos
 
 #### General
+
 - [ ] Presión larga cambia modo
 - [ ] 3 parpadeos al cambiar modo
 - [ ] Serial muestra información correcta

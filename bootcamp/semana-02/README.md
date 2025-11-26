@@ -1,730 +1,339 @@
-# Semana 2: Entradas y Salidas Digitales
+# 📗 Semana 02: Entradas y Salidas Digitales
+
+> **Bootcamp Arduino** · Semana 2 de 10  
+> ⏱️ Dedicación: 4 horas · 📊 Nivel: Principiante-Intermedio
+
+---
 
 ## 🎯 Objetivos de Aprendizaje
 
-Al finalizar esta semana, el estudiante será capaz de:
+Al completar esta semana, serás capaz de:
 
-- Entender la diferencia entre entradas y salidas digitales
-- Leer el estado de botones y switches
-- Implementar resistencias pull-up y pull-down
-- Aplicar técnicas de debouncing
-- Crear sistemas interactivos con botones y LEDs
-
----
-
-## 📚 Contenido Teórico
-
-### 1. Entradas y Salidas Digitales (45 min)
-
-#### Conceptos Básicos
-
-```
-DIGITAL = Solo dos estados posibles
-
-HIGH (1) = 5V = Encendido = Verdadero
-LOW  (0) = 0V = Apagado   = Falso
-```
-
-#### Configuración de Pines
-
-```cpp
-// Como SALIDA - Para controlar dispositivos (LEDs, relés, etc.)
-pinMode(pin, OUTPUT);
-digitalWrite(pin, HIGH);  // Envía 5V
-digitalWrite(pin, LOW);   // Envía 0V
-
-// Como ENTRADA - Para leer dispositivos (botones, sensores)
-pinMode(pin, INPUT);
-int estado = digitalRead(pin);  // Retorna HIGH o LOW
-
-// Como ENTRADA con pull-up interno
-pinMode(pin, INPUT_PULLUP);  // Activa resistencia interna de 20kΩ
-```
+- [ ] Comprender la diferencia entre señales digitales HIGH y LOW
+- [ ] Configurar pines como entrada y salida usando `pinMode()`
+- [ ] Leer el estado de botones con `digitalRead()`
+- [ ] Controlar LEDs con `digitalWrite()`
+- [ ] Entender resistencias pull-up y pull-down
+- [ ] Implementar debouncing por software con `millis()`
+- [ ] Detectar flancos de subida y bajada
+- [ ] Crear máquinas de estados finitos (FSM) básicas
+- [ ] Manejar múltiples entradas y salidas simultáneamente
 
 ---
 
-### 2. Resistencias Pull-Up y Pull-Down (30 min)
+## 📋 Contenido de la Semana
 
-#### El Problema del Estado Flotante
-
-```
-Sin resistencia, un pin de entrada "flota" entre HIGH y LOW
-generando lecturas erráticas.
-
-Solución: Usar resistencias pull-up o pull-down
-```
-
-#### Pull-Down (Normalmente LOW)
+### 📁 Estructura
 
 ```
-          ┌─────────────────┐
-    5V ───┤                 │
-          │     BOTÓN       ├─── Pin Arduino
-    GND ──┼──[10kΩ]─────────┘
-          │
-          ▼
-    Estado normal: LOW (0)
-    Al presionar: HIGH (1)
-```
-
-#### Pull-Up (Normalmente HIGH)
-
-```
-          ┌─────────────────┐
-    5V ───┼──[10kΩ]─────────┤
-          │                 ├─── Pin Arduino
-    GND ──┤     BOTÓN       │
-          └─────────────────┘
-    Estado normal: HIGH (1)
-    Al presionar: LOW (0)
-```
-
-#### Pull-Up Interno de Arduino
-
-```cpp
-// Arduino tiene resistencias pull-up internas (~20kΩ)
-pinMode(botonPin, INPUT_PULLUP);
-
-// Con esto, la lógica es INVERTIDA:
-// - Botón NO presionado = HIGH
-// - Botón presionado = LOW
+semana-02/
+├── README.md                    ← Estás aquí
+├── RUBRICA-EVALUACION.md        # Criterios de evaluación
+├── 0-assets/                    # Diagramas y recursos visuales
+│   ├── README.md
+│   └── *.svg                    # 8 diagramas técnicos
+├── 1-teoria/                    # Contenido teórico
+│   ├── README.md
+│   ├── 01-fundamentos-io-digital.md
+│   ├── 02-resistencias-pull-up-down.md
+│   ├── 03-debouncing.md
+│   └── 04-maquinas-de-estados.md
+├── 2-practicas/                 # Ejercicios prácticos
+│   ├── README.md
+│   ├── 01-boton-led-basico.md
+│   ├── 02-toggle-led-debounce.md
+│   ├── 03-contador-pulsaciones.md
+│   └── 04-control-multiples-leds.md
+├── 3-proyecto/                  # Proyecto de la semana
+│   ├── README.md
+│   ├── panel-control.ino
+│   └── DOCUMENTACION.md
+├── 4-recursos/                  # Material adicional
+│   └── README.md
+└── 5-glosario/                  # Términos clave
+    └── README.md
 ```
 
 ---
 
-### 3. Debouncing (45 min)
+## 🗺️ Navegación Rápida
 
-#### El Problema del Rebote
+| Sección | Descripción | Tiempo Est. |
+|---------|-------------|-------------|
+| [📊 Assets](./0-assets/README.md) | Diagramas y esquemáticos | - |
+| [📚 Teoría](./1-teoria/README.md) | 4 módulos teóricos | ~60 min |
+| [💻 Prácticas](./2-practicas/README.md) | 4 ejercicios prácticos | ~90 min |
+| [🔨 Proyecto](./3-proyecto/README.md) | Panel de Control de Iluminación | ~90 min |
+| [📖 Recursos](./4-recursos/README.md) | Enlaces y material adicional | - |
+| [📖 Glosario](./5-glosario/README.md) | Términos y definiciones | - |
 
-Cuando presionas un botón mecánico, los contactos "rebotan" causando múltiples lecturas en milisegundos.
+---
 
-```
-Realidad física del botón:
-Presión → ON-OFF-ON-OFF-ON-OFF-ON (rebotes) → Estable ON
+## 📚 Teoría (60 minutos)
 
-Esto puede registrar múltiples "presiones" cuando solo hubo una.
-```
+### Módulos
 
-#### Solución por Software
+| # | Módulo | Descripción | Duración |
+|---|--------|-------------|----------|
+| 1 | [Fundamentos I/O Digital](./1-teoria/01-fundamentos-io-digital.md) | Estados digitales, funciones básicas | 15 min |
+| 2 | [Resistencias Pull-up/down](./1-teoria/02-resistencias-pull-up-down.md) | Evitar pines flotantes | 15 min |
+| 3 | [Debouncing](./1-teoria/03-debouncing.md) | Eliminar rebotes de botones | 20 min |
+| 4 | [Máquinas de Estados](./1-teoria/04-maquinas-de-estados.md) | FSM con enum y switch | 10 min |
 
-```cpp
-// Variables para debouncing
-const int BOTON_PIN = 2;
-int estadoBoton;
-int ultimoEstado = HIGH;
-unsigned long ultimoTiempoRebote = 0;
-const unsigned long TIEMPO_DEBOUNCE = 50;  // milisegundos
-
-void setup() {
-    pinMode(BOTON_PIN, INPUT_PULLUP);
-}
-
-void loop() {
-    int lectura = digitalRead(BOTON_PIN);
-
-    // Si la lectura cambió (posible rebote)
-    if (lectura != ultimoEstado) {
-        ultimoTiempoRebote = millis();
-    }
-
-    // Si pasó suficiente tiempo, la lectura es estable
-    if ((millis() - ultimoTiempoRebote) > TIEMPO_DEBOUNCE) {
-        if (lectura != estadoBoton) {
-            estadoBoton = lectura;
-
-            // Aquí procesamos el cambio real
-            if (estadoBoton == LOW) {
-                // Botón fue presionado (con INPUT_PULLUP)
-            }
-        }
-    }
-
-    ultimoEstado = lectura;
-}
-```
-
-#### Solución por Hardware
+### Conceptos Clave
 
 ```
-                         ┌─────────────────┐
-    Pin Arduino ─────────┤                 │
-                         │     BOTÓN       │
-    GND ────[10kΩ]───────┤                 │
-                │        └─────────────────┘
-              ──┴──
-              ─────  Capacitor 0.1µF (100nF)
-                │
-              GND
+┌─────────────────────────────────────────────────────────────┐
+│                    FLUJO DE LA SEMANA                       │
+│                                                             │
+│   Señales      Configuración     Entrada      Salida        │
+│   Digitales → de Pines       → de Datos  → de Control      │
+│   HIGH/LOW    pinMode()       digitalRead() digitalWrite()  │
+│                                                             │
+│                         ↓                                   │
+│                                                             │
+│   Pull-up/     Debouncing      Detección    Máquinas       │
+│   Pull-down →  con millis() → de Flancos → de Estados      │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-### 4. Detección de Flancos (30 min)
+## 💻 Prácticas (90 minutos)
 
-#### Tipos de Flancos
+### Ejercicios
+
+| # | Práctica | Nivel | Componentes | Tiempo |
+|---|----------|-------|-------------|--------|
+| 1 | [Botón y LED Básico](./2-practicas/01-boton-led-basico.md) | ⭐ | 1 LED, 1 Botón, 2 Resistencias | 20 min |
+| 2 | [Toggle LED con Debounce](./2-practicas/02-toggle-led-debounce.md) | ⭐⭐ | 1 LED, 1 Botón, 2 Resistencias | 25 min |
+| 3 | [Contador de Pulsaciones](./2-practicas/03-contador-pulsaciones.md) | ⭐⭐ | 3 LEDs, 1 Botón, 4 Resistencias | 20 min |
+| 4 | [Control Múltiples LEDs](./2-practicas/04-control-multiples-leds.md) | ⭐⭐⭐ | 4 LEDs, 2 Botones, 6 Resistencias | 25 min |
+
+### Progresión de Dificultad
 
 ```
-Flanco de SUBIDA (Rising): LOW → HIGH
-    ___      ___
-   |   |    |   |
-   |   |____|   |____
-       ↑
-     Aquí
-
-Flanco de BAJADA (Falling): HIGH → LOW
-    ___      ___
-   |   |    |   |
-   |   |____|   |____
-           ↑
-         Aquí
-```
-
-#### Implementación
-
-```cpp
-int estadoAnterior = HIGH;
-int estadoActual;
-
-void loop() {
-    estadoActual = digitalRead(BOTON_PIN);
-
-    // Detectar flanco de bajada (presión con INPUT_PULLUP)
-    if (estadoAnterior == HIGH && estadoActual == LOW) {
-        // ¡Botón fue presionado!
-        ejecutarAccion();
-    }
-
-    // Detectar flanco de subida (soltar con INPUT_PULLUP)
-    if (estadoAnterior == LOW && estadoActual == HIGH) {
-        // ¡Botón fue soltado!
-    }
-
-    estadoAnterior = estadoActual;
-}
+Práctica 1     Práctica 2     Práctica 3     Práctica 4
+    ⭐      →     ⭐⭐      →     ⭐⭐      →     ⭐⭐⭐
+  Básico       Intermedio    Intermedio     Avanzado
+   
+  - Encender   - Toggle      - Contador     - 4 LEDs
+  - 1 LED      - Debounce    - 3 LEDs       - 2 Botones
+  - 1 Botón    - millis()    - Serial       - Múltiples modos
 ```
 
 ---
 
-## 💻 Ejercicios Prácticos
+## 🔨 Proyecto: Panel de Control de Iluminación
 
-### Ejercicio 1: Botón que Enciende LED (30 min)
+### Descripción
 
-**Objetivo:** Encender un LED mientras se mantiene presionado un botón.
+Un sistema de control de iluminación con 4 LEDs y 4 botones que implementa 3 modos de operación diferentes.
 
-**Componentes:**
+### Características
 
-- Arduino Uno R3
-- 1 Botón pulsador
-- 1 LED
-- 1 Resistencia 220Ω (LED)
-- 1 Resistencia 10kΩ (Pull-down)
+| Modo | Descripción | Botón |
+|------|-------------|-------|
+| Individual | Control directo LED-Botón | BTN_MODE |
+| Secuencia | Animación automática configurable | BTN_SPEED |
+| Intensidad | PWM simulado con variación de brillo | BTN_PATTERN |
 
-**Diagrama de Conexión:**
+### Archivos del Proyecto
+
+| Archivo | Descripción |
+|---------|-------------|
+| [README.md](./3-proyecto/README.md) | Especificaciones completas |
+| [panel-control.ino](./3-proyecto/panel-control.ino) | Código fuente completo |
+| [DOCUMENTACION.md](./3-proyecto/DOCUMENTACION.md) | Documentación técnica |
+
+### Diagrama de Conexiones
 
 ```
-Pin 2 ────────────────┬──── Botón ──── 5V
-                      │
-                   [10kΩ]
-                      │
-                    GND
-
-Pin 8 ──[220Ω]──[LED]── GND
-```
-
-**Código:**
-
-```cpp
-/*
- * Ejercicio 1: Botón y LED
- * El LED se enciende mientras el botón está presionado
- */
-
-const int BOTON_PIN = 2;
-const int LED_PIN = 8;
-
-void setup() {
-    pinMode(BOTON_PIN, INPUT);  // Con resistencia pull-down externa
-    pinMode(LED_PIN, OUTPUT);
-}
-
-void loop() {
-    int estadoBoton = digitalRead(BOTON_PIN);
-
-    if (estadoBoton == HIGH) {
-        digitalWrite(LED_PIN, HIGH);  // Botón presionado
-    } else {
-        digitalWrite(LED_PIN, LOW);   // Botón soltado
-    }
-}
-
-// Versión simplificada:
-// void loop() {
-//     digitalWrite(LED_PIN, digitalRead(BOTON_PIN));
-// }
+                    PANEL DE CONTROL
+    ┌──────────────────────────────────────────┐
+    │                                          │
+    │   [BTN1]──┬──[BTN2]──┬──[BTN3]──┬──[BTN4]│
+    │     │     │    │     │    │     │    │   │
+    │    D2    D3   D4    D5   D6    D7   D8   │
+    │                                          │
+    │   [LED1]────[LED2]────[LED3]────[LED4]   │
+    │     │        │         │         │       │
+    │    D9       D10       D11       D12      │
+    │                                          │
+    └──────────────────────────────────────────┘
 ```
 
 ---
 
-### Ejercicio 2: Toggle LED con Botón (45 min)
-
-**Objetivo:** Cada presión del botón cambia el estado del LED (encendido/apagado).
-
-**Componentes:**
-
-- Arduino Uno R3
-- 1 Botón pulsador
-- 1 LED
-- 1 Resistencia 220Ω
-
-**Diagrama (usando INPUT_PULLUP):**
+## ⏱️ Distribución del Tiempo
 
 ```
-Pin 2 ──── Botón ──── GND
-
-Pin 8 ──[220Ω]──[LED]── GND
-```
-
-**Código:**
-
-```cpp
-/*
- * Ejercicio 2: Toggle LED
- * Cada presión del botón cambia el estado del LED
- */
-
-const int BOTON_PIN = 2;
-const int LED_PIN = 8;
-
-bool estadoLED = false;
-int estadoBotonAnterior = HIGH;
-
-// Variables para debouncing
-unsigned long ultimoTiempoDebounce = 0;
-const unsigned long DELAY_DEBOUNCE = 50;
-
-void setup() {
-    pinMode(BOTON_PIN, INPUT_PULLUP);  // Usa pull-up interno
-    pinMode(LED_PIN, OUTPUT);
-}
-
-void loop() {
-    int lecturaBoton = digitalRead(BOTON_PIN);
-
-    // Verificar si cambió el estado
-    if (lecturaBoton != estadoBotonAnterior) {
-        ultimoTiempoDebounce = millis();
-    }
-
-    // Si pasó el tiempo de debounce
-    if ((millis() - ultimoTiempoDebounce) > DELAY_DEBOUNCE) {
-        // Detectar flanco de bajada (presión)
-        if (lecturaBoton == LOW && estadoBotonAnterior == HIGH) {
-            estadoLED = !estadoLED;  // Invertir estado
-            digitalWrite(LED_PIN, estadoLED);
-        }
-    }
-
-    estadoBotonAnterior = lecturaBoton;
-}
+┌──────────────────────────────────────────────────────────────┐
+│                    4 HORAS SEMANALES                         │
+├──────────────────────────────────────────────────────────────┤
+│                                                              │
+│   ████████████████  Teoría        60 min (25%)               │
+│   ██████████████████████████  Prácticas   90 min (37.5%)     │
+│   ██████████████████████████  Proyecto    90 min (37.5%)     │
+│                                                              │
+│   Total: 240 minutos = 4 horas                              │
+│                                                              │
+└──────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-### Ejercicio 3: Contador con Display Serial (45 min)
-
-**Objetivo:** Contar presiones de botón y mostrar en monitor serial.
-
-**Componentes:**
-
-- Arduino Uno R3
-- 2 Botones pulsadores
-
-**Diagrama:**
-
-```
-Pin 2 ──── Botón (incrementar) ──── GND
-Pin 3 ──── Botón (decrementar) ──── GND
-```
-
-**Código:**
-
-```cpp
-/*
- * Ejercicio 3: Contador con Botones
- * Un botón incrementa, otro decrementa
- */
-
-const int BOTON_INCREMENTAR = 2;
-const int BOTON_DECREMENTAR = 3;
-
-int contador = 0;
-int estadoIncAnterior = HIGH;
-int estadoDecAnterior = HIGH;
-
-unsigned long ultimoDebounceInc = 0;
-unsigned long ultimoDecounceDec = 0;
-const unsigned long DELAY_DEBOUNCE = 50;
-
-void setup() {
-    pinMode(BOTON_INCREMENTAR, INPUT_PULLUP);
-    pinMode(BOTON_DECREMENTAR, INPUT_PULLUP);
-    Serial.begin(9600);
-    Serial.println("=== Contador Iniciado ===");
-    Serial.println("Contador: 0");
-}
-
-void loop() {
-    // Leer botón incrementar
-    int lecturaInc = digitalRead(BOTON_INCREMENTAR);
-    if (lecturaInc != estadoIncAnterior) {
-        ultimoDebounceInc = millis();
-    }
-    if ((millis() - ultimoDebounceInc) > DELAY_DEBOUNCE) {
-        if (lecturaInc == LOW && estadoIncAnterior == HIGH) {
-            contador++;
-            Serial.print("Contador: ");
-            Serial.println(contador);
-        }
-    }
-    estadoIncAnterior = lecturaInc;
-
-    // Leer botón decrementar
-    int lecturaDec = digitalRead(BOTON_DECREMENTAR);
-    if (lecturaDec != estadoDecAnterior) {
-        ultimoDecounceDec = millis();
-    }
-    if ((millis() - ultimoDecounceDec) > DELAY_DEBOUNCE) {
-        if (lecturaDec == LOW && estadoDecAnterior == HIGH) {
-            contador--;
-            Serial.print("Contador: ");
-            Serial.println(contador);
-        }
-    }
-    estadoDecAnterior = lecturaDec;
-}
-```
-
----
-
-### Ejercicio 4: Selector de Modo con LED (45 min)
-
-**Objetivo:** Usar un botón para ciclar entre diferentes patrones de parpadeo.
-
-**Componentes:**
-
-- Arduino Uno R3
-- 1 Botón pulsador
-- 1 LED
-- 1 Resistencia 220Ω
-
-**Código:**
-
-```cpp
-/*
- * Ejercicio 4: Selector de Modos
- * Botón cambia entre: Apagado → Encendido → Parpadeo Lento → Parpadeo Rápido
- */
-
-const int BOTON_PIN = 2;
-const int LED_PIN = 8;
-
-int modoActual = 0;
-const int TOTAL_MODOS = 4;
-
-int estadoBotonAnterior = HIGH;
-unsigned long ultimoDebounce = 0;
-const unsigned long DELAY_DEBOUNCE = 50;
-
-// Para controlar parpadeo sin delay()
-unsigned long ultimoParpadeo = 0;
-bool estadoLED = false;
-
-void setup() {
-    pinMode(BOTON_PIN, INPUT_PULLUP);
-    pinMode(LED_PIN, OUTPUT);
-    Serial.begin(9600);
-    imprimirModo();
-}
-
-void loop() {
-    // Leer botón con debounce
-    int lecturaBoton = digitalRead(BOTON_PIN);
-    if (lecturaBoton != estadoBotonAnterior) {
-        ultimoDebounce = millis();
-    }
-    if ((millis() - ultimoDebounce) > DELAY_DEBOUNCE) {
-        if (lecturaBoton == LOW && estadoBotonAnterior == HIGH) {
-            modoActual = (modoActual + 1) % TOTAL_MODOS;
-            imprimirModo();
-        }
-    }
-    estadoBotonAnterior = lecturaBoton;
-
-    // Ejecutar modo actual
-    ejecutarModo();
-}
-
-void imprimirModo() {
-    Serial.print("Modo: ");
-    switch(modoActual) {
-        case 0: Serial.println("Apagado"); break;
-        case 1: Serial.println("Encendido"); break;
-        case 2: Serial.println("Parpadeo Lento"); break;
-        case 3: Serial.println("Parpadeo Rapido"); break;
-    }
-}
-
-void ejecutarModo() {
-    switch(modoActual) {
-        case 0:  // Apagado
-            digitalWrite(LED_PIN, LOW);
-            break;
-
-        case 1:  // Encendido
-            digitalWrite(LED_PIN, HIGH);
-            break;
-
-        case 2:  // Parpadeo lento (500ms)
-            if (millis() - ultimoParpadeo >= 500) {
-                estadoLED = !estadoLED;
-                digitalWrite(LED_PIN, estadoLED);
-                ultimoParpadeo = millis();
-            }
-            break;
-
-        case 3:  // Parpadeo rápido (100ms)
-            if (millis() - ultimoParpadeo >= 100) {
-                estadoLED = !estadoLED;
-                digitalWrite(LED_PIN, estadoLED);
-                ultimoParpadeo = millis();
-            }
-            break;
-    }
-}
-```
-
----
-
-## 🔨 Proyecto de la Semana: Cerradura con Combinación
-
-**Descripción:** Sistema de cerradura que requiere presionar botones en secuencia correcta.
-
-**Componentes:**
-
-- Arduino Uno R3
-- 4 Botones pulsadores
-- 3 LEDs (Rojo, Amarillo, Verde)
-- 3 Resistencias 220Ω
-
-**Diagrama de Conexión:**
-
-```
-Botones (INPUT_PULLUP):
-Pin 2 ──── Botón 1 ──── GND
-Pin 3 ──── Botón 2 ──── GND
-Pin 4 ──── Botón 3 ──── GND
-Pin 5 ──── Botón 4 ──── GND
-
-LEDs:
-Pin 8  ──[220Ω]──[LED Verde]──── GND  (Acceso concedido)
-Pin 9  ──[220Ω]──[LED Amarillo]── GND  (Esperando)
-Pin 10 ──[220Ω]──[LED Rojo]───── GND  (Error)
-```
-
-**Código Solución:**
-
-```cpp
-/*
- * Proyecto Semana 2: Cerradura con Combinación
- * Secuencia correcta: 1-3-2-4
- */
-
-// Pines de botones
-const int BOTONES[] = {2, 3, 4, 5};
-const int NUM_BOTONES = 4;
-
-// Pines de LEDs
-const int LED_VERDE = 8;
-const int LED_AMARILLO = 9;
-const int LED_ROJO = 10;
-
-// Secuencia secreta (botón 1, botón 3, botón 2, botón 4)
-const int SECUENCIA[] = {0, 2, 1, 3};  // Índices de BOTONES[]
-const int LONGITUD_SECUENCIA = 4;
-
-// Variables de estado
-int secuenciaIngresada[4];
-int indiceActual = 0;
-
-// Debounce
-int estadosAnteriores[4] = {HIGH, HIGH, HIGH, HIGH};
-unsigned long ultimoDebounce[4] = {0, 0, 0, 0};
-const unsigned long DELAY_DEBOUNCE = 50;
-
-void setup() {
-    // Configurar botones
-    for (int i = 0; i < NUM_BOTONES; i++) {
-        pinMode(BOTONES[i], INPUT_PULLUP);
-    }
-
-    // Configurar LEDs
-    pinMode(LED_VERDE, OUTPUT);
-    pinMode(LED_AMARILLO, OUTPUT);
-    pinMode(LED_ROJO, OUTPUT);
-
-    Serial.begin(9600);
-    Serial.println("=== Cerradura con Combinacion ===");
-    Serial.println("Ingrese la secuencia de 4 botones");
-
-    // Indicar que está esperando
-    digitalWrite(LED_AMARILLO, HIGH);
-}
-
-void loop() {
-    // Revisar cada botón
-    for (int i = 0; i < NUM_BOTONES; i++) {
-        int lectura = digitalRead(BOTONES[i]);
-
-        if (lectura != estadosAnteriores[i]) {
-            ultimoDebounce[i] = millis();
-        }
-
-        if ((millis() - ultimoDebounce[i]) > DELAY_DEBOUNCE) {
-            if (lectura == LOW && estadosAnteriores[i] == HIGH) {
-                procesarBoton(i);
-            }
-        }
-
-        estadosAnteriores[i] = lectura;
-    }
-}
-
-void procesarBoton(int boton) {
-    Serial.print("Boton ");
-    Serial.print(boton + 1);
-    Serial.println(" presionado");
-
-    // Guardar en secuencia ingresada
-    secuenciaIngresada[indiceActual] = boton;
-    indiceActual++;
-
-    // Parpadear LED amarillo
-    digitalWrite(LED_AMARILLO, LOW);
-    delay(100);
-    digitalWrite(LED_AMARILLO, HIGH);
-
-    // Verificar si se completó la secuencia
-    if (indiceActual >= LONGITUD_SECUENCIA) {
-        verificarSecuencia();
-    }
-}
-
-void verificarSecuencia() {
-    bool correcta = true;
-
-    for (int i = 0; i < LONGITUD_SECUENCIA; i++) {
-        if (secuenciaIngresada[i] != SECUENCIA[i]) {
-            correcta = false;
-            break;
-        }
-    }
-
-    if (correcta) {
-        accesoPermitido();
-    } else {
-        accesoDenegado();
-    }
-
-    // Reiniciar
-    indiceActual = 0;
-}
-
-void accesoPermitido() {
-    Serial.println("*** ACCESO PERMITIDO ***");
-
-    digitalWrite(LED_AMARILLO, LOW);
-    digitalWrite(LED_VERDE, HIGH);
-
-    // Parpadear LED verde 5 veces
-    for (int i = 0; i < 5; i++) {
-        digitalWrite(LED_VERDE, HIGH);
-        delay(200);
-        digitalWrite(LED_VERDE, LOW);
-        delay(200);
-    }
-
-    digitalWrite(LED_AMARILLO, HIGH);
-    Serial.println("Ingrese nueva secuencia");
-}
-
-void accesoDenegado() {
-    Serial.println("!!! ACCESO DENEGADO !!!");
-
-    digitalWrite(LED_AMARILLO, LOW);
-    digitalWrite(LED_ROJO, HIGH);
-
-    // LED rojo encendido 2 segundos
-    delay(2000);
-
-    digitalWrite(LED_ROJO, LOW);
-    digitalWrite(LED_AMARILLO, HIGH);
-    Serial.println("Intente de nuevo");
-}
-```
-
-**Extensiones Opcionales:**
-
-1. **Cambio de contraseña:** Permitir cambiar la secuencia
-2. **Intentos limitados:** Bloquear después de 3 intentos fallidos
-3. **Sonido:** Agregar buzzer para feedback auditivo
-
----
-
-## 📖 Recursos
-
-### Documentación
-
-- [Digital Pins - Arduino](https://www.arduino.cc/en/Tutorial/Foundations/DigitalPins)
-- [digitalRead() Reference](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/)
-- [Internal Pull-up Resistors](https://www.arduino.cc/en/Tutorial/BuiltInExamples/InputPullupSerial)
-
-### Tutoriales
-
-- [Button Debouncing](https://www.arduino.cc/en/Tutorial/BuiltInExamples/Debounce)
-- [State Change Detection](https://www.arduino.cc/en/Tutorial/BuiltInExamples/StateChangeDetection)
+## 📦 Componentes Necesarios
+
+### Lista de Materiales
+
+| Componente | Cantidad | Uso Principal |
+|------------|----------|---------------|
+| Arduino Uno R3 | 1 | Microcontrolador |
+| LED Rojo 5mm | 2 | Indicadores |
+| LED Verde 5mm | 1 | Indicadores |
+| LED Amarillo 5mm | 1 | Indicadores |
+| Resistencia 220Ω | 4 | Limitadoras LED |
+| Pulsador táctil | 4 | Entradas |
+| Resistencia 10kΩ | 4 | Pull-down (opcional) |
+| Protoboard | 1 | Montaje |
+| Cables jumper | ~20 | Conexiones |
+
+### Nota sobre Simulación
+
+> ✅ **Todos los ejercicios son compatibles con Tinkercad**  
+> Los estudiantes sin hardware físico pueden completar la semana completa usando el simulador online.
 
 ---
 
 ## ✅ Checklist de Completitud
 
-- [ ] Ejercicio 1: Botón enciende LED completado
-- [ ] Ejercicio 2: Toggle LED funcionando con debounce
-- [ ] Ejercicio 3: Contador con monitor serial
-- [ ] Ejercicio 4: Selector de modos implementado
-- [ ] Proyecto: Cerradura con combinación completada
-- [ ] Conceptos de pull-up/pull-down entendidos
-- [ ] Técnica de debounce aplicada correctamente
-- [ ] Circuitos guardados en Tinkercad
+### Teoría
+- [ ] Módulo 1: Fundamentos I/O Digital
+- [ ] Módulo 2: Resistencias Pull-up/down
+- [ ] Módulo 3: Debouncing
+- [ ] Módulo 4: Máquinas de Estados
+
+### Prácticas
+- [ ] Práctica 1: Botón y LED Básico
+- [ ] Práctica 2: Toggle LED con Debounce
+- [ ] Práctica 3: Contador de Pulsaciones
+- [ ] Práctica 4: Control Múltiples LEDs
+
+### Proyecto
+- [ ] Panel de Control completado
+- [ ] Modo Individual funcionando
+- [ ] Modo Secuencia funcionando
+- [ ] Modo Intensidad funcionando
+- [ ] Documentación completada
 
 ---
 
-## 🎓 Evaluación
+## 📊 Evaluación
 
-| Componente                    | Porcentaje |
-| ----------------------------- | ---------- |
-| Ejercicios prácticos (1-4)    | 40%        |
-| Proyecto de la semana         | 50%        |
-| Documentación y código limpio | 10%        |
+### Distribución de Puntos
 
----
+| Componente | Peso | Puntos |
+|------------|------|--------|
+| Teoría (Quizzes) | 20% | 20 |
+| Prácticas (4 ejercicios) | 40% | 40 |
+| Proyecto | 40% | 40 |
+| **Total** | **100%** | **100** |
 
-## 📝 Notas Importantes
+### Criterios Detallados
 
-1. **Siempre usar debouncing** en aplicaciones con botones
-2. **INPUT_PULLUP invierte la lógica:** presionado = LOW
-3. **millis() no usa delay():** permite multitarea
-4. **Arrays simplifican código** cuando hay múltiples elementos similares
+Ver [RUBRICA-EVALUACION.md](./RUBRICA-EVALUACION.md) para criterios completos.
 
 ---
 
-**Dedicación:** 4 horas | **Anterior:** [← Semana 1](../semana-01/README.md) | **Siguiente:** [Semana 3 →](../semana-03/README.md)
+## 🔗 Navegación del Bootcamp
+
+| Anterior | Actual | Siguiente |
+|----------|--------|-----------|
+| [← Semana 01: Introducción](../semana-01/README.md) | **Semana 02** | [Semana 03: PWM →](../semana-03/README.md) |
+
+---
+
+## 📖 Recursos Adicionales
+
+- [Recursos externos y enlaces](./4-recursos/README.md)
+- [Glosario de términos](./5-glosario/README.md)
+- [Arduino Reference - Digital I/O](https://www.arduino.cc/reference/en/)
+
+---
+
+## 💡 Tips para el Éxito
+
+1. **Practica en Tinkercad** antes de usar hardware real
+2. **Usa Serial Monitor** para depurar tu código
+3. **Implementa debounce** siempre que uses botones
+4. **Evita `delay()`** - usa `millis()` para código no bloqueante
+5. **Documenta tu código** con comentarios claros
+6. **Prueba cada parte** antes de integrar
+
+---
+
+## ❓ Preguntas Frecuentes
+
+<details>
+<summary><strong>¿Por qué mi botón lee valores aleatorios?</strong></summary>
+
+El pin está "flotante". Necesitas una resistencia pull-up o pull-down para mantener un estado definido cuando el botón no está presionado.
+
+```cpp
+// Solución 1: Pull-up interno
+pinMode(BUTTON_PIN, INPUT_PULLUP);
+
+// Solución 2: Pull-down externo con resistencia 10kΩ a GND
+pinMode(BUTTON_PIN, INPUT);
+```
+</details>
+
+<details>
+<summary><strong>¿Por qué el LED no se enciende?</strong></summary>
+
+Verifica:
+1. Polaridad del LED (ánodo +, cátodo -)
+2. Resistencia limitadora conectada
+3. Pin configurado como OUTPUT
+4. digitalWrite(pin, HIGH) en el código
+</details>
+
+<details>
+<summary><strong>¿Por qué el botón registra múltiples pulsaciones?</strong></summary>
+
+Es el "rebote" mecánico. Implementa debouncing:
+
+```cpp
+if (millis() - lastDebounceTime > DEBOUNCE_DELAY) {
+    // Procesar pulsación
+    lastDebounceTime = millis();
+}
+```
+</details>
+
+<details>
+<summary><strong>¿Puedo usar INPUT_PULLUP sin resistencia externa?</strong></summary>
+
+¡Sí! Arduino tiene resistencias internas de ~20-50kΩ. La lógica se invierte: botón presionado = LOW.
+
+```cpp
+pinMode(BUTTON_PIN, INPUT_PULLUP);
+// Botón conecta pin a GND
+// Sin presionar: HIGH
+// Presionado: LOW
+```
+</details>
+
+---
+
+<div align="center">
+
+**🎓 Semana 02 - Entradas y Salidas Digitales**
+
+*Bootcamp Arduino · 4 horas de dedicación semanal*
+
+[⬅️ Semana 01](../semana-01/README.md) · [Inicio](../../README.md) · [Semana 03 ➡️](../semana-03/README.md)
+
+</div>
