@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <!-- Fondo oscuro -->
+  <rect width="100%" height="100%" fill="#1e1e1e"/>
+  
+  <!-- Título -->
+  <text x="400" y="35" font-family="Arial, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="bold">Proyecto: Panel de Control de LEDs</text>
+  <text x="400" y="55" font-family="Arial, sans-serif" font-size="14" fill="#aaaaaa" text-anchor="middle">Sistema interactivo con 4 botones y 4 LEDs - Semana 02</text>
+  
+  <!-- Arduino -->
+  <g transform="translate(30, 80)">
+    <rect x="0" y="0" width="130" height="340" rx="10" fill="#00979c" stroke="#006064" stroke-width="3"/>
+    <text x="65" y="28" font-family="Arial" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="bold">Arduino</text>
+    <text x="65" y="45" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">Uno R3</text>
+    
+    <!-- Pines digitales -->
+    <rect x="110" y="70" width="35" height="15" fill="#ffaa00"/>
+    <text x="127" y="81" font-family="Arial" font-size="8" fill="#000000" text-anchor="middle">13</text>
+    
+    <rect x="110" y="90" width="35" height="15" fill="#ffaa00"/>
+    <text x="127" y="101" font-family="Arial" font-size="8" fill="#000000" text-anchor="middle">12</text>
+    
+    <rect x="110" y="110" width="35" height="15" fill="#ffaa00"/>
+    <text x="127" y="121" font-family="Arial" font-size="8" fill="#000000" text-anchor="middle">11</text>
+    
+    <rect x="110" y="130" width="35" height="15" fill="#ffaa00"/>
+    <text x="127" y="141" font-family="Arial" font-size="8" fill="#000000" text-anchor="middle">10</text>
+    
+    <rect x="110" y="170" width="35" height="15" fill="#00ff00"/>
+    <text x="127" y="181" font-family="Arial" font-size="8" fill="#000000" text-anchor="middle">6</text>
+    
+    <rect x="110" y="190" width="35" height="15" fill="#00ff00"/>
+    <text x="127" y="201" font-family="Arial" font-size="8" fill="#000000" text-anchor="middle">5</text>
+    
+    <rect x="110" y="210" width="35" height="15" fill="#00ff00"/>
+    <text x="127" y="221" font-family="Arial" font-size="8" fill="#000000" text-anchor="middle">4</text>
+    
+    <rect x="110" y="230" width="35" height="15" fill="#00ff00"/>
+    <text x="127" y="241" font-family="Arial" font-size="8" fill="#000000" text-anchor="middle">3</text>
+    
+    <rect x="110" y="280" width="35" height="15" fill="#333333" stroke="#ffffff"/>
+    <text x="127" y="291" font-family="Arial" font-size="8" fill="#ffffff" text-anchor="middle">GND</text>
+    
+    <!-- Etiquetas -->
+    <text x="100" y="100" font-family="Arial" font-size="7" fill="#ff4444" text-anchor="end">LEDs</text>
+    <text x="100" y="200" font-family="Arial" font-size="7" fill="#44ff44" text-anchor="end">BTNs</text>
+  </g>
+  
+  <!-- Sección de LEDs -->
+  <g transform="translate(180, 75)">
+    <text x="60" y="0" font-family="Arial" font-size="11" fill="#ff4444" text-anchor="middle" font-weight="bold">LEDs (Salidas)</text>
+    
+    <!-- LED Rojo -->
+    <line x1="0" y1="17" x2="30" y2="17" stroke="#ffaa00" stroke-width="2"/>
+    <rect x="30" y="10" width="25" height="14" fill="#d4b896" stroke="#8b7355" stroke-width="1" rx="2"/>
+    <text x="42" y="20" font-family="Arial" font-size="6" fill="#000000" text-anchor="middle">220Ω</text>
+    <polygon points="55,10 70,17 55,24" fill="#ff0000" stroke="#cc0000" stroke-width="1"/>
+    <text x="85" y="20" font-family="Arial" font-size="8" fill="#ff0000">Rojo</text>
+    
+    <!-- LED Amarillo -->
+    <line x1="0" y1="37" x2="30" y2="37" stroke="#ffaa00" stroke-width="2"/>
+    <rect x="30" y="30" width="25" height="14" fill="#d4b896" stroke="#8b7355" stroke-width="1" rx="2"/>
+    <text x="42" y="40" font-family="Arial" font-size="6" fill="#000000" text-anchor="middle">220Ω</text>
+    <polygon points="55,30 70,37 55,44" fill="#ffff00" stroke="#cccc00" stroke-width="1"/>
+    <text x="85" y="40" font-family="Arial" font-size="8" fill="#ffff00">Amarillo</text>
+    
+    <!-- LED Verde -->
+    <line x1="0" y1="57" x2="30" y2="57" stroke="#ffaa00" stroke-width="2"/>
+    <rect x="30" y="50" width="25" height="14" fill="#d4b896" stroke="#8b7355" stroke-width="1" rx="2"/>
+    <text x="42" y="60" font-family="Arial" font-size="6" fill="#000000" text-anchor="middle">220Ω</text>
+    <polygon points="55,50 70,57 55,64" fill="#00ff00" stroke="#00cc00" stroke-width="1"/>
+    <text x="85" y="60" font-family="Arial" font-size="8" fill="#00ff00">Verde</text>
+    
+    <!-- LED Azul -->
+    <line x1="0" y1="77" x2="30" y2="77" stroke="#ffaa00" stroke-width="2"/>
+    <rect x="30" y="70" width="25" height="14" fill="#d4b896" stroke="#8b7355" stroke-width="1" rx="2"/>
+    <text x="42" y="80" font-family="Arial" font-size="6" fill="#000000" text-anchor="middle">220Ω</text>
+    <polygon points="55,70 70,77 55,84" fill="#0088ff" stroke="#0066cc" stroke-width="1"/>
+    <text x="85" y="80" font-family="Arial" font-size="8" fill="#0088ff">Azul</text>
+  </g>
+  
+  <!-- Sección de Botones -->
+  <g transform="translate(180, 175)">
+    <text x="50" y="0" font-family="Arial" font-size="11" fill="#44ff44" text-anchor="middle" font-weight="bold">Botones (Entradas)</text>
+    
+    <!-- Botón 1 -->
+    <line x1="0" y1="17" x2="20" y2="17" stroke="#00ff00" stroke-width="2"/>
+    <rect x="20" y="7" width="35" height="20" rx="3" fill="#666666" stroke="#888888" stroke-width="1"/>
+    <text x="37" y="20" font-family="Arial" font-size="7" fill="#ffffff" text-anchor="middle">BTN1</text>
+    <line x1="55" y1="17" x2="75" y2="17" stroke="#333333" stroke-width="2"/>
+    <text x="85" y="20" font-family="Arial" font-size="8" fill="#aaaaaa">→ LED Rojo</text>
+    
+    <!-- Botón 2 -->
+    <line x1="0" y1="42" x2="20" y2="42" stroke="#00ff00" stroke-width="2"/>
+    <rect x="20" y="32" width="35" height="20" rx="3" fill="#666666" stroke="#888888" stroke-width="1"/>
+    <text x="37" y="45" font-family="Arial" font-size="7" fill="#ffffff" text-anchor="middle">BTN2</text>
+    <line x1="55" y1="42" x2="75" y2="42" stroke="#333333" stroke-width="2"/>
+    <text x="85" y="45" font-family="Arial" font-size="8" fill="#aaaaaa">→ LED Amarillo</text>
+    
+    <!-- Botón 3 -->
+    <line x1="0" y1="67" x2="20" y2="67" stroke="#00ff00" stroke-width="2"/>
+    <rect x="20" y="57" width="35" height="20" rx="3" fill="#666666" stroke="#888888" stroke-width="1"/>
+    <text x="37" y="70" font-family="Arial" font-size="7" fill="#ffffff" text-anchor="middle">BTN3</text>
+    <line x1="55" y1="67" x2="75" y2="67" stroke="#333333" stroke-width="2"/>
+    <text x="85" y="70" font-family="Arial" font-size="8" fill="#aaaaaa">→ LED Verde</text>
+    
+    <!-- Botón 4 -->
+    <line x1="0" y1="92" x2="20" y2="92" stroke="#00ff00" stroke-width="2"/>
+    <rect x="20" y="82" width="35" height="20" rx="3" fill="#666666" stroke="#888888" stroke-width="1"/>
+    <text x="37" y="95" font-family="Arial" font-size="7" fill="#ffffff" text-anchor="middle">BTN4</text>
+    <line x1="55" y1="92" x2="75" y2="92" stroke="#333333" stroke-width="2"/>
+    <text x="85" y="95" font-family="Arial" font-size="8" fill="#aaaaaa">→ LED Azul</text>
+  </g>
+  
+  <!-- Modos de Operación -->
+  <g transform="translate(400, 80)">
+    <rect x="0" y="0" width="370" height="150" rx="8" fill="#2a2a2a" stroke="#00979c" stroke-width="2"/>
+    <text x="185" y="22" font-family="Arial" font-size="12" fill="#00979c" text-anchor="middle" font-weight="bold">Modos de Operación</text>
+    
+    <text x="15" y="45" font-family="Arial" font-size="11" fill="#ffaa00" font-weight="bold">Modo 1: Control Individual</text>
+    <text x="25" y="60" font-family="Arial" font-size="10" fill="#aaaaaa">Cada botón controla su LED correspondiente (Toggle)</text>
+    
+    <text x="15" y="80" font-family="Arial" font-size="11" fill="#00b4d8" font-weight="bold">Modo 2: Secuencia</text>
+    <text x="25" y="95" font-family="Arial" font-size="10" fill="#aaaaaa">BTN1: Inicia secuencia | BTN2: Detiene</text>
+    
+    <text x="15" y="115" font-family="Arial" font-size="11" fill="#ff8c00" font-weight="bold">Modo 3: Intensidad (Bono)</text>
+    <text x="25" y="130" font-family="Arial" font-size="10" fill="#aaaaaa">BTN3: Aumenta brillo | BTN4: Reduce brillo</text>
+    
+    <text x="15" y="145" font-family="Arial" font-size="9" fill="#666666">Presión larga de BTN1: Cambia entre modos</text>
+  </g>
+  
+  <!-- Tabla de Conexiones -->
+  <g transform="translate(400, 245)">
+    <rect x="0" y="0" width="370" height="120" rx="8" fill="#2a2a2a" stroke="#444444" stroke-width="2"/>
+    <text x="185" y="20" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">Tabla de Conexiones</text>
+    
+    <!-- Headers -->
+    <text x="30" y="40" font-family="Arial" font-size="9" fill="#888888">Componente</text>
+    <text x="110" y="40" font-family="Arial" font-size="9" fill="#888888">Pin Arduino</text>
+    <text x="190" y="40" font-family="Arial" font-size="9" fill="#888888">Tipo</text>
+    <text x="270" y="40" font-family="Arial" font-size="9" fill="#888888">Configuración</text>
+    
+    <line x1="15" y1="45" x2="355" y2="45" stroke="#444444" stroke-width="1"/>
+    
+    <text x="30" y="58" font-family="Arial" font-size="9" fill="#ff4444">LED Rojo</text>
+    <text x="130" y="58" font-family="Arial" font-size="9" fill="#ffffff">13</text>
+    <text x="190" y="58" font-family="Arial" font-size="9" fill="#aaaaaa">OUTPUT</text>
+    <text x="270" y="58" font-family="Arial" font-size="9" fill="#aaaaaa">+ 220Ω</text>
+    
+    <text x="30" y="72" font-family="Arial" font-size="9" fill="#ffff00">LED Amarillo</text>
+    <text x="130" y="72" font-family="Arial" font-size="9" fill="#ffffff">12</text>
+    <text x="190" y="72" font-family="Arial" font-size="9" fill="#aaaaaa">OUTPUT</text>
+    <text x="270" y="72" font-family="Arial" font-size="9" fill="#aaaaaa">+ 220Ω</text>
+    
+    <text x="30" y="86" font-family="Arial" font-size="9" fill="#00ff00">LED Verde</text>
+    <text x="130" y="86" font-family="Arial" font-size="9" fill="#ffffff">11</text>
+    <text x="190" y="86" font-family="Arial" font-size="9" fill="#aaaaaa">OUTPUT</text>
+    <text x="270" y="86" font-family="Arial" font-size="9" fill="#aaaaaa">+ 220Ω</text>
+    
+    <text x="30" y="100" font-family="Arial" font-size="9" fill="#0088ff">LED Azul</text>
+    <text x="130" y="100" font-family="Arial" font-size="9" fill="#ffffff">10</text>
+    <text x="190" y="100" font-family="Arial" font-size="9" fill="#aaaaaa">OUTPUT</text>
+    <text x="270" y="100" font-family="Arial" font-size="9" fill="#aaaaaa">+ 220Ω</text>
+    
+    <text x="30" y="114" font-family="Arial" font-size="9" fill="#44ff44">BTN 1-4</text>
+    <text x="130" y="114" font-family="Arial" font-size="9" fill="#ffffff">6,5,4,3</text>
+    <text x="190" y="114" font-family="Arial" font-size="9" fill="#aaaaaa">INPUT_PULLUP</text>
+    <text x="270" y="114" font-family="Arial" font-size="9" fill="#aaaaaa">a GND</text>
+  </g>
+  
+  <!-- Requisitos -->
+  <g transform="translate(400, 380)">
+    <rect x="0" y="0" width="370" height="90" rx="8" fill="#2a2a2a" stroke="#44ff44" stroke-width="2"/>
+    <text x="185" y="18" font-family="Arial" font-size="11" fill="#44ff44" text-anchor="middle" font-weight="bold">✅ Requisitos del Proyecto</text>
+    
+    <text x="15" y="38" font-family="Arial" font-size="10" fill="#ffffff">• Implementar debounce en todos los botones</text>
+    <text x="15" y="52" font-family="Arial" font-size="10" fill="#ffffff">• Usar arrays para gestionar pines</text>
+    <text x="15" y="66" font-family="Arial" font-size="10" fill="#ffffff">• Aplicar máquina de estados para los modos</text>
+    <text x="15" y="80" font-family="Arial" font-size="10" fill="#ffffff">• Compatible con Tinkercad</text>
+  </g>
+  
+  <!-- Nota de materiales -->
+  <g transform="translate(30, 435)">
+    <text x="0" y="0" font-family="Arial" font-size="10" fill="#aaaaaa">Materiales: 4 LEDs (colores), 4 Resistencias 220Ω, 4 Pulsadores, Protoboard, Cables</text>
+    <text x="0" y="18" font-family="Arial" font-size="10" fill="#44ff44">✅ 100% Compatible con Tinkercad</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="400" y="485" font-family="Arial" font-size="10" fill="#666666" text-anchor="middle">Bootcamp Arduino - Semana 02 - Proyecto Final</text>
+</svg>

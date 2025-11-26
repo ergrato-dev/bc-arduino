@@ -7,16 +7,16 @@
 
 ## 📋 Índice de Diagramas
 
-| #   | Archivo                              | Usado en         | Descripción                              |
-| --- | ------------------------------------ | ---------------- | ---------------------------------------- |
-| 01  | `01-digital-io-estados.svg`          | Teoría Módulo 01 | Estados HIGH/LOW y flujo de corriente    |
-| 02  | `02-pull-down-circuito.svg`          | Teoría Módulo 02 | Circuito con resistencia pull-down       |
-| 03  | `03-pull-up-circuito.svg`            | Teoría Módulo 02 | Circuito con resistencia pull-up         |
-| 04  | `04-input-pullup-interno.svg`        | Teoría Módulo 02 | Resistencia pull-up interna Arduino      |
-| 05  | `05-debounce-problema.svg`           | Teoría Módulo 03 | Visualización del rebote mecánico        |
-| 06  | `06-debounce-solucion.svg`           | Teoría Módulo 03 | Señal limpia después de debounce         |
-| 07  | `07-practica-toggle-led.svg`         | Práctica 03      | Diagrama circuito toggle LED             |
-| 08  | `08-proyecto-control-iluminacion.svg`| Proyecto         | Diagrama del sistema de control          |
+| #   | Archivo                              | Usado en         | Descripción                              | Estado |
+| --- | ------------------------------------ | ---------------- | ---------------------------------------- | ------ |
+| 01  | `01-digital-io-estados.svg`          | Teoría Módulo 01 | Estados HIGH/LOW y niveles de voltaje    | ✅     |
+| 02  | `02-pull-down-circuito.svg`          | Teoría Módulo 02 | Circuito con resistencia pull-down       | ✅     |
+| 03  | `03-pull-up-circuito.svg`            | Teoría Módulo 02 | Circuito con resistencia pull-up         | ✅     |
+| 04  | `04-input-pullup-interno.svg`        | Teoría Módulo 02 | Resistencia pull-up interna Arduino      | ✅     |
+| 05  | `05-debouncing-diagrama.svg`         | Teoría Módulo 03 | Rebotes y solución con millis()          | ✅     |
+| 06  | `06-boton-led-circuito.svg`          | Práctica 01      | Circuito botón controlando LED           | ✅     |
+| 07  | `07-maquina-estados.svg`             | Teoría Módulo 04 | Diagrama FSM con tabla de transiciones   | ✅     |
+| 08  | `08-proyecto-panel-control.svg`      | Proyecto         | Panel de control con 4 botones y 4 LEDs  | ✅     |
 
 ---
 

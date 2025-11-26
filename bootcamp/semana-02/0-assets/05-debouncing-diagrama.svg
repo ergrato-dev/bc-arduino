@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <!-- Fondo oscuro -->
+  <rect width="100%" height="100%" fill="#1e1e1e"/>
+  
+  <!-- Título -->
+  <text x="400" y="35" font-family="Arial, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="bold">Debouncing - Eliminación de Rebotes</text>
+  <text x="400" y="55" font-family="Arial, sans-serif" font-size="14" fill="#aaaaaa" text-anchor="middle">Técnica para leer correctamente pulsaciones de botones</text>
+  
+  <!-- Señal SIN debounce -->
+  <g transform="translate(50, 80)">
+    <text x="175" y="0" font-family="Arial" font-size="14" fill="#ff4444" text-anchor="middle" font-weight="bold">❌ Sin Debounce - Lecturas Erróneas</text>
+    
+    <rect x="0" y="10" width="350" height="140" rx="8" fill="#2a2a2a" stroke="#ff4444" stroke-width="2"/>
+    
+    <!-- Ejes -->
+    <line x1="30" y1="130" x2="330" y2="130" stroke="#666666" stroke-width="1"/>
+    <line x1="30" y1="130" x2="30" y2="30" stroke="#666666" stroke-width="1"/>
+    <text x="25" y="40" font-family="Arial" font-size="9" fill="#44ff44">HIGH</text>
+    <text x="25" y="125" font-family="Arial" font-size="9" fill="#ff4444">LOW</text>
+    <text x="170" y="145" font-family="Arial" font-size="9" fill="#666666">Tiempo →</text>
+    
+    <!-- Señal con rebotes -->
+    <path d="M30 40 L60 40 L60 120 L65 120 L65 40 L70 40 L70 120 L75 120 L75 40 L85 40 L85 120 L90 120 L90 40 L100 40 L100 120 L330 120" 
+          fill="none" stroke="#ff4444" stroke-width="2"/>
+    
+    <!-- Zona de rebote -->
+    <rect x="55" y="25" width="55" height="115" fill="#ff444433" stroke="#ff4444" stroke-width="1" stroke-dasharray="4"/>
+    <text x="82" y="80" font-family="Arial" font-size="9" fill="#ff4444" text-anchor="middle" transform="rotate(-90, 82, 80)">Rebotes</text>
+    
+    <!-- Contador erróneo -->
+    <text x="200" y="55" font-family="Arial" font-size="11" fill="#ff4444">Contador: +5 (¡Error!)</text>
+    <text x="200" y="72" font-family="Arial" font-size="10" fill="#aaaaaa">Se esperaba: +1</text>
+  </g>
+  
+  <!-- Señal CON debounce -->
+  <g transform="translate(420, 80)">
+    <text x="175" y="0" font-family="Arial" font-size="14" fill="#44ff44" text-anchor="middle" font-weight="bold">✅ Con Debounce - Lectura Correcta</text>
+    
+    <rect x="0" y="10" width="350" height="140" rx="8" fill="#2a2a2a" stroke="#44ff44" stroke-width="2"/>
+    
+    <!-- Ejes -->
+    <line x1="30" y1="130" x2="330" y2="130" stroke="#666666" stroke-width="1"/>
+    <line x1="30" y1="130" x2="30" y2="30" stroke="#666666" stroke-width="1"/>
+    <text x="25" y="40" font-family="Arial" font-size="9" fill="#44ff44">HIGH</text>
+    <text x="25" y="125" font-family="Arial" font-size="9" fill="#ff4444">LOW</text>
+    <text x="170" y="145" font-family="Arial" font-size="9" fill="#666666">Tiempo →</text>
+    
+    <!-- Señal filtrada limpia -->
+    <path d="M30 40 L100 40 L100 120 L330 120" 
+          fill="none" stroke="#44ff44" stroke-width="2"/>
+    
+    <!-- Zona de espera -->
+    <rect x="55" y="25" width="45" height="115" fill="#44ff4433" stroke="#44ff44" stroke-width="1" stroke-dasharray="4"/>
+    <text x="77" y="80" font-family="Arial" font-size="9" fill="#44ff44" text-anchor="middle" transform="rotate(-90, 77, 80)">Espera</text>
+    
+    <!-- Contador correcto -->
+    <text x="200" y="55" font-family="Arial" font-size="11" fill="#44ff44">Contador: +1 (Correcto)</text>
+    <text x="200" y="72" font-family="Arial" font-size="10" fill="#aaaaaa">Una pulsación = +1</text>
+  </g>
+  
+  <!-- Explicación del problema -->
+  <g transform="translate(50, 250)">
+    <rect x="0" y="0" width="300" height="100" rx="8" fill="#2a2a2a" stroke="#ff8c00" stroke-width="2"/>
+    <text x="150" y="22" font-family="Arial" font-size="12" fill="#ff8c00" text-anchor="middle" font-weight="bold">🔍 ¿Por qué ocurren los rebotes?</text>
+    
+    <text x="15" y="45" font-family="Arial" font-size="11" fill="#ffffff">• Contactos mecánicos del botón</text>
+    <text x="15" y="62" font-family="Arial" font-size="11" fill="#ffffff">• Vibraciones al presionar/soltar</text>
+    <text x="15" y="79" font-family="Arial" font-size="11" fill="#ffffff">• Duración típica: 10-50 ms</text>
+    <text x="15" y="93" font-family="Arial" font-size="11" fill="#aaaaaa">Arduino lee miles de veces por segundo</text>
+  </g>
+  
+  <!-- Solución -->
+  <g transform="translate(370, 250)">
+    <rect x="0" y="0" width="400" height="100" rx="8" fill="#2a2a2a" stroke="#44ff44" stroke-width="2"/>
+    <text x="200" y="22" font-family="Arial" font-size="12" fill="#44ff44" text-anchor="middle" font-weight="bold">✅ Solución: Delay de Debounce</text>
+    
+    <text x="15" y="45" font-family="Arial" font-size="11" fill="#ffffff">1. Detectar cambio de estado</text>
+    <text x="15" y="62" font-family="Arial" font-size="11" fill="#ffffff">2. Esperar tiempo de estabilización (50ms)</text>
+    <text x="15" y="79" font-family="Arial" font-size="11" fill="#ffffff">3. Verificar si el estado persiste</text>
+    <text x="15" y="93" font-family="Arial" font-size="11" fill="#aaaaaa">4. Solo entonces confirmar la pulsación</text>
+  </g>
+  
+  <!-- Código -->
+  <g transform="translate(50, 365)">
+    <rect x="0" y="0" width="700" height="105" rx="8" fill="#2a2a2a" stroke="#00979c" stroke-width="2"/>
+    <text x="350" y="20" font-family="Arial" font-size="12" fill="#00979c" text-anchor="middle" font-weight="bold">Implementación con millis()</text>
+    
+    <text x="15" y="40" font-family="Courier" font-size="10" fill="#aaaaaa">const unsigned long DEBOUNCE_DELAY = 50;  </text>
+    <text x="350" y="40" font-family="Courier" font-size="10" fill="#666666">// Tiempo de espera en ms</text>
+    
+    <text x="15" y="55" font-family="Courier" font-size="10" fill="#00b4d8">if (reading != lastButtonState) {</text>
+    <text x="15" y="70" font-family="Courier" font-size="10" fill="#ffffff">  lastDebounceTime = millis();</text>
+    <text x="350" y="70" font-family="Courier" font-size="10" fill="#666666">// Guardar tiempo del cambio</text>
+    
+    <text x="15" y="85" font-family="Courier" font-size="10" fill="#00b4d8">if ((millis() - lastDebounceTime) > DEBOUNCE_DELAY) {</text>
+    <text x="15" y="100" font-family="Courier" font-size="10" fill="#ffffff">  buttonState = reading;</text>
+    <text x="350" y="100" font-family="Courier" font-size="10" fill="#666666">// Confirmar solo si estable 50ms</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="400" y="485" font-family="Arial" font-size="10" fill="#666666" text-anchor="middle">Bootcamp Arduino - Semana 02</text>
+</svg>

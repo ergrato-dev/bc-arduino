@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <!-- Fondo oscuro -->
+  <rect width="100%" height="100%" fill="#1e1e1e"/>
+  
+  <!-- Título -->
+  <text x="400" y="35" font-family="Arial, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="bold">Circuito Botón con LED</text>
+  <text x="400" y="55" font-family="Arial, sans-serif" font-size="14" fill="#aaaaaa" text-anchor="middle">Control básico de LED mediante pulsador con INPUT_PULLUP</text>
+  
+  <!-- Arduino -->
+  <g transform="translate(50, 90)">
+    <rect x="0" y="0" width="130" height="280" rx="10" fill="#00979c" stroke="#006064" stroke-width="3"/>
+    <text x="65" y="30" font-family="Arial" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="bold">Arduino</text>
+    <text x="65" y="48" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">Uno R3</text>
+    
+    <!-- Pines -->
+    <rect x="110" y="70" width="35" height="18" fill="#ffaa00"/>
+    <text x="127" y="83" font-family="Arial" font-size="10" fill="#000000" text-anchor="middle">13</text>
+    
+    <rect x="110" y="100" width="35" height="18" fill="#ffaa00"/>
+    <text x="127" y="113" font-family="Arial" font-size="10" fill="#000000" text-anchor="middle">2</text>
+    
+    <rect x="110" y="180" width="35" height="18" fill="#ff0000"/>
+    <text x="127" y="193" font-family="Arial" font-size="9" fill="#ffffff" text-anchor="middle">5V</text>
+    
+    <rect x="110" y="230" width="35" height="18" fill="#333333" stroke="#ffffff"/>
+    <text x="127" y="243" font-family="Arial" font-size="9" fill="#ffffff" text-anchor="middle">GND</text>
+    
+    <!-- Etiquetas de pines -->
+    <text x="100" y="84" font-family="Arial" font-size="8" fill="#aaaaaa" text-anchor="end">LED</text>
+    <text x="100" y="114" font-family="Arial" font-size="8" fill="#aaaaaa" text-anchor="end">BTN</text>
+  </g>
+  
+  <!-- Circuito del LED -->
+  <g transform="translate(200, 90)">
+    <!-- Línea del pin 13 -->
+    <line x1="0" y1="79" x2="80" y2="79" stroke="#ffaa00" stroke-width="3"/>
+    
+    <!-- Resistencia 220Ω -->
+    <rect x="80" y="65" width="50" height="28" fill="#d4b896" stroke="#8b7355" stroke-width="2" rx="3"/>
+    <text x="105" y="83" font-family="Arial" font-size="9" fill="#000000" text-anchor="middle">220Ω</text>
+    
+    <!-- Línea a LED -->
+    <line x1="130" y1="79" x2="170" y2="79" stroke="#ffaa00" stroke-width="3"/>
+    
+    <!-- LED -->
+    <polygon points="170,65 200,79 170,93" fill="#ff4444" stroke="#cc0000" stroke-width="2"/>
+    <line x1="200" y1="65" x2="200" y2="93" stroke="#cc0000" stroke-width="2"/>
+    <line x1="200" y1="79" x2="220" y2="79" stroke="#333333" stroke-width="3"/>
+    
+    <!-- Brillo del LED -->
+    <line x1="175" y1="55" x2="175" y2="45" stroke="#ff666666" stroke-width="1"/>
+    <line x1="185" y1="50" x2="190" y2="40" stroke="#ff666666" stroke-width="1"/>
+    <line x1="195" y1="55" x2="200" y2="45" stroke="#ff666666" stroke-width="1"/>
+    
+    <!-- GND del LED -->
+    <line x1="220" y1="79" x2="220" y2="148" stroke="#333333" stroke-width="3"/>
+  </g>
+  
+  <!-- Circuito del Botón -->
+  <g transform="translate(200, 90)">
+    <!-- Línea del pin 2 -->
+    <line x1="0" y1="109" x2="80" y2="109" stroke="#00ff00" stroke-width="3"/>
+    <line x1="80" y1="109" x2="80" y2="170" stroke="#00ff00" stroke-width="3"/>
+    
+    <!-- Botón -->
+    <rect x="55" y="170" width="60" height="40" rx="6" fill="#666666" stroke="#888888" stroke-width="2"/>
+    <text x="85" y="195" font-family="Arial" font-size="10" fill="#ffffff" text-anchor="middle">BOTÓN</text>
+    <circle cx="70" cy="185" r="5" fill="#888888"/>
+    <circle cx="100" cy="185" r="5" fill="#888888"/>
+    
+    <!-- GND del botón -->
+    <line x1="80" y1="210" x2="80" y2="250" stroke="#333333" stroke-width="3"/>
+  </g>
+  
+  <!-- Línea común de GND -->
+  <g transform="translate(200, 90)">
+    <line x1="80" y1="250" x2="220" y2="250" stroke="#333333" stroke-width="3"/>
+    <line x1="145" y1="250" x2="145" y2="148" stroke="#333333" stroke-width="3"/>
+    <line x1="145" y1="148" x2="0" y2="148" stroke="#333333" stroke-width="3"/>
+    
+    <!-- Símbolo GND -->
+    <line x1="135" y1="265" x2="155" y2="265" stroke="#333333" stroke-width="3"/>
+    <line x1="140" y1="272" x2="150" y2="272" stroke="#333333" stroke-width="2"/>
+    <line x1="143" y1="279" x2="147" y2="279" stroke="#333333" stroke-width="2"/>
+  </g>
+  
+  <!-- Estados de operación -->
+  <g transform="translate(480, 100)">
+    <!-- Estado 1: Botón suelto -->
+    <rect x="0" y="0" width="280" height="80" rx="8" fill="#2a2a2a" stroke="#44ff44" stroke-width="2"/>
+    <text x="140" y="22" font-family="Arial" font-size="12" fill="#44ff44" text-anchor="middle" font-weight="bold">Botón NO Presionado</text>
+    <text x="15" y="42" font-family="Arial" font-size="11" fill="#aaaaaa">Pin 2: HIGH (Pull-up interno)</text>
+    <text x="15" y="58" font-family="Arial" font-size="11" fill="#aaaaaa">Pin 13: LOW → LED apagado</text>
+    <circle cx="250" cy="50" r="12" fill="#333333" stroke="#666666" stroke-width="2"/>
+    
+    <!-- Estado 2: Botón presionado -->
+    <rect x="0" y="100" width="280" height="80" rx="8" fill="#2a2a2a" stroke="#ff4444" stroke-width="2"/>
+    <text x="140" y="122" font-family="Arial" font-size="12" fill="#ff4444" text-anchor="middle" font-weight="bold">Botón PRESIONADO</text>
+    <text x="15" y="142" font-family="Arial" font-size="11" fill="#aaaaaa">Pin 2: LOW (conectado a GND)</text>
+    <text x="15" y="158" font-family="Arial" font-size="11" fill="#aaaaaa">Pin 13: HIGH → LED encendido</text>
+    <circle cx="250" cy="150" r="12" fill="#ff4444" stroke="#cc0000" stroke-width="2"/>
+  </g>
+  
+  <!-- Código -->
+  <g transform="translate(480, 290)">
+    <rect x="0" y="0" width="280" height="150" rx="8" fill="#2a2a2a" stroke="#00979c" stroke-width="2"/>
+    <text x="140" y="22" font-family="Arial" font-size="12" fill="#00979c" text-anchor="middle" font-weight="bold">Código Arduino</text>
+    
+    <text x="10" y="42" font-family="Courier" font-size="10" fill="#ff8c00">pinMode(13, OUTPUT);</text>
+    <text x="10" y="57" font-family="Courier" font-size="10" fill="#ff8c00">pinMode(2, INPUT_PULLUP);</text>
+    <text x="10" y="77" font-family="Courier" font-size="10" fill="#666666">// En loop():</text>
+    <text x="10" y="92" font-family="Courier" font-size="10" fill="#00b4d8">if (digitalRead(2) == LOW) {</text>
+    <text x="10" y="107" font-family="Courier" font-size="10" fill="#ffffff">  digitalWrite(13, HIGH);</text>
+    <text x="10" y="122" font-family="Courier" font-size="10" fill="#00b4d8">} else {</text>
+    <text x="10" y="137" font-family="Courier" font-size="10" fill="#ffffff">  digitalWrite(13, LOW);</text>
+  </g>
+  
+  <!-- Notas -->
+  <g transform="translate(50, 400)">
+    <text x="0" y="0" font-family="Arial" font-size="11" fill="#ffaa00">💡 INPUT_PULLUP elimina la necesidad de resistencia externa para el botón</text>
+    <text x="0" y="20" font-family="Arial" font-size="11" fill="#aaaaaa">📝 La resistencia de 220Ω protege el LED de exceso de corriente</text>
+    <text x="0" y="40" font-family="Arial" font-size="11" fill="#44ff44">✅ Compatible con Tinkercad</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="400" y="485" font-family="Arial" font-size="10" fill="#666666" text-anchor="middle">Bootcamp Arduino - Semana 02</text>
+</svg>
