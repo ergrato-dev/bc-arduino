@@ -30,7 +30,7 @@ Presión del botón
       ▼
       ┌─┐┌┐┌─┐  ← Rebotes (5-50ms)
 HIGH ─┘ └┘└┘ └───────────────────────
-                                      
+
 LOW ──────────────────────────────────
       │        │
       │        └── Estado estable
@@ -60,12 +60,12 @@ int lastState = HIGH;
 
 void loop() {
     int currentState = digitalRead(BUTTON_PIN);
-    
+
     if (currentState == LOW && lastState == HIGH) {
         counter++;  // ¡Se suma múltiples veces por cada pulsación!
         Serial.println(counter);
     }
-    
+
     lastState = currentState;
 }
 
@@ -78,9 +78,9 @@ La técnica consiste en **ignorar cambios de estado** durante un período corto 
 
 ```
 Con Debounce:
-                    
+
                  ┌── Detectar cambio
-                 │   
+                 │
       ┌─┐┌┐┌─┐   │   ┌─── Esperar 50ms
 HIGH ─┘ └┘└┘ └───┼───┤
                  │   │
@@ -98,11 +98,11 @@ LOW ─────────────┼───┼───────�
 
 ### ¿Por qué `millis()` y no `delay()`?
 
-| `delay()` | `millis()` |
-|-----------|------------|
-| ❌ Bloquea todo el programa | ✅ No bloqueante |
+| `delay()`                      | `millis()`            |
+| ------------------------------ | --------------------- |
+| ❌ Bloquea todo el programa    | ✅ No bloqueante      |
 | ❌ No puede hacer otras tareas | ✅ Multitarea posible |
-| ❌ Pierde eventos | ✅ Responsivo |
+| ❌ Pierde eventos              | ✅ Responsivo         |
 
 ### Código de Debounce Básico
 
@@ -111,21 +111,21 @@ LOW ─────────────┼───┼───────�
  * =================================================
  * PROYECTO: Debounce con millis()
  * =================================================
- * 
+ *
  * ¿Qué hace?
  * Detecta pulsaciones de botón eliminando rebotes
- * 
+ *
  * ¿Cómo funciona?
  * 1. Detecta cambio de estado en el pin
  * 2. Guarda el tiempo del cambio
  * 3. Espera 50ms sin cambios
  * 4. Confirma el nuevo estado
- * 
+ *
  * Hardware:
  * - Arduino Uno R3
  * - Botón conectado entre pin 2 y GND
  * - LED integrado en pin 13
- * 
+ *
  * Compatibilidad Tinkercad: ✅
  * =================================================
  */
@@ -155,7 +155,7 @@ void setup() {
     pinMode(BUTTON_PIN, INPUT_PULLUP);
     pinMode(LED_PIN, OUTPUT);
     Serial.begin(9600);
-    
+
     Serial.println("Sistema iniciado - Presiona el botón");
 }
 
@@ -165,21 +165,21 @@ void setup() {
 void loop() {
     // 1. Leer el estado actual del botón
     int reading = digitalRead(BUTTON_PIN);
-    
+
     // 2. Detectar si hubo cambio (potencial rebote)
     if (reading != lastButtonState) {
         // Reiniciar el temporizador de debounce
         lastDebounceTime = millis();
     }
-    
+
     // 3. Verificar si ha pasado suficiente tiempo desde el último cambio
     if ((millis() - lastDebounceTime) > DEBOUNCE_DELAY) {
         // El estado es estable por más de 50ms
-        
+
         // 4. Si el estado confirmado cambió, actuar
         if (reading != buttonState) {
             buttonState = reading;
-            
+
             // Detectar flanco de bajada (botón presionado con pull-up)
             if (buttonState == LOW) {
                 // Toggle del LED
@@ -188,7 +188,7 @@ void loop() {
             }
         }
     }
-    
+
     // 5. Guardar la lectura para la próxima iteración
     lastButtonState = reading;
 }
@@ -280,10 +280,10 @@ unsigned long lastDebounceTime = 0;
  * =================================================
  * PROYECTO: Contador con Debounce
  * =================================================
- * 
+ *
  * ¿Qué hace?
  * Cuenta pulsaciones de botón correctamente
- * 
+ *
  * Compatibilidad Tinkercad: ✅
  * =================================================
  */
@@ -304,15 +304,15 @@ void setup() {
 
 void loop() {
     int reading = digitalRead(BUTTON_PIN);
-    
+
     if (reading != lastButtonState) {
         lastDebounceTime = millis();
     }
-    
+
     if ((millis() - lastDebounceTime) > DEBOUNCE_DELAY) {
         if (reading != buttonState) {
             buttonState = reading;
-            
+
             // Solo contar cuando se PRESIONA (flanco de bajada)
             if (buttonState == LOW) {
                 pressCount++;
@@ -321,7 +321,7 @@ void loop() {
             }
         }
     }
-    
+
     lastButtonState = reading;
 }
 ```
@@ -331,6 +331,7 @@ void loop() {
 ## ⚠️ Errores Comunes
 
 ### 1. Usar `delay()` para debounce
+
 ```cpp
 // ❌ INCORRECTO - Bloquea el programa
 if (digitalRead(2) == LOW) {
@@ -345,6 +346,7 @@ if ((millis() - lastDebounceTime) > DEBOUNCE_DELAY) {
 ```
 
 ### 2. No guardar `lastButtonState`
+
 ```cpp
 // ❌ INCORRECTO - Olvida actualizar
 void loop() {
@@ -357,6 +359,7 @@ void loop() {
 ```
 
 ### 3. Tiempo de debounce muy corto
+
 ```cpp
 // ❌ INCORRECTO - 5ms puede ser insuficiente
 const unsigned long DEBOUNCE_DELAY = 5;
@@ -370,16 +373,19 @@ const unsigned long DEBOUNCE_DELAY = 50;
 ## ✅ Autoevaluación
 
 1. **¿Cuánto dura típicamente el rebote de un botón?**
+
    - [ ] 1 segundo
    - [x] 10-50 milisegundos
    - [ ] 1 milisegundo
 
 2. **¿Por qué es mejor usar `millis()` que `delay()` para debounce?**
+
    - [ ] Es más preciso
    - [x] No bloquea el programa
    - [ ] Usa menos memoria
 
 3. **Con INPUT_PULLUP, ¿qué valor indica "botón presionado"?**
+
    - [ ] HIGH
    - [x] LOW
    - [ ] Ninguno

@@ -22,10 +22,10 @@ Al finalizar este módulo serás capaz de:
 
 Una **señal digital** solo puede tener dos estados posibles:
 
-| Estado | Voltaje | Valor Lógico | Significado |
-|--------|---------|--------------|-------------|
-| **HIGH** | 5V (o 3.3V) | 1 | Encendido / Verdadero |
-| **LOW** | 0V | 0 | Apagado / Falso |
+| Estado   | Voltaje     | Valor Lógico | Significado           |
+| -------- | ----------- | ------------ | --------------------- |
+| **HIGH** | 5V (o 3.3V) | 1            | Encendido / Verdadero |
+| **LOW**  | 0V          | 0            | Apagado / Falso       |
 
 ```
 SEÑAL DIGITAL (solo 2 estados)
@@ -40,12 +40,12 @@ SEÑAL DIGITAL (solo 2 estados)
 
 ### 1.2 Diferencia con Señales Analógicas
 
-| Característica | Digital | Analógica |
-|----------------|---------|-----------|
-| Estados | 2 (HIGH/LOW) | Infinitos |
-| Valores | 0 o 1 | 0 a 1023 |
-| Función | `digitalRead()` | `analogRead()` |
-| Pines | 0-13 | A0-A5 |
+| Característica | Digital         | Analógica      |
+| -------------- | --------------- | -------------- |
+| Estados        | 2 (HIGH/LOW)    | Infinitos      |
+| Valores        | 0 o 1           | 0 a 1023       |
+| Función        | `digitalRead()` | `analogRead()` |
+| Pines          | 0-13            | A0-A5          |
 
 ```
 SEÑAL ANALÓGICA (valores continuos)
@@ -80,7 +80,7 @@ El Arduino Uno R3 tiene **14 pines digitales** (0-13):
    TX 1 ─┤ ◄── Serial (evitar)          │
    RX 0 ─┤ ◄── Serial (evitar)          │
          └──────────────────────────────┘
-         
+
    ~ = Pines con capacidad PWM
 ```
 
@@ -104,11 +104,11 @@ pinMode(2, INPUT);        // Configura pin 2 como entrada
 pinMode(2, INPUT_PULLUP); // Entrada con resistencia pull-up interna
 ```
 
-| Modo | Descripción | Uso típico |
-|------|-------------|------------|
-| `OUTPUT` | Pin como salida | LEDs, relés, buzzer |
-| `INPUT` | Pin como entrada | Sensores, botones (con resistencia externa) |
-| `INPUT_PULLUP` | Entrada con pull-up interno | Botones (sin resistencia externa) |
+| Modo           | Descripción                 | Uso típico                                  |
+| -------------- | --------------------------- | ------------------------------------------- |
+| `OUTPUT`       | Pin como salida             | LEDs, relés, buzzer                         |
+| `INPUT`        | Pin como entrada            | Sensores, botones (con resistencia externa) |
+| `INPUT_PULLUP` | Entrada con pull-up interno | Botones (sin resistencia externa)           |
 
 ### 1.5 `digitalWrite()` - Escribir en Pin
 
@@ -160,10 +160,10 @@ if (digitalRead(2) == LOW) {
 
 **Valores de retorno:**
 
-| Retorno | Significado | Voltaje |
-|---------|-------------|---------|
-| `HIGH` (o 1) | Estado alto | ~5V |
-| `LOW` (o 0) | Estado bajo | ~0V |
+| Retorno      | Significado | Voltaje |
+| ------------ | ----------- | ------- |
+| `HIGH` (o 1) | Estado alto | ~5V     |
+| `LOW` (o 0)  | Estado bajo | ~0V     |
 
 ---
 
@@ -176,17 +176,17 @@ if (digitalRead(2) == LOW) {
  * =================================================
  * PROYECTO: Blink Manual
  * =================================================
- * 
+ *
  * ¿Qué hace?
  * Enciende y apaga un LED cada segundo
- * 
+ *
  * ¿Para qué?
  * Demostrar el uso de pinMode() y digitalWrite()
- * 
+ *
  * Hardware:
  * - Arduino Uno R3
  * - LED integrado (pin 13) o LED externo + resistencia 220Ω
- * 
+ *
  * Compatibilidad Tinkercad: ✅
  * =================================================
  */
@@ -216,13 +216,13 @@ void setup() {
 void loop() {
     // Encender LED (enviar 5V al pin)
     digitalWrite(LED_PIN, HIGH);
-    
+
     // Esperar 1 segundo
     delay(BLINK_DELAY);
-    
+
     // Apagar LED (enviar 0V al pin)
     digitalWrite(LED_PIN, LOW);
-    
+
     // Esperar 1 segundo
     delay(BLINK_DELAY);
 }
@@ -241,16 +241,19 @@ void loop() {
 Responde estas preguntas para verificar tu comprensión:
 
 1. **¿Cuántos estados posibles tiene una señal digital?**
+
    - [ ] Infinitos
    - [x] 2 (HIGH y LOW)
    - [ ] 256
 
 2. **¿En qué función se debe configurar el modo de un pin?**
+
    - [ ] `loop()`
    - [x] `setup()`
    - [ ] `main()`
 
 3. **¿Qué voltaje representa HIGH en Arduino Uno?**
+
    - [ ] 0V
    - [ ] 3.3V
    - [x] 5V

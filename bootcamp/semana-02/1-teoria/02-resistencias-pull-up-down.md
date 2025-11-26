@@ -24,7 +24,7 @@ Cuando un pin digital está configurado como `INPUT` pero no está conectado a n
 
 ```
 PROBLEMA: Pin flotante
-                        
+
 Arduino                  Botón
 ┌─────────┐             ┌───┐
 │         │             │   │
@@ -34,7 +34,7 @@ Arduino                  Botón
 │         │        (abierto)
 └─────────┘
 
-¿Qué lee el pin 2? 
+¿Qué lee el pin 2?
 → INDETERMINADO: puede ser HIGH o LOW aleatoriamente
 ```
 
@@ -79,10 +79,10 @@ CIRCUITO PULL-DOWN
 
 **Funcionamiento:**
 
-| Estado del Botón | Voltaje en Pin | `digitalRead()` |
-|------------------|----------------|-----------------|
-| **NO presionado** | 0V (a través de resistencia) | `LOW` |
-| **Presionado** | 5V (conexión directa) | `HIGH` |
+| Estado del Botón  | Voltaje en Pin               | `digitalRead()` |
+| ----------------- | ---------------------------- | --------------- |
+| **NO presionado** | 0V (a través de resistencia) | `LOW`           |
+| **Presionado**    | 5V (conexión directa)        | `HIGH`          |
 
 ```cpp
 // Lógica DIRECTA: presionado = HIGH
@@ -118,10 +118,10 @@ CIRCUITO PULL-UP
 
 **Funcionamiento:**
 
-| Estado del Botón | Voltaje en Pin | `digitalRead()` |
-|------------------|----------------|-----------------|
-| **NO presionado** | 5V (a través de resistencia) | `HIGH` |
-| **Presionado** | 0V (conexión directa a GND) | `LOW` |
+| Estado del Botón  | Voltaje en Pin               | `digitalRead()` |
+| ----------------- | ---------------------------- | --------------- |
+| **NO presionado** | 5V (a través de resistencia) | `HIGH`          |
+| **Presionado**    | 0V (conexión directa a GND)  | `LOW`           |
 
 ```cpp
 // Lógica INVERTIDA: presionado = LOW
@@ -132,13 +132,13 @@ if (digitalRead(2) == LOW) {
 
 ### 2.4 Comparación Pull-up vs Pull-down
 
-| Característica | Pull-Down | Pull-Up |
-|----------------|-----------|---------|
-| Conexión resistencia | A GND | A 5V |
-| Estado por defecto | LOW | HIGH |
-| Al presionar | HIGH | LOW |
-| Lógica | Directa | Invertida |
-| Disponible interno | ❌ No | ✅ Sí (`INPUT_PULLUP`) |
+| Característica       | Pull-Down | Pull-Up                |
+| -------------------- | --------- | ---------------------- |
+| Conexión resistencia | A GND     | A 5V                   |
+| Estado por defecto   | LOW       | HIGH                   |
+| Al presionar         | HIGH      | LOW                    |
+| Lógica               | Directa   | Invertida              |
+| Disponible interno   | ❌ No     | ✅ Sí (`INPUT_PULLUP`) |
 
 ---
 
@@ -180,14 +180,14 @@ Arduino
  * =================================================
  * PROYECTO: Botón con INPUT_PULLUP
  * =================================================
- * 
+ *
  * ¿Qué hace?
  * Lee un botón usando la resistencia pull-up interna
- * 
+ *
  * Conexiones:
  * - Pin 2 → Un terminal del botón
  * - GND → Otro terminal del botón
- * 
+ *
  * Compatibilidad Tinkercad: ✅
  * =================================================
  */
@@ -199,7 +199,7 @@ void setup() {
     // INPUT_PULLUP activa resistencia interna de ~20kΩ a 5V
     pinMode(BUTTON_PIN, INPUT_PULLUP);
     pinMode(LED_PIN, OUTPUT);
-    
+
     Serial.begin(9600);
 }
 
@@ -219,12 +219,15 @@ void loop() {
 ## 📊 Diagramas de Referencia
 
 ### Pull-Down
+
 ![Circuito Pull-Down](../0-assets/02-pull-down-circuito.svg)
 
 ### Pull-Up
+
 ![Circuito Pull-Up](../0-assets/03-pull-up-circuito.svg)
 
 ### INPUT_PULLUP Interno
+
 ![INPUT_PULLUP](../0-assets/04-input-pullup-interno.svg)
 
 ---
@@ -232,11 +235,13 @@ void loop() {
 ## 💡 ¿Cuándo Usar Cada Uno?
 
 ### Usa Pull-Down cuando:
+
 - Necesitas lógica directa (presionado = HIGH)
 - El circuito requiere pull-down específicamente
 - Trabajas con sensores que lo requieren
 
 ### Usa Pull-Up / INPUT_PULLUP cuando:
+
 - Quieres simplificar el circuito
 - Estás haciendo prototipado rápido
 - La lógica invertida no es problema
@@ -291,6 +296,7 @@ void loop_pullup() {
 ## ⚠️ Errores Comunes
 
 ### 1. Olvidar la resistencia con INPUT
+
 ```cpp
 // ❌ INCORRECTO - Pin flotante
 pinMode(2, INPUT);
@@ -301,6 +307,7 @@ pinMode(2, INPUT_PULLUP);
 ```
 
 ### 2. Confundir la lógica
+
 ```cpp
 // ❌ INCORRECTO - Lógica confundida con INPUT_PULLUP
 if (digitalRead(2) == HIGH) {  // Esto es "no presionado"
@@ -314,6 +321,7 @@ if (digitalRead(2) == LOW) {  // LOW = presionado con pull-up
 ```
 
 ### 3. Usar valores de resistencia incorrectos
+
 ```cpp
 // Valores recomendados para pull-up/pull-down:
 // - Mínimo: 1kΩ (evita exceso de corriente)
@@ -326,16 +334,19 @@ if (digitalRead(2) == LOW) {  // LOW = presionado con pull-up
 ## ✅ Autoevaluación
 
 1. **¿Qué problema resuelven las resistencias pull-up/pull-down?**
+
    - [x] El pin flotante
    - [ ] El consumo de energía
    - [ ] La velocidad de procesamiento
 
 2. **Con INPUT_PULLUP, ¿qué valor tiene el pin cuando el botón NO está presionado?**
+
    - [x] HIGH
    - [ ] LOW
    - [ ] Indefinido
 
 3. **¿Qué valor de resistencia es típico para pull-up/pull-down?**
+
    - [ ] 220Ω
    - [x] 10kΩ
    - [ ] 1MΩ

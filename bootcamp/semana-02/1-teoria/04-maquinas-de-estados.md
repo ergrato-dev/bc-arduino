@@ -29,7 +29,7 @@ Una **Máquina de Estados Finitos** (FSM - Finite State Machine) es un modelo qu
 
 ```
 EJEMPLO: Semáforo
-                    
+
     ┌─────────┐  (tiempo)  ┌──────────┐  (tiempo)  ┌─────────┐
     │  VERDE  │ ─────────► │ AMARILLO │ ─────────► │  ROJO   │
     └─────────┘            └──────────┘            └─────────┘
@@ -78,12 +78,12 @@ void loop() {
 
 ### 4.3 Elementos de una FSM
 
-| Elemento | Descripción | Ejemplo |
-|----------|-------------|---------|
-| **Estado** | Condición actual del sistema | `LED_ON`, `LED_OFF` |
-| **Transición** | Cambio de un estado a otro | Presionar botón |
-| **Evento** | Lo que dispara la transición | `buttonPressed` |
-| **Acción** | Lo que ocurre al entrar/estar en estado | Encender LED |
+| Elemento       | Descripción                             | Ejemplo             |
+| -------------- | --------------------------------------- | ------------------- |
+| **Estado**     | Condición actual del sistema            | `LED_ON`, `LED_OFF` |
+| **Transición** | Cambio de un estado a otro              | Presionar botón     |
+| **Evento**     | Lo que dispara la transición            | `buttonPressed`     |
+| **Acción**     | Lo que ocurre al entrar/estar en estado | Encender LED        |
 
 ---
 
@@ -103,6 +103,7 @@ LedState currentState = LED_OFF;
 ```
 
 > 💡 **¿Por qué `enum`?**
+>
 > - Código más legible que usar números
 > - El compilador verifica valores válidos
 > - Autocompletado en el IDE
@@ -113,23 +114,23 @@ LedState currentState = LED_OFF;
 void loop() {
     // Leer entradas
     bool buttonPressed = (digitalRead(BUTTON_PIN) == LOW);
-    
+
     // Máquina de estados
     switch (currentState) {
         case LED_OFF:
             // Acción del estado: LED apagado
             digitalWrite(LED_PIN, LOW);
-            
+
             // Transición: si botón presionado → LED_ON
             if (buttonPressed) {
                 currentState = LED_ON;
             }
             break;
-            
+
         case LED_ON:
             // Acción del estado: LED encendido
             digitalWrite(LED_PIN, HIGH);
-            
+
             // Transición: si botón presionado → LED_OFF
             if (buttonPressed) {
                 currentState = LED_OFF;
@@ -148,24 +149,24 @@ void loop() {
  * =================================================
  * PROYECTO: Toggle LED con Máquina de Estados
  * =================================================
- * 
+ *
  * ¿Qué hace?
  * Alterna el estado del LED con cada pulsación de botón
  * usando una máquina de estados formal
- * 
+ *
  * Estados:
  * - LED_OFF: LED apagado, esperando pulsación
  * - LED_ON: LED encendido, esperando pulsación
- * 
+ *
  * Transiciones:
  * - LED_OFF → LED_ON: Al presionar botón
  * - LED_ON → LED_OFF: Al presionar botón
- * 
+ *
  * Hardware:
  * - Arduino Uno R3
  * - Botón en pin 2 (INPUT_PULLUP)
  * - LED en pin 13
- * 
+ *
  * Compatibilidad Tinkercad: ✅
  * =================================================
  */
@@ -206,7 +207,7 @@ bool buttonPressed = false;
 void setup() {
     pinMode(BUTTON_PIN, INPUT_PULLUP);
     pinMode(LED_PIN, OUTPUT);
-    
+
     Serial.begin(9600);
     Serial.println("FSM Toggle LED iniciada");
     Serial.println("Estado inicial: LED_OFF");
@@ -218,13 +219,13 @@ void setup() {
 void loop() {
     // 1. Leer entrada con debounce
     buttonPressed = readButtonWithDebounce();
-    
+
     // 2. Ejecutar máquina de estados
     switch (currentState) {
         case LED_OFF:
             stateLedOff();
             break;
-            
+
         case LED_ON:
             stateLedOn();
             break;
@@ -243,7 +244,7 @@ void loop() {
 void stateLedOff() {
     // Acción de salida (output)
     digitalWrite(LED_PIN, LOW);
-    
+
     // Verificar condición de transición
     if (buttonPressed) {
         // Transición a LED_ON
@@ -260,7 +261,7 @@ void stateLedOff() {
 void stateLedOn() {
     // Acción de salida (output)
     digitalWrite(LED_PIN, HIGH);
-    
+
     // Verificar condición de transición
     if (buttonPressed) {
         // Transición a LED_OFF
@@ -280,22 +281,22 @@ void stateLedOn() {
 bool readButtonWithDebounce() {
     bool pressed = false;
     int reading = digitalRead(BUTTON_PIN);
-    
+
     if (reading != lastButtonState) {
         lastDebounceTime = millis();
     }
-    
+
     if ((millis() - lastDebounceTime) > DEBOUNCE_DELAY) {
         if (reading != buttonState) {
             buttonState = reading;
-            
+
             // Detectar solo el flanco de bajada (presión)
             if (buttonState == LOW) {
                 pressed = true;
             }
         }
     }
-    
+
     lastButtonState = reading;
     return pressed;
 }
@@ -309,12 +310,12 @@ bool readButtonWithDebounce() {
 
 ### Tabla de Transiciones
 
-| Estado Actual | Entrada | Siguiente Estado | Salida |
-|---------------|---------|------------------|--------|
-| LED_OFF | HIGH (no presionado) | LED_OFF | LOW |
-| LED_OFF | LOW (presionado) | LED_ON | HIGH |
-| LED_ON | HIGH (no presionado) | LED_ON | HIGH |
-| LED_ON | LOW (presionado) | LED_OFF | LOW |
+| Estado Actual | Entrada              | Siguiente Estado | Salida |
+| ------------- | -------------------- | ---------------- | ------ |
+| LED_OFF       | HIGH (no presionado) | LED_OFF          | LOW    |
+| LED_OFF       | LOW (presionado)     | LED_ON           | HIGH   |
+| LED_ON        | HIGH (no presionado) | LED_ON           | HIGH   |
+| LED_ON        | LOW (presionado)     | LED_OFF          | LOW    |
 
 ---
 
@@ -343,35 +344,35 @@ const unsigned long GO_DURATION = 4000;     // 4 segundos
 
 void loop() {
     unsigned long elapsed = millis() - stateStartTime;
-    
+
     switch (currentState) {
         case STOP:
             digitalWrite(RED_PIN, HIGH);
             digitalWrite(YELLOW_PIN, LOW);
             digitalWrite(GREEN_PIN, LOW);
-            
+
             if (elapsed >= STOP_DURATION) {
                 currentState = GO;
                 stateStartTime = millis();
             }
             break;
-            
+
         case GO:
             digitalWrite(RED_PIN, LOW);
             digitalWrite(YELLOW_PIN, LOW);
             digitalWrite(GREEN_PIN, HIGH);
-            
+
             if (elapsed >= GO_DURATION) {
                 currentState = READY;
                 stateStartTime = millis();
             }
             break;
-            
+
         case READY:
             digitalWrite(RED_PIN, LOW);
             digitalWrite(YELLOW_PIN, HIGH);
             digitalWrite(GREEN_PIN, LOW);
-            
+
             if (elapsed >= READY_DURATION) {
                 currentState = STOP;
                 stateStartTime = millis();
@@ -386,6 +387,7 @@ void loop() {
 ## 🎯 Cuándo Usar FSM
 
 ### ✅ Usa FSM cuando:
+
 - El sistema tiene **modos claros** de operación
 - Hay **secuencias** de acciones
 - Las **condiciones son complejas**
@@ -393,6 +395,7 @@ void loop() {
 - Múltiples botones controlan comportamientos
 
 ### ❌ No necesitas FSM cuando:
+
 - Solo hay una acción simple
 - No hay estados diferenciados
 - El código es muy corto
@@ -402,6 +405,7 @@ void loop() {
 ## ⚠️ Errores Comunes
 
 ### 1. Olvidar el `break`
+
 ```cpp
 // ❌ INCORRECTO - Sin break, ejecuta todos los casos
 switch (currentState) {
@@ -425,6 +429,7 @@ switch (currentState) {
 ```
 
 ### 2. Cambiar estado sin debounce
+
 ```cpp
 // ❌ INCORRECTO - Cambia múltiples veces por rebote
 if (digitalRead(BUTTON_PIN) == LOW) {
@@ -442,16 +447,19 @@ if (readButtonWithDebounce()) {
 ## ✅ Autoevaluación
 
 1. **¿Cuántos estados puede tener una FSM simultáneamente?**
+
    - [x] Solo 1
    - [ ] 2 o más
    - [ ] Depende del diseño
 
 2. **¿Qué palabra clave de C++ es ideal para definir estados?**
+
    - [ ] `const`
    - [x] `enum`
    - [ ] `struct`
 
 3. **¿Qué dispara una transición de estado?**
+
    - [ ] El tiempo siempre
    - [x] Un evento o condición
    - [ ] Nada, es automático
