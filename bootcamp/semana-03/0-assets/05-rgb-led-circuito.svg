@@ -1,0 +1,200 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <style>
+      .bg { fill: #1e1e1e; }
+      .text-title { fill: #ffffff; font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; }
+      .text-main { fill: #ffffff; font-family: Arial, sans-serif; font-size: 13px; }
+      .text-label { fill: #9cdcfe; font-family: Arial, sans-serif; font-size: 11px; }
+      .text-value { fill: #b5cea8; font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; }
+      .text-code { fill: #ce93d8; font-family: monospace; font-size: 11px; }
+      .wire { fill: none; stroke-width: 3; stroke-linecap: round; }
+      .wire-red { stroke: #ef5350; }
+      .wire-green { stroke: #81c784; }
+      .wire-blue { stroke: #4fc3f7; }
+      .wire-black { stroke: #424242; }
+      .component { fill: #2d2d2d; stroke: #666666; stroke-width: 2; }
+      .led-red { fill: #ef5350; }
+      .led-green { fill: #81c784; }
+      .led-blue { fill: #4fc3f7; }
+      .led-body { fill: #444444; stroke: #666666; stroke-width: 2; }
+      .resistor { fill: #8d6e63; stroke: #6d4c41; stroke-width: 1; rx: 2; }
+      .arduino { fill: #1565c0; stroke: #1976d2; stroke-width: 2; rx: 4; }
+      .pin { fill: #424242; stroke: #666666; stroke-width: 1; }
+      .pin-pwm { fill: #ce93d8; stroke: #ba68c8; stroke-width: 2; }
+      .box { fill: #2d2d2d; stroke: #444444; stroke-width: 1; rx: 4; }
+      .box-code { fill: #1e1e1e; stroke: #444444; stroke-width: 1; rx: 4; }
+      .color-box { stroke: #666666; stroke-width: 1; rx: 2; }
+    </style>
+  </defs>
+  
+  <!-- Fondo -->
+  <rect class="bg" width="800" height="500"/>
+  
+  <!-- Título -->
+  <text class="text-title" x="400" y="30" text-anchor="middle">LED RGB con Control PWM</text>
+  <text class="text-label" x="400" y="50" text-anchor="middle">Mezcla de colores con 3 canales PWM</text>
+  
+  <!-- Arduino (simplificado) -->
+  <rect class="arduino" x="30" y="100" width="100" height="200"/>
+  <text class="text-main" x="80" y="130" text-anchor="middle" fill="#fff" font-weight="bold">ARDUINO</text>
+  <text class="text-main" x="80" y="150" text-anchor="middle" fill="#fff">UNO</text>
+  
+  <!-- Pines Arduino PWM -->
+  <rect class="pin-pwm" x="125" y="140" width="25" height="16"/>
+  <text class="text-label" x="138" y="152" text-anchor="middle" fill="#fff">~9</text>
+  
+  <rect class="pin-pwm" x="125" y="170" width="25" height="16"/>
+  <text class="text-label" x="138" y="182" text-anchor="middle" fill="#fff">~10</text>
+  
+  <rect class="pin-pwm" x="125" y="200" width="25" height="16"/>
+  <text class="text-label" x="138" y="212" text-anchor="middle" fill="#fff">~11</text>
+  
+  <rect class="pin" x="125" y="260" width="25" height="16"/>
+  <text class="text-label" x="138" y="272" text-anchor="middle" fill="#fff">GND</text>
+  
+  <!-- Resistencias -->
+  <rect class="resistor" x="180" y="142" width="40" height="12"/>
+  <text class="text-label" x="200" y="135" text-anchor="middle">220Ω</text>
+  
+  <rect class="resistor" x="180" y="172" width="40" height="12"/>
+  <text class="text-label" x="200" y="165" text-anchor="middle">220Ω</text>
+  
+  <rect class="resistor" x="180" y="202" width="40" height="12"/>
+  <text class="text-label" x="200" y="195" text-anchor="middle">220Ω</text>
+  
+  <!-- LED RGB (cátodo común) -->
+  <ellipse class="led-body" cx="310" cy="190" rx="40" ry="50"/>
+  
+  <!-- LEDs internos -->
+  <ellipse class="led-red" cx="295" cy="175" rx="10" ry="12" fill-opacity="0.8"/>
+  <ellipse class="led-green" cx="310" cy="175" rx="10" ry="12" fill-opacity="0.8"/>
+  <ellipse class="led-blue" cx="325" cy="175" rx="10" ry="12" fill-opacity="0.8"/>
+  
+  <!-- Patas del LED -->
+  <line stroke="#ef5350" stroke-width="3" x1="295" y1="240" x2="295" y2="265"/>
+  <line stroke="#81c784" stroke-width="3" x1="305" y1="240" x2="305" y2="280"/>
+  <line stroke="#4fc3f7" stroke-width="3" x1="315" y1="240" x2="315" y2="265"/>
+  <line stroke="#424242" stroke-width="3" x1="325" y1="240" x2="325" y2="265"/>
+  
+  <text class="text-label" x="295" y="278" text-anchor="middle" fill="#ef5350">R</text>
+  <text class="text-label" x="305" y="293" text-anchor="middle" fill="#666">GND</text>
+  <text class="text-label" x="315" y="278" text-anchor="middle" fill="#81c784">G</text>
+  <text class="text-label" x="325" y="278" text-anchor="middle" fill="#4fc3f7">B</text>
+  
+  <!-- Cables -->
+  <path class="wire wire-red" d="M150,148 L180,148"/>
+  <path class="wire wire-red" d="M220,148 L295,148 L295,155"/>
+  
+  <path class="wire wire-green" d="M150,178 L180,178"/>
+  <path class="wire wire-green" d="M220,178 L270,178 L270,155 L305,155 L305,157"/>
+  
+  <path class="wire wire-blue" d="M150,208 L180,208"/>
+  <path class="wire wire-blue" d="M220,208 L250,208 L250,145 L315,145 L315,155"/>
+  
+  <!-- GND -->
+  <path class="wire wire-black" d="M325,265 L325,310 L180,310 L180,268 L150,268"/>
+  
+  <!-- Diagrama LED RGB -->
+  <rect class="box" x="380" y="80" width="200" height="180"/>
+  <text class="text-main" x="480" y="105" text-anchor="middle" font-weight="bold">LED RGB - Cátodo Común</text>
+  
+  <!-- Símbolo del LED RGB -->
+  <g transform="translate(400, 130)">
+    <!-- LED Rojo -->
+    <polygon points="20,0 40,15 20,30" fill="none" stroke="#ef5350" stroke-width="2"/>
+    <line x1="40" y1="0" x2="40" y2="30" stroke="#ef5350" stroke-width="2"/>
+    <line x1="0" y1="15" x2="20" y2="15" stroke="#ef5350" stroke-width="2"/>
+    <text class="text-label" x="10" y="10" fill="#ef5350">R</text>
+    
+    <!-- LED Verde -->
+    <polygon points="80,0 100,15 80,30" fill="none" stroke="#81c784" stroke-width="2"/>
+    <line x1="100" y1="0" x2="100" y2="30" stroke="#81c784" stroke-width="2"/>
+    <line x1="60" y1="15" x2="80" y2="15" stroke="#81c784" stroke-width="2"/>
+    <text class="text-label" x="70" y="10" fill="#81c784">G</text>
+    
+    <!-- LED Azul -->
+    <polygon points="140,0 160,15 140,30" fill="none" stroke="#4fc3f7" stroke-width="2"/>
+    <line x1="160" y1="0" x2="160" y2="30" stroke="#4fc3f7" stroke-width="2"/>
+    <line x1="120" y1="15" x2="140" y2="15" stroke="#4fc3f7" stroke-width="2"/>
+    <text class="text-label" x="130" y="10" fill="#4fc3f7">B</text>
+    
+    <!-- Cátodo común -->
+    <line x1="40" y1="30" x2="40" y2="50" stroke="#666" stroke-width="2"/>
+    <line x1="100" y1="30" x2="100" y2="50" stroke="#666" stroke-width="2"/>
+    <line x1="160" y1="30" x2="160" y2="50" stroke="#666" stroke-width="2"/>
+    <line x1="40" y1="50" x2="160" y2="50" stroke="#666" stroke-width="2"/>
+    <line x1="100" y1="50" x2="100" y2="70" stroke="#666" stroke-width="2"/>
+    <text class="text-label" x="100" y="85" text-anchor="middle">GND (Común)</text>
+  </g>
+  
+  <!-- Nota sobre tipos -->
+  <text class="text-label" x="480" y="245" text-anchor="middle" fill="#ffb74d">Cátodo común: GND compartido</text>
+  
+  <!-- Tabla de mezcla de colores -->
+  <rect class="box" x="600" y="80" width="180" height="180"/>
+  <text class="text-main" x="690" y="105" text-anchor="middle" font-weight="bold">🎨 Mezcla de Colores</text>
+  
+  <text class="text-label" x="620" y="125">R + G = </text>
+  <rect class="color-box" x="680" y="113" width="20" height="15" fill="#ffeb3b"/>
+  <text class="text-label" x="710" y="125">Amarillo</text>
+  
+  <text class="text-label" x="620" y="145">R + B = </text>
+  <rect class="color-box" x="680" y="133" width="20" height="15" fill="#e040fb"/>
+  <text class="text-label" x="710" y="145">Magenta</text>
+  
+  <text class="text-label" x="620" y="165">G + B = </text>
+  <rect class="color-box" x="680" y="153" width="20" height="15" fill="#00bcd4"/>
+  <text class="text-label" x="710" y="165">Cian</text>
+  
+  <text class="text-label" x="620" y="185">R+G+B = </text>
+  <rect class="color-box" x="680" y="173" width="20" height="15" fill="#ffffff"/>
+  <text class="text-label" x="710" y="185">Blanco</text>
+  
+  <text class="text-label" x="620" y="210">Nada = </text>
+  <rect class="color-box" x="680" y="198" width="20" height="15" fill="#333333"/>
+  <text class="text-label" x="710" y="210">Apagado</text>
+  
+  <text class="text-label" x="690" y="245" text-anchor="middle" fill="#808080">PWM = Intensidad variable</text>
+  
+  <!-- Código -->
+  <rect class="box-code" x="380" y="280" width="400" height="110"/>
+  <text class="text-main" x="580" y="305" text-anchor="middle" font-weight="bold">💻 Código de Ejemplo</text>
+  
+  <text class="text-code" x="400" y="330">const int RED_PIN = 9, GREEN_PIN = 10, BLUE_PIN = 11;</text>
+  <text class="text-code" x="400" y="350">// Función para establecer color RGB</text>
+  <text class="text-code" x="400" y="370">void setColor(int r, int g, int b) {</text>
+  <text class="text-code" x="410" y="385">analogWrite(RED_PIN, r); analogWrite(GREEN_PIN, g); analogWrite(BLUE_PIN, b);</text>
+  <text class="text-code" x="400" y="385">}</text>
+  
+  <!-- Tabla de conexiones -->
+  <rect class="box" x="30" y="330" width="320" height="150"/>
+  <text class="text-main" x="190" y="355" text-anchor="middle" font-weight="bold">📋 Tabla de Conexiones</text>
+  
+  <text class="text-label" x="50" y="380">Pin Arduino</text>
+  <text class="text-label" x="150" y="380">Resistencia</text>
+  <text class="text-label" x="250" y="380">LED RGB</text>
+  
+  <line stroke="#444" x1="40" y1="388" x2="340" y2="388"/>
+  
+  <text class="text-value" x="50" y="410">~9 (PWM)</text>
+  <text class="text-main" x="150" y="410">220Ω</text>
+  <text class="text-main" x="250" y="410" fill="#ef5350">Rojo (R)</text>
+  
+  <text class="text-value" x="50" y="430">~10 (PWM)</text>
+  <text class="text-main" x="150" y="430">220Ω</text>
+  <text class="text-main" x="250" y="430" fill="#81c784">Verde (G)</text>
+  
+  <text class="text-value" x="50" y="450">~11 (PWM)</text>
+  <text class="text-main" x="150" y="450">220Ω</text>
+  <text class="text-main" x="250" y="450" fill="#4fc3f7">Azul (B)</text>
+  
+  <text class="text-value" x="50" y="470">GND</text>
+  <text class="text-main" x="150" y="470">—</text>
+  <text class="text-main" x="250" y="470">Cátodo (largo)</text>
+  
+  <!-- Nota Tinkercad -->
+  <rect class="box" x="380" y="400" width="400" height="80"/>
+  <text class="text-main" x="580" y="425" text-anchor="middle" font-weight="bold">⚠️ Notas</text>
+  <text class="text-main" x="400" y="445">• Resistencia individual por cada color (protección)</text>
+  <text class="text-main" x="400" y="465">• Compatible con Tinkercad ✅</text>
+</svg>

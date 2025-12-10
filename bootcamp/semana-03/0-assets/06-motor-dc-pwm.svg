@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <style>
+      .bg { fill: #1e1e1e; }
+      .text-title { fill: #ffffff; font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; }
+      .text-main { fill: #ffffff; font-family: Arial, sans-serif; font-size: 13px; }
+      .text-label { fill: #9cdcfe; font-family: Arial, sans-serif; font-size: 11px; }
+      .text-value { fill: #b5cea8; font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; }
+      .text-code { fill: #ce93d8; font-family: monospace; font-size: 11px; }
+      .wire { fill: none; stroke-width: 3; stroke-linecap: round; }
+      .wire-red { stroke: #ef5350; }
+      .wire-black { stroke: #424242; }
+      .wire-blue { stroke: #4fc3f7; }
+      .wire-yellow { stroke: #ffeb3b; }
+      .component { fill: #2d2d2d; stroke: #666666; stroke-width: 2; }
+      .motor { fill: #455a64; stroke: #607d8b; stroke-width: 3; }
+      .motor-shaft { fill: #78909c; stroke: #90a4ae; stroke-width: 2; }
+      .transistor { fill: #424242; stroke: #666666; stroke-width: 2; }
+      .diode { fill: none; stroke: #81c784; stroke-width: 2; }
+      .arduino { fill: #1565c0; stroke: #1976d2; stroke-width: 2; rx: 4; }
+      .pin { fill: #424242; stroke: #666666; stroke-width: 1; }
+      .pin-pwm { fill: #ce93d8; stroke: #ba68c8; stroke-width: 2; }
+      .box { fill: #2d2d2d; stroke: #444444; stroke-width: 1; rx: 4; }
+      .box-warning { fill: #2d2d2d; stroke: #ffb74d; stroke-width: 2; rx: 4; }
+      .box-code { fill: #1e1e1e; stroke: #444444; stroke-width: 1; rx: 4; }
+    </style>
+  </defs>
+  
+  <!-- Fondo -->
+  <rect class="bg" width="800" height="500"/>
+  
+  <!-- Título -->
+  <text class="text-title" x="400" y="30" text-anchor="middle">Control de Motor DC con PWM</text>
+  <text class="text-label" x="400" y="50" text-anchor="middle">Velocidad variable usando transistor y diodo de protección</text>
+  
+  <!-- Arduino -->
+  <rect class="arduino" x="30" y="120" width="100" height="180"/>
+  <text class="text-main" x="80" y="150" text-anchor="middle" fill="#fff" font-weight="bold">ARDUINO</text>
+  <text class="text-main" x="80" y="170" text-anchor="middle" fill="#fff">UNO</text>
+  
+  <!-- Pines Arduino -->
+  <rect class="pin-pwm" x="125" y="180" width="25" height="16"/>
+  <text class="text-label" x="138" y="192" text-anchor="middle" fill="#fff">~9</text>
+  
+  <rect class="pin" x="125" y="220" width="25" height="16"/>
+  <text class="text-label" x="138" y="232" text-anchor="middle" fill="#fff">5V</text>
+  
+  <rect class="pin" x="125" y="260" width="25" height="16"/>
+  <text class="text-label" x="138" y="272" text-anchor="middle" fill="#fff">GND</text>
+  
+  <!-- Resistencia Base -->
+  <rect fill="#8d6e63" stroke="#6d4c41" x="180" y="183" width="40" height="10" rx="2"/>
+  <text class="text-label" x="200" y="175" text-anchor="middle">1kΩ</text>
+  
+  <!-- Transistor NPN (TIP120 o 2N2222) -->
+  <circle class="transistor" cx="280" cy="220" r="30"/>
+  <text class="text-label" x="280" y="225" text-anchor="middle" fill="#fff">NPN</text>
+  
+  <!-- Patas del transistor -->
+  <line stroke="#666" stroke-width="3" x1="250" y1="220" x2="220" y2="220"/>
+  <line stroke="#666" stroke-width="3" x1="280" y1="250" x2="280" y2="290"/>
+  <line stroke="#666" stroke-width="3" x1="280" y1="190" x2="280" y2="150"/>
+  
+  <text class="text-label" x="235" y="210">B</text>
+  <text class="text-label" x="295" y="170">C</text>
+  <text class="text-label" x="295" y="280">E</text>
+  
+  <!-- Motor DC -->
+  <ellipse class="motor" cx="400" cy="130" rx="50" ry="40"/>
+  <rect class="motor-shaft" x="395" y="85" width="10" height="15"/>
+  <text class="text-main" x="400" y="135" text-anchor="middle" fill="#fff" font-weight="bold">M</text>
+  <text class="text-label" x="400" y="185" text-anchor="middle">Motor DC</text>
+  
+  <!-- Terminales del motor -->
+  <line stroke="#666" stroke-width="3" x1="360" y1="150" x2="360" y2="220"/>
+  <line stroke="#666" stroke-width="3" x1="440" y1="150" x2="440" y2="85"/>
+  
+  <!-- Diodo de protección (flyback) -->
+  <polygon points="360,100 360,70 385,85" class="diode"/>
+  <line class="diode" x1="385" y1="70" x2="385" y2="100"/>
+  <line class="diode" x1="360" y1="85" x2="340" y2="85"/>
+  <line class="diode" x1="385" y1="85" x2="440" y2="85"/>
+  <text class="text-label" x="372" y="60" text-anchor="middle">1N4007</text>
+  <text class="text-label" x="372" y="115" text-anchor="middle" fill="#81c784">Diodo Flyback</text>
+  
+  <!-- Conexiones -->
+  <!-- PWM a Resistencia -->
+  <path class="wire wire-blue" d="M150,188 L180,188"/>
+  
+  <!-- Resistencia a Base transistor -->
+  <path class="wire wire-blue" d="M220,188 L235,188 L235,220 L250,220"/>
+  
+  <!-- Colector a Motor -->
+  <path class="wire wire-yellow" d="M280,150 L280,130 L350,130"/>
+  
+  <!-- Motor a +5V externo -->
+  <path class="wire wire-red" d="M440,85 L500,85 L500,130"/>
+  
+  <!-- Fuente externa 5V -->
+  <rect class="box" x="480" y="120" width="60" height="40"/>
+  <text class="text-label" x="510" y="145" text-anchor="middle">+5V</text>
+  <text class="text-label" x="510" y="155" text-anchor="middle">(ext)</text>
+  
+  <!-- Emisor a GND -->
+  <path class="wire wire-black" d="M280,290 L280,320 L150,320 L150,268"/>
+  
+  <!-- GND común -->
+  <path class="wire wire-black" d="M510,160 L510,320 L280,320"/>
+  
+  <!-- Panel de explicación del transistor -->
+  <rect class="box" x="560" y="80" width="220" height="150"/>
+  <text class="text-main" x="670" y="105" text-anchor="middle" font-weight="bold">🔌 Transistor como Switch</text>
+  
+  <text class="text-main" x="580" y="130">• Arduino NO puede alimentar</text>
+  <text class="text-main" x="580" y="145">  motores directamente (max 40mA)</text>
+  <text class="text-main" x="580" y="170">• El transistor amplifica la señal</text>
+  <text class="text-main" x="580" y="195">• PWM en Base = control velocidad</text>
+  <text class="text-main" x="580" y="220">• Diodo protege de picos inductivos</text>
+  
+  <!-- Panel del diodo flyback -->
+  <rect class="box-warning" x="560" y="245" width="220" height="100"/>
+  <text class="text-main" x="670" y="270" text-anchor="middle" font-weight="bold" fill="#ffb74d">⚠️ Diodo Flyback</text>
+  
+  <text class="text-main" x="580" y="295">Cuando el motor se apaga, genera</text>
+  <text class="text-main" x="580" y="310">voltaje inverso que puede dañar</text>
+  <text class="text-main" x="580" y="325">el transistor. El diodo lo absorbe.</text>
+  
+  <!-- Tabla de componentes -->
+  <rect class="box" x="30" y="350" width="300" height="130"/>
+  <text class="text-main" x="180" y="375" text-anchor="middle" font-weight="bold">📋 Lista de Componentes</text>
+  
+  <text class="text-value" x="50" y="400">Transistor NPN</text>
+  <text class="text-main" x="200" y="400">TIP120 o 2N2222</text>
+  
+  <text class="text-value" x="50" y="420">Resistencia</text>
+  <text class="text-main" x="200" y="420">1kΩ (base)</text>
+  
+  <text class="text-value" x="50" y="440">Diodo</text>
+  <text class="text-main" x="200" y="440">1N4007 (flyback)</text>
+  
+  <text class="text-value" x="50" y="460">Motor DC</text>
+  <text class="text-main" x="200" y="460">5V pequeño</text>
+  
+  <!-- Código -->
+  <rect class="box-code" x="350" y="350" width="220" height="130"/>
+  <text class="text-main" x="460" y="375" text-anchor="middle" font-weight="bold">💻 Código</text>
+  
+  <text class="text-code" x="365" y="400">const int MOTOR = 9;</text>
+  <text class="text-code" x="365" y="420">void loop() {</text>
+  <text class="text-code" x="375" y="440">// 0=stop, 255=max</text>
+  <text class="text-code" x="375" y="460">analogWrite(MOTOR, 180);</text>
+  <text class="text-code" x="365" y="475">}</text>
+  
+  <!-- Nota Tinkercad -->
+  <rect class="box" x="590" y="350" width="190" height="130"/>
+  <text class="text-main" x="685" y="375" text-anchor="middle" font-weight="bold">📝 Notas</text>
+  
+  <text class="text-main" x="605" y="400">✓ Compatible Tinkercad</text>
+  <text class="text-main" x="605" y="420">✓ Usar fuente externa</text>
+  <text class="text-main" x="605" y="440">  para motores grandes</text>
+  <text class="text-main" x="605" y="460">✓ GND común entre</text>
+  <text class="text-main" x="605" y="475">  Arduino y fuente</text>
+</svg>

@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <style>
+      .bg { fill: #1e1e1e; }
+      .text-title { fill: #ffffff; font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; }
+      .text-main { fill: #ffffff; font-family: Arial, sans-serif; font-size: 13px; }
+      .text-label { fill: #9cdcfe; font-family: Arial, sans-serif; font-size: 11px; }
+      .text-value { fill: #b5cea8; font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; }
+      .text-code { fill: #ce93d8; font-family: monospace; font-size: 11px; }
+      .text-note { fill: #ffb74d; font-family: Arial, sans-serif; font-size: 11px; }
+      .wire { fill: none; stroke-width: 3; stroke-linecap: round; }
+      .wire-red { stroke: #ef5350; }
+      .wire-black { stroke: #424242; }
+      .wire-blue { stroke: #4fc3f7; }
+      .buzzer { fill: #333333; stroke: #666666; stroke-width: 3; }
+      .buzzer-center { fill: #555555; }
+      .arduino { fill: #1565c0; stroke: #1976d2; stroke-width: 2; rx: 4; }
+      .pin { fill: #424242; stroke: #666666; stroke-width: 1; }
+      .pin-digital { fill: #4fc3f7; stroke: #29b6f6; stroke-width: 2; }
+      .box { fill: #2d2d2d; stroke: #444444; stroke-width: 1; rx: 4; }
+      .box-code { fill: #1e1e1e; stroke: #444444; stroke-width: 1; rx: 4; }
+      .wave { fill: none; stroke: #81c784; stroke-width: 2; }
+      .sound-wave { fill: none; stroke: #ffb74d; stroke-width: 2; stroke-opacity: 0.7; }
+    </style>
+  </defs>
+  
+  <!-- Fondo -->
+  <rect class="bg" width="800" height="500"/>
+  
+  <!-- Título -->
+  <text class="text-title" x="400" y="30" text-anchor="middle">Generación de Tonos con Buzzer</text>
+  <text class="text-label" x="400" y="50" text-anchor="middle">Función tone() para generar frecuencias de sonido</text>
+  
+  <!-- Arduino -->
+  <rect class="arduino" x="50" y="100" width="100" height="180"/>
+  <text class="text-main" x="100" y="130" text-anchor="middle" fill="#fff" font-weight="bold">ARDUINO</text>
+  <text class="text-main" x="100" y="150" text-anchor="middle" fill="#fff">UNO</text>
+  
+  <!-- Pines Arduino -->
+  <rect class="pin-digital" x="145" y="170" width="25" height="16"/>
+  <text class="text-label" x="158" y="182" text-anchor="middle" fill="#fff">8</text>
+  
+  <rect class="pin" x="145" y="230" width="25" height="16"/>
+  <text class="text-label" x="158" y="242" text-anchor="middle" fill="#fff">GND</text>
+  
+  <!-- Buzzer -->
+  <ellipse class="buzzer" cx="300" cy="200" rx="50" ry="50"/>
+  <ellipse class="buzzer-center" cx="300" cy="200" rx="25" ry="25"/>
+  <text class="text-label" x="300" y="205" text-anchor="middle" fill="#fff">🔊</text>
+  
+  <!-- Patas del buzzer -->
+  <line stroke="#ef5350" stroke-width="3" x1="280" y1="250" x2="280" y2="280"/>
+  <line stroke="#424242" stroke-width="3" x1="320" y1="250" x2="320" y2="280"/>
+  <text class="text-label" x="280" y="295" text-anchor="middle" fill="#ef5350">+</text>
+  <text class="text-label" x="320" y="295" text-anchor="middle">-</text>
+  
+  <!-- Ondas de sonido -->
+  <path class="sound-wave" d="M355,180 Q370,200 355,220"/>
+  <path class="sound-wave" d="M375,165 Q400,200 375,235"/>
+  <path class="sound-wave" d="M395,150 Q430,200 395,250"/>
+  
+  <!-- Cables -->
+  <path class="wire wire-blue" d="M170,178 L220,178 L220,200 L250,200"/>
+  <path class="wire wire-black" d="M320,280 L320,310 L200,310 L200,238 L170,238"/>
+  
+  <!-- Tipos de Buzzer -->
+  <rect class="box" x="450" y="80" width="330" height="160"/>
+  <text class="text-main" x="615" y="105" text-anchor="middle" font-weight="bold">🔔 Tipos de Buzzer</text>
+  
+  <!-- Activo -->
+  <rect fill="#1a3a4a" x="465" y="120" width="145" height="105" rx="4"/>
+  <text class="text-value" x="537" y="140" text-anchor="middle">Buzzer Activo</text>
+  <text class="text-main" x="475" y="160">• Tiene oscilador interno</text>
+  <text class="text-main" x="475" y="175">• Solo HIGH/LOW</text>
+  <text class="text-main" x="475" y="190">• Un solo tono fijo</text>
+  <text class="text-main" x="475" y="205">• Más caro</text>
+  <text class="text-label" x="537" y="220" text-anchor="middle" fill="#81c784">digitalWrite()</text>
+  
+  <!-- Pasivo -->
+  <rect fill="#3a2a1a" x="620" y="120" width="145" height="105" rx="4"/>
+  <text class="text-value" x="692" y="140" text-anchor="middle">Buzzer Pasivo</text>
+  <text class="text-main" x="630" y="160">• Sin oscilador</text>
+  <text class="text-main" x="630" y="175">• Necesita PWM/tone()</text>
+  <text class="text-main" x="630" y="190">• Múltiples tonos</text>
+  <text class="text-main" x="630" y="205">• Más barato</text>
+  <text class="text-label" x="692" y="220" text-anchor="middle" fill="#ce93d8">tone()</text>
+  
+  <!-- Función tone() -->
+  <rect class="box-code" x="450" y="255" width="330" height="110"/>
+  <text class="text-main" x="615" y="280" text-anchor="middle" font-weight="bold">💻 Funciones de Sonido</text>
+  
+  <text class="text-code" x="470" y="305">tone(pin, frequency);</text>
+  <text class="text-label" x="470" y="320">// Genera tono continuo</text>
+  
+  <text class="text-code" x="470" y="340">tone(pin, frequency, duration);</text>
+  <text class="text-label" x="470" y="355">// Tono por X milisegundos</text>
+  
+  <!-- Tabla de notas musicales -->
+  <rect class="box" x="50" y="320" width="380" height="160"/>
+  <text class="text-main" x="240" y="345" text-anchor="middle" font-weight="bold">🎵 Frecuencias de Notas Musicales</text>
+  
+  <text class="text-label" x="70" y="370">Nota</text>
+  <text class="text-label" x="130" y="370">Frecuencia</text>
+  <text class="text-label" x="210" y="370">Nota</text>
+  <text class="text-label" x="270" y="370">Frecuencia</text>
+  <text class="text-label" x="350" y="370">Nota</text>
+  <text class="text-label" x="405" y="370">Frecuencia</text>
+  
+  <line stroke="#444" x1="60" y1="378" x2="420" y2="378"/>
+  
+  <!-- Columna 1 -->
+  <text class="text-value" x="70" y="395">DO (C4)</text>
+  <text class="text-main" x="130" y="395">262 Hz</text>
+  <text class="text-value" x="70" y="415">RE (D4)</text>
+  <text class="text-main" x="130" y="415">294 Hz</text>
+  <text class="text-value" x="70" y="435">MI (E4)</text>
+  <text class="text-main" x="130" y="435">330 Hz</text>
+  <text class="text-value" x="70" y="455">FA (F4)</text>
+  <text class="text-main" x="130" y="455">349 Hz</text>
+  
+  <!-- Columna 2 -->
+  <text class="text-value" x="210" y="395">SOL (G4)</text>
+  <text class="text-main" x="280" y="395">392 Hz</text>
+  <text class="text-value" x="210" y="415">LA (A4)</text>
+  <text class="text-main" x="280" y="415">440 Hz</text>
+  <text class="text-value" x="210" y="435">SI (B4)</text>
+  <text class="text-main" x="280" y="435">494 Hz</text>
+  <text class="text-value" x="210" y="455">DO (C5)</text>
+  <text class="text-main" x="280" y="455">523 Hz</text>
+  
+  <!-- Columna 3 - Extras -->
+  <text class="text-value" x="350" y="395">Beep</text>
+  <text class="text-main" x="405" y="395">1000 Hz</text>
+  <text class="text-value" x="350" y="415">Error</text>
+  <text class="text-main" x="405" y="415">200 Hz</text>
+  <text class="text-value" x="350" y="435">Alerta</text>
+  <text class="text-main" x="405" y="435">2000 Hz</text>
+  <text class="text-value" x="350" y="455">Silencio</text>
+  <text class="text-main" x="405" y="455">noTone()</text>
+  
+  <!-- Ejemplo de código -->
+  <rect class="box-code" x="450" y="375" width="330" height="105"/>
+  <text class="text-main" x="615" y="400" text-anchor="middle" font-weight="bold">💡 Ejemplo: Escala Musical</text>
+  
+  <text class="text-code" x="470" y="425">int notes[] = {262,294,330,349,392,440,494,523};</text>
+  <text class="text-code" x="470" y="445">for(int i=0; i&lt;8; i++) {</text>
+  <text class="text-code" x="480" y="460">tone(8, notes[i], 250);</text>
+  <text class="text-code" x="480" y="475">delay(300);</text>
+  <text class="text-code" x="470" y="485">}</text>
+</svg>
