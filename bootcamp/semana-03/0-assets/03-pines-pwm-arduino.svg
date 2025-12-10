@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <style>
+      .bg { fill: #1e1e1e; }
+      .text-title { fill: #ffffff; font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; }
+      .text-main { fill: #ffffff; font-family: Arial, sans-serif; font-size: 13px; }
+      .text-label { fill: #9cdcfe; font-family: Arial, sans-serif; font-size: 11px; }
+      .text-value { fill: #b5cea8; font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; }
+      .text-pin { fill: #ffffff; font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; }
+      .board { fill: #1565c0; stroke: #1976d2; stroke-width: 2; rx: 8; }
+      .chip { fill: #2d2d2d; stroke: #555555; stroke-width: 1; }
+      .usb { fill: #424242; stroke: #555555; stroke-width: 1; rx: 2; }
+      .pin-digital { fill: #424242; stroke: #666666; stroke-width: 1; }
+      .pin-pwm { fill: #ce93d8; stroke: #ba68c8; stroke-width: 2; }
+      .pin-analog { fill: #4fc3f7; stroke: #29b6f6; stroke-width: 1; }
+      .pin-power { fill: #ef5350; stroke: #e53935; stroke-width: 1; }
+      .pin-gnd { fill: #333333; stroke: #555555; stroke-width: 1; }
+      .highlight { fill: #ce93d8; }
+      .box { fill: #2d2d2d; stroke: #444444; stroke-width: 1; rx: 4; }
+      .box-pwm { fill: #2d2d2d; stroke: #ce93d8; stroke-width: 2; rx: 4; }
+      .tilde { fill: #ce93d8; font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; }
+    </style>
+  </defs>
+  
+  <!-- Fondo -->
+  <rect class="bg" width="800" height="500"/>
+  
+  <!-- Título -->
+  <text class="text-title" x="400" y="30" text-anchor="middle">Pines PWM en Arduino Uno</text>
+  <text class="text-label" x="400" y="50" text-anchor="middle">Los pines con símbolo ~ soportan analogWrite()</text>
+  
+  <!-- Placa Arduino -->
+  <rect class="board" x="100" y="80" width="400" height="220"/>
+  
+  <!-- USB -->
+  <rect class="usb" x="90" y="160" width="30" height="60"/>
+  <text class="text-label" x="105" y="195" text-anchor="middle">USB</text>
+  
+  <!-- Chip -->
+  <rect class="chip" x="200" y="140" width="120" height="100"/>
+  <text class="text-label" x="260" y="195" text-anchor="middle">ATmega328P</text>
+  
+  <!-- Header superior (Digital) -->
+  <!-- Pines digitales 0-13 -->
+  <rect class="pin-digital" x="135" y="70" width="22" height="20"/>
+  <text class="text-pin" x="146" y="84" text-anchor="middle">0</text>
+  
+  <rect class="pin-digital" x="160" y="70" width="22" height="20"/>
+  <text class="text-pin" x="171" y="84" text-anchor="middle">1</text>
+  
+  <rect class="pin-digital" x="185" y="70" width="22" height="20"/>
+  <text class="text-pin" x="196" y="84" text-anchor="middle">2</text>
+  
+  <rect class="pin-pwm" x="210" y="70" width="22" height="20"/>
+  <text class="text-pin" x="221" y="84" text-anchor="middle">~3</text>
+  
+  <rect class="pin-digital" x="235" y="70" width="22" height="20"/>
+  <text class="text-pin" x="246" y="84" text-anchor="middle">4</text>
+  
+  <rect class="pin-pwm" x="260" y="70" width="22" height="20"/>
+  <text class="text-pin" x="271" y="84" text-anchor="middle">~5</text>
+  
+  <rect class="pin-pwm" x="285" y="70" width="22" height="20"/>
+  <text class="text-pin" x="296" y="84" text-anchor="middle">~6</text>
+  
+  <rect class="pin-digital" x="310" y="70" width="22" height="20"/>
+  <text class="text-pin" x="321" y="84" text-anchor="middle">7</text>
+  
+  <rect class="pin-digital" x="335" y="70" width="22" height="20"/>
+  <text class="text-pin" x="346" y="84" text-anchor="middle">8</text>
+  
+  <rect class="pin-pwm" x="360" y="70" width="22" height="20"/>
+  <text class="text-pin" x="371" y="84" text-anchor="middle">~9</text>
+  
+  <rect class="pin-pwm" x="385" y="70" width="22" height="20"/>
+  <text class="text-pin" x="396" y="84" text-anchor="middle">~10</text>
+  
+  <rect class="pin-pwm" x="410" y="70" width="22" height="20"/>
+  <text class="text-pin" x="421" y="84" text-anchor="middle">~11</text>
+  
+  <rect class="pin-digital" x="435" y="70" width="22" height="20"/>
+  <text class="text-pin" x="446" y="84" text-anchor="middle">12</text>
+  
+  <rect class="pin-digital" x="460" y="70" width="22" height="20"/>
+  <text class="text-pin" x="471" y="84" text-anchor="middle">13</text>
+  
+  <!-- Header inferior (Analog) -->
+  <rect class="pin-analog" x="200" y="290" width="22" height="20"/>
+  <text class="text-pin" x="211" y="304" text-anchor="middle">A0</text>
+  
+  <rect class="pin-analog" x="225" y="290" width="22" height="20"/>
+  <text class="text-pin" x="236" y="304" text-anchor="middle">A1</text>
+  
+  <rect class="pin-analog" x="250" y="290" width="22" height="20"/>
+  <text class="text-pin" x="261" y="304" text-anchor="middle">A2</text>
+  
+  <rect class="pin-analog" x="275" y="290" width="22" height="20"/>
+  <text class="text-pin" x="286" y="304" text-anchor="middle">A3</text>
+  
+  <rect class="pin-analog" x="300" y="290" width="22" height="20"/>
+  <text class="text-pin" x="311" y="304" text-anchor="middle">A4</text>
+  
+  <rect class="pin-analog" x="325" y="290" width="22" height="20"/>
+  <text class="text-pin" x="336" y="304" text-anchor="middle">A5</text>
+  
+  <!-- Power header -->
+  <rect class="pin-power" x="380" y="290" width="22" height="20"/>
+  <text class="text-pin" x="391" y="304" text-anchor="middle">5V</text>
+  
+  <rect class="pin-power" x="405" y="290" width="22" height="20"/>
+  <text class="text-pin" x="416" y="304" text-anchor="middle">3.3V</text>
+  
+  <rect class="pin-gnd" x="430" y="290" width="22" height="20"/>
+  <text class="text-pin" x="441" y="304" text-anchor="middle">GND</text>
+  
+  <!-- Leyenda -->
+  <rect class="box-pwm" x="530" y="80" width="250" height="150"/>
+  <text class="text-main" x="655" y="105" text-anchor="middle" font-weight="bold">Pines PWM (~)</text>
+  
+  <rect class="pin-pwm" x="550" y="120" width="20" height="15"/>
+  <text class="text-main" x="580" y="132">Pin 3, 9, 10, 11 → 490 Hz</text>
+  
+  <rect class="pin-pwm" x="550" y="145" width="20" height="15"/>
+  <text class="text-main" x="580" y="157">Pin 5, 6 → 980 Hz</text>
+  
+  <text class="text-label" x="550" y="185">Total: 6 pines PWM</text>
+  <text class="text-label" x="550" y="205">Resolución: 8 bits (0-255)</text>
+  <text class="text-label" x="550" y="225">Función: analogWrite(pin, valor)</text>
+  
+  <!-- Tabla de frecuencias -->
+  <rect class="box" x="530" y="245" width="250" height="120"/>
+  <text class="text-main" x="655" y="270" text-anchor="middle" font-weight="bold">Frecuencias por Timer</text>
+  
+  <text class="text-label" x="550" y="295">Timer0 (pines 5, 6):</text>
+  <text class="text-value" x="720" y="295" text-anchor="end">980 Hz</text>
+  
+  <text class="text-label" x="550" y="315">Timer1 (pines 9, 10):</text>
+  <text class="text-value" x="720" y="315" text-anchor="end">490 Hz</text>
+  
+  <text class="text-label" x="550" y="335">Timer2 (pines 3, 11):</text>
+  <text class="text-value" x="720" y="335" text-anchor="end">490 Hz</text>
+  
+  <text class="text-label" x="550" y="355" fill="#ffb74d">⚠ Timer0 afecta millis()/delay()</text>
+  
+  <!-- Leyenda de colores -->
+  <rect class="box" x="530" y="380" width="250" height="100"/>
+  <text class="text-main" x="655" y="400" text-anchor="middle" font-weight="bold">Leyenda de Pines</text>
+  
+  <rect class="pin-pwm" x="550" y="415" width="15" height="12"/>
+  <text class="text-label" x="575" y="425">PWM (analogWrite)</text>
+  
+  <rect class="pin-digital" x="550" y="435" width="15" height="12"/>
+  <text class="text-label" x="575" y="445">Digital (solo HIGH/LOW)</text>
+  
+  <rect class="pin-analog" x="550" y="455" width="15" height="12"/>
+  <text class="text-label" x="575" y="465">Analog (analogRead)</text>
+  
+  <!-- Nota importante -->
+  <rect class="box" x="100" y="330" width="400" height="150"/>
+  <text class="text-main" x="300" y="355" text-anchor="middle" font-weight="bold">⚠ Importante</text>
+  <text class="text-main" x="120" y="380">• Los pines analógicos (A0-A5) son para LEER</text>
+  <text class="text-main" x="120" y="400">• Los pines PWM (~) son para ESCRIBIR valores</text>
+  <text class="text-main" x="120" y="420">• analogRead() → Pines A0-A5</text>
+  <text class="text-main" x="120" y="440">• analogWrite() → Pines 3, 5, 6, 9, 10, 11</text>
+  <text class="text-label" x="120" y="465" fill="#ffb74d">No confundir analogRead con analogWrite</text>
+</svg>

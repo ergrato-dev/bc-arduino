@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <style>
+      .bg { fill: #1e1e1e; }
+      .text-title { fill: #ffffff; font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; }
+      .text-main { fill: #ffffff; font-family: Arial, sans-serif; font-size: 13px; }
+      .text-label { fill: #9cdcfe; font-family: Arial, sans-serif; font-size: 12px; }
+      .text-value { fill: #b5cea8; font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; }
+      .signal { fill: none; stroke-width: 2; }
+      .signal-0 { stroke: #ef5350; }
+      .signal-25 { stroke: #ffb74d; }
+      .signal-50 { stroke: #fff176; }
+      .signal-75 { stroke: #81c784; }
+      .signal-100 { stroke: #4fc3f7; }
+      .fill-0 { fill: #ef5350; fill-opacity: 0.3; }
+      .fill-25 { fill: #ffb74d; fill-opacity: 0.3; }
+      .fill-50 { fill: #fff176; fill-opacity: 0.3; }
+      .fill-75 { fill: #81c784; fill-opacity: 0.3; }
+      .fill-100 { fill: #4fc3f7; fill-opacity: 0.3; }
+      .axis { stroke: #555555; stroke-width: 1; }
+      .box { fill: #2d2d2d; stroke: #444444; stroke-width: 1; rx: 4; }
+      .divider { stroke: #333333; stroke-width: 1; stroke-dasharray: 4,4; }
+    </style>
+  </defs>
+  
+  <!-- Fondo -->
+  <rect class="bg" width="800" height="500"/>
+  
+  <!-- Título -->
+  <text class="text-title" x="400" y="30" text-anchor="middle">Comparativa de Duty Cycles PWM</text>
+  
+  <!-- Fila 1: 0% -->
+  <text class="text-value" x="30" y="75" fill="#ef5350">0%</text>
+  <text class="text-label" x="30" y="90">analogWrite(0)</text>
+  <text class="text-label" x="30" y="105">0V promedio</text>
+  <line class="axis" x1="120" y1="90" x2="380" y2="90"/>
+  <path class="signal signal-0" d="M120,90 L380,90"/>
+  <rect class="box" x="400" y="65" width="380" height="50"/>
+  <text class="text-main" x="590" y="85" text-anchor="middle">LED apagado completamente</text>
+  <text class="text-main" x="590" y="102" text-anchor="middle">Motor detenido</text>
+  
+  <!-- Fila 2: 25% -->
+  <line class="divider" x1="20" y1="125" x2="780" y2="125"/>
+  <text class="text-value" x="30" y="160" fill="#ffb74d">25%</text>
+  <text class="text-label" x="30" y="175">analogWrite(64)</text>
+  <text class="text-label" x="30" y="190">1.25V promedio</text>
+  <line class="axis" x1="120" y1="175" x2="380" y2="175"/>
+  <path class="signal signal-25" d="M120,175 L120,145 L145,145 L145,175 L195,175 L195,145 L220,145 L220,175 L270,175 L270,145 L295,145 L295,175 L345,175 L345,145 L370,145 L370,175 L380,175"/>
+  <rect class="fill-25" x="120" y="145" width="25" height="30"/>
+  <rect class="fill-25" x="195" y="145" width="25" height="30"/>
+  <rect class="fill-25" x="270" y="145" width="25" height="30"/>
+  <rect class="fill-25" x="345" y="145" width="25" height="30"/>
+  <rect class="box" x="400" y="150" width="380" height="50"/>
+  <text class="text-main" x="590" y="170" text-anchor="middle">LED con brillo muy bajo</text>
+  <text class="text-main" x="590" y="187" text-anchor="middle">Motor a velocidad mínima</text>
+  
+  <!-- Fila 3: 50% -->
+  <line class="divider" x1="20" y1="210" x2="780" y2="210"/>
+  <text class="text-value" x="30" y="245" fill="#fff176">50%</text>
+  <text class="text-label" x="30" y="260">analogWrite(127)</text>
+  <text class="text-label" x="30" y="275">2.5V promedio</text>
+  <line class="axis" x1="120" y1="260" x2="380" y2="260"/>
+  <path class="signal signal-50" d="M120,260 L120,230 L170,230 L170,260 L220,260 L220,230 L270,230 L270,260 L320,260 L320,230 L370,230 L370,260 L380,260"/>
+  <rect class="fill-50" x="120" y="230" width="50" height="30"/>
+  <rect class="fill-50" x="220" y="230" width="50" height="30"/>
+  <rect class="fill-50" x="320" y="230" width="50" height="30"/>
+  <rect class="box" x="400" y="235" width="380" height="50"/>
+  <text class="text-main" x="590" y="255" text-anchor="middle">LED a brillo medio</text>
+  <text class="text-main" x="590" y="272" text-anchor="middle">Motor a media velocidad</text>
+  
+  <!-- Fila 4: 75% -->
+  <line class="divider" x1="20" y1="295" x2="780" y2="295"/>
+  <text class="text-value" x="30" y="330" fill="#81c784">75%</text>
+  <text class="text-label" x="30" y="345">analogWrite(191)</text>
+  <text class="text-label" x="30" y="360">3.75V promedio</text>
+  <line class="axis" x1="120" y1="345" x2="380" y2="345"/>
+  <path class="signal signal-75" d="M120,345 L120,315 L195,315 L195,345 L220,345 L220,315 L295,315 L295,345 L320,345 L320,315 L380,315"/>
+  <rect class="fill-75" x="120" y="315" width="75" height="30"/>
+  <rect class="fill-75" x="220" y="315" width="75" height="30"/>
+  <rect class="fill-75" x="320" y="315" width="60" height="30"/>
+  <rect class="box" x="400" y="320" width="380" height="50"/>
+  <text class="text-main" x="590" y="340" text-anchor="middle">LED con brillo alto</text>
+  <text class="text-main" x="590" y="357" text-anchor="middle">Motor a alta velocidad</text>
+  
+  <!-- Fila 5: 100% -->
+  <line class="divider" x1="20" y1="380" x2="780" y2="380"/>
+  <text class="text-value" x="30" y="415" fill="#4fc3f7">100%</text>
+  <text class="text-label" x="30" y="430">analogWrite(255)</text>
+  <text class="text-label" x="30" y="445">5V promedio</text>
+  <line class="axis" x1="120" y1="430" x2="380" y2="430"/>
+  <path class="signal signal-100" d="M120,400 L380,400"/>
+  <rect class="fill-100" x="120" y="400" width="260" height="30"/>
+  <rect class="box" x="400" y="405" width="380" height="50"/>
+  <text class="text-main" x="590" y="425" text-anchor="middle">LED a brillo máximo</text>
+  <text class="text-main" x="590" y="442" text-anchor="middle">Motor a velocidad máxima</text>
+  
+  <!-- Leyenda -->
+  <text class="text-label" x="400" y="485" text-anchor="middle">Fórmula: analogWrite_value = (duty_cycle / 100) × 255</text>
+</svg>
