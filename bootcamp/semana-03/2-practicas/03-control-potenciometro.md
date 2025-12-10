@@ -12,14 +12,14 @@ Controlar el brillo de un LED usando un potenciómetro, mapeando la entrada anal
 
 ## 📦 Materiales
 
-| Componente | Cantidad |
-|------------|----------|
-| Arduino Uno | 1 |
-| LED Rojo 5mm | 1 |
-| Resistencia 220Ω | 1 |
-| Potenciómetro 10kΩ | 1 |
-| Protoboard | 1 |
-| Cables jumper | 6 |
+| Componente         | Cantidad |
+| ------------------ | -------- |
+| Arduino Uno        | 1        |
+| LED Rojo 5mm       | 1        |
+| Resistencia 220Ω   | 1        |
+| Potenciómetro 10kΩ | 1        |
+| Protoboard         | 1        |
+| Cables jumper      | 6        |
 
 ---
 
@@ -52,13 +52,13 @@ Controlar el brillo de un LED usando un potenciómetro, mapeando la entrada anal
 
 ### Tabla de Conexiones
 
-| Arduino | Componente |
-|---------|------------|
-| Pin ~9 (PWM) | Resistencia → LED (+) |
-| GND | LED (-) |
-| A0 | Potenciómetro (terminal central) |
-| 5V | Potenciómetro (terminal 1) |
-| GND | Potenciómetro (terminal 3) |
+| Arduino      | Componente                       |
+| ------------ | -------------------------------- |
+| Pin ~9 (PWM) | Resistencia → LED (+)            |
+| GND          | LED (-)                          |
+| A0           | Potenciómetro (terminal central) |
+| 5V           | Potenciómetro (terminal 1)       |
+| GND          | Potenciómetro (terminal 3)       |
 
 ---
 
@@ -71,21 +71,21 @@ Controlar el brillo de un LED usando un potenciómetro, mapeando la entrada anal
  * =================================================
  * PROYECTO: Control de Brillo con Potenciómetro
  * =================================================
- * 
+ *
  * ¿Qué hace?
  * El potenciómetro controla el brillo del LED.
  * Girar el pot cambia la intensidad de 0 a 100%.
- * 
+ *
  * ¿Para qué?
  * - Dimmer de luces
  * - Control de volumen visual
  * - Interfaz de usuario analógica
- * 
+ *
  * ¿Cómo funciona?
  * 1. Lee valor analógico del pot (0-1023)
  * 2. Mapea a rango PWM (0-255) con map()
  * 3. Aplica el valor al LED con analogWrite()
- * 
+ *
  * Hardware: LED + 220Ω en pin 9, Pot en A0
  * Compatibilidad Tinkercad: ✅
  * =================================================
@@ -109,7 +109,7 @@ int brightness = 0;         // Brillo del LED (0-255)
 void setup() {
     pinMode(LED_PIN, OUTPUT);
     // A0 no necesita pinMode para analogRead
-    
+
     Serial.begin(9600);
     Serial.println("Control de brillo iniciado");
 }
@@ -120,13 +120,13 @@ void setup() {
 void loop() {
     // 1. Leer valor del potenciómetro
     potValue = analogRead(POT_PIN);
-    
+
     // 2. Mapear de 0-1023 a 0-255
     brightness = map(potValue, 0, 1023, 0, 255);
-    
+
     // 3. Aplicar brillo al LED
     analogWrite(LED_PIN, brightness);
-    
+
     // 4. Mostrar valores en Serial Monitor
     Serial.print("Pot: ");
     Serial.print(potValue);
@@ -135,7 +135,7 @@ void loop() {
     Serial.print(" (");
     Serial.print((brightness * 100) / 255);
     Serial.println("%)");
-    
+
     // Pequeña pausa para estabilidad
     delay(50);
 }
@@ -161,7 +161,7 @@ int average = 0;              // Promedio
 void setup() {
     pinMode(LED_PIN, OUTPUT);
     Serial.begin(9600);
-    
+
     // Inicializar array
     for (int i = 0; i < NUM_READINGS; i++) {
         readings[i] = 0;
@@ -171,23 +171,23 @@ void setup() {
 void loop() {
     // Restar lectura anterior del total
     total = total - readings[readIndex];
-    
+
     // Leer nuevo valor
     readings[readIndex] = analogRead(POT_PIN);
-    
+
     // Sumar al total
     total = total + readings[readIndex];
-    
+
     // Avanzar índice
     readIndex = (readIndex + 1) % NUM_READINGS;
-    
+
     // Calcular promedio
     average = total / NUM_READINGS;
-    
+
     // Mapear y aplicar
     int brightness = map(average, 0, 1023, 0, 255);
     analogWrite(LED_PIN, brightness);
-    
+
     delay(10);
 }
 ```
@@ -204,13 +204,13 @@ map(value, fromLow, fromHigh, toLow, toHigh);
 
 ### Parámetros
 
-| Parámetro | Descripción | Ejemplo |
-|-----------|-------------|---------|
-| value | Valor a mapear | potValue |
-| fromLow | Mínimo del rango origen | 0 |
-| fromHigh | Máximo del rango origen | 1023 |
-| toLow | Mínimo del rango destino | 0 |
-| toHigh | Máximo del rango destino | 255 |
+| Parámetro | Descripción              | Ejemplo  |
+| --------- | ------------------------ | -------- |
+| value     | Valor a mapear           | potValue |
+| fromLow   | Mínimo del rango origen  | 0        |
+| fromHigh  | Máximo del rango origen  | 1023     |
+| toLow     | Mínimo del rango destino | 0        |
+| toHigh    | Máximo del rango destino | 255      |
 
 ### Ejemplos
 
@@ -266,14 +266,15 @@ void loop() {
     int r = map(analogRead(POT_R), 0, 1023, 0, 255);
     int g = map(analogRead(POT_G), 0, 1023, 0, 255);
     int b = map(analogRead(POT_B), 0, 1023, 0, 255);
-    
+
     analogWrite(RED_PIN, r);
     analogWrite(GREEN_PIN, g);
     analogWrite(BLUE_PIN, b);
-    
+
     delay(50);
 }
 ```
+
 </details>
 
 <details>
@@ -287,7 +288,7 @@ const int THRESHOLD = 200;
 void loop() {
     int potValue = analogRead(POT_PIN);
     int brightness = map(potValue, 0, 1023, 0, 255);
-    
+
     if (brightness > THRESHOLD) {
         // Parpadeo de advertencia
         analogWrite(LED_PIN, brightness);
@@ -300,18 +301,19 @@ void loop() {
     }
 }
 ```
+
 </details>
 
 ---
 
 ## ❓ Solución de Problemas
 
-| Problema | Causa | Solución |
-|----------|-------|----------|
-| Valores erráticos | Pot mal conectado | Verificar 3 terminales |
-| Siempre 0 o 1023 | Terminal central incorrecto | Probar otro terminal |
-| Rango incompleto | Pot dañado | Verificar con otro pot |
-| Fluctuaciones | Ruido eléctrico | Usar suavizado |
+| Problema          | Causa                       | Solución               |
+| ----------------- | --------------------------- | ---------------------- |
+| Valores erráticos | Pot mal conectado           | Verificar 3 terminales |
+| Siempre 0 o 1023  | Terminal central incorrecto | Probar otro terminal   |
+| Rango incompleto  | Pot dañado                  | Verificar con otro pot |
+| Fluctuaciones     | Ruido eléctrico             | Usar suavizado         |
 
 ---
 

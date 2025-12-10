@@ -12,12 +12,12 @@ Crear melodías usando un buzzer pasivo, aprendiendo a usar `tone()`, arrays de 
 
 ## 📦 Materiales
 
-| Componente | Cantidad |
-|------------|----------|
-| Arduino Uno | 1 |
-| Buzzer pasivo | 1 |
-| Protoboard | 1 |
-| Cables jumper | 2 |
+| Componente    | Cantidad |
+| ------------- | -------- |
+| Arduino Uno   | 1        |
+| Buzzer pasivo | 1        |
+| Protoboard    | 1        |
+| Cables jumper | 2        |
 
 ---
 
@@ -32,16 +32,16 @@ Crear melodías usando un buzzer pasivo, aprendiendo a usar `tone()`, arrays de 
     │         GND ├─────────┤         │
     └─────────────┘         └─────────┘
 
-Nota: El pin positivo (+) del buzzer suele 
+Nota: El pin positivo (+) del buzzer suele
 tener una marca o ser más largo
 ```
 
 ### Tabla de Conexiones
 
-| Arduino | Buzzer |
-|---------|--------|
-| Pin 8 | Terminal + |
-| GND | Terminal - |
+| Arduino | Buzzer     |
+| ------- | ---------- |
+| Pin 8   | Terminal + |
+| GND     | Terminal - |
 
 ---
 
@@ -54,21 +54,21 @@ tener una marca o ser más largo
  * =================================================
  * PROYECTO: Melodía con Buzzer
  * =================================================
- * 
+ *
  * ¿Qué hace?
  * Toca melodías programadas usando un buzzer pasivo,
  * permitiendo crear secuencias de notas musicales.
- * 
+ *
  * ¿Para qué?
  * - Alertas sonoras personalizadas
  * - Proyectos musicales
  * - Retroalimentación auditiva
- * 
+ *
  * ¿Cómo funciona?
  * 1. Define frecuencias de notas como constantes
  * 2. Almacena melodía en arrays (notas + duraciones)
  * 3. Usa tone() para reproducir cada nota
- * 
+ *
  * Hardware: Buzzer pasivo en pin 8
  * Compatibilidad Tinkercad: ✅
  * =================================================
@@ -100,7 +100,7 @@ const int BUZZER_PIN = 8;
 void setup() {
     Serial.begin(9600);
     Serial.println("Reproductor de melodías");
-    
+
     // Tocar escala como prueba
     playScale();
 }
@@ -112,7 +112,7 @@ void loop() {
     // Menú por Serial
     if (Serial.available()) {
         char option = Serial.read();
-        
+
         switch (option) {
             case '1':
                 playScale();
@@ -154,19 +154,19 @@ void playNote(int frequency, int duration) {
  */
 void playScale() {
     Serial.println("Tocando: Escala DO-RE-MI");
-    
-    int notes[] = {NOTE_C4, NOTE_D4, NOTE_E4, NOTE_F4, 
+
+    int notes[] = {NOTE_C4, NOTE_D4, NOTE_E4, NOTE_F4,
                    NOTE_G4, NOTE_A4, NOTE_B4, NOTE_C5};
-    
+
     for (int i = 0; i < 8; i++) {
         playNote(notes[i], 250);
     }
-    
+
     // Escala descendente
     for (int i = 7; i >= 0; i--) {
         playNote(notes[i], 250);
     }
-    
+
     noTone(BUZZER_PIN);
 }
 ```
@@ -179,7 +179,7 @@ void playScale() {
  */
 void playMaryHadALittleLamb() {
     Serial.println("Tocando: Mary Had a Little Lamb");
-    
+
     int melody[] = {
         NOTE_E4, NOTE_D4, NOTE_C4, NOTE_D4,
         NOTE_E4, NOTE_E4, NOTE_E4, REST,
@@ -190,7 +190,7 @@ void playMaryHadALittleLamb() {
         NOTE_D4, NOTE_D4, NOTE_E4, NOTE_D4,
         NOTE_C4
     };
-    
+
     int durations[] = {
         300, 300, 300, 300,
         300, 300, 600, 300,
@@ -201,13 +201,13 @@ void playMaryHadALittleLamb() {
         300, 300, 300, 300,
         600
     };
-    
+
     int length = sizeof(melody) / sizeof(melody[0]);
-    
+
     for (int i = 0; i < length; i++) {
         playNote(melody[i], durations[i]);
     }
-    
+
     noTone(BUZZER_PIN);
 }
 
@@ -216,23 +216,23 @@ void playMaryHadALittleLamb() {
  */
 void playBeethoven() {
     Serial.println("Tocando: Para Elisa (intro)");
-    
+
     int melody[] = {
         NOTE_E5, NOTE_D5, NOTE_E5, NOTE_D5, NOTE_E5,
         NOTE_B4, NOTE_D5, NOTE_C5, NOTE_A4
     };
-    
+
     int durations[] = {
         150, 150, 150, 150, 150,
         150, 150, 150, 400
     };
-    
+
     int length = sizeof(melody) / sizeof(melody[0]);
-    
+
     for (int i = 0; i < length; i++) {
         playNote(melody[i], durations[i]);
     }
-    
+
     noTone(BUZZER_PIN);
 }
 
@@ -241,27 +241,27 @@ void playBeethoven() {
  */
 void playSuperMario() {
     Serial.println("Tocando: Super Mario (intro)");
-    
+
     int melody[] = {
         NOTE_E5, NOTE_E5, REST, NOTE_E5,
         REST, NOTE_C5, NOTE_E5, REST,
         NOTE_G4, REST, REST, REST,
         NOTE_G4, REST, REST, REST
     };
-    
+
     int durations[] = {
         150, 150, 150, 150,
         150, 150, 150, 150,
         150, 150, 150, 150,
         300, 150, 150, 150
     };
-    
+
     int length = sizeof(melody) / sizeof(melody[0]);
-    
+
     for (int i = 0; i < length; i++) {
         playNote(melody[i], durations[i]);
     }
-    
+
     noTone(BUZZER_PIN);
 }
 ```
@@ -273,24 +273,24 @@ void playSuperMario() {
 ### Octava 4 (Central)
 
 | Nota | Nombre | Frecuencia |
-|------|--------|------------|
-| C4 | Do | 262 Hz |
-| D4 | Re | 294 Hz |
-| E4 | Mi | 330 Hz |
-| F4 | Fa | 349 Hz |
-| G4 | Sol | 392 Hz |
-| A4 | La | 440 Hz |
-| B4 | Si | 494 Hz |
+| ---- | ------ | ---------- |
+| C4   | Do     | 262 Hz     |
+| D4   | Re     | 294 Hz     |
+| E4   | Mi     | 330 Hz     |
+| F4   | Fa     | 349 Hz     |
+| G4   | Sol    | 392 Hz     |
+| A4   | La     | 440 Hz     |
+| B4   | Si     | 494 Hz     |
 
 ### Octava 5 (Alta)
 
 | Nota | Nombre | Frecuencia |
-|------|--------|------------|
-| C5 | Do | 523 Hz |
-| D5 | Re | 587 Hz |
-| E5 | Mi | 659 Hz |
-| F5 | Fa | 698 Hz |
-| G5 | Sol | 784 Hz |
+| ---- | ------ | ---------- |
+| C5   | Do     | 523 Hz     |
+| D5   | Re     | 587 Hz     |
+| E5   | Mi     | 659 Hz     |
+| F5   | Fa     | 698 Hz     |
+| G5   | Sol    | 784 Hz     |
 
 ---
 
@@ -322,7 +322,7 @@ Cada tecla del Serial toca una nota diferente.
 void loop() {
     if (Serial.available()) {
         char key = Serial.read();
-        
+
         switch (key) {
             case 'a': tone(BUZZER_PIN, NOTE_C4); break;
             case 's': tone(BUZZER_PIN, NOTE_D4); break;
@@ -337,6 +337,7 @@ void loop() {
     }
 }
 ```
+
 </details>
 
 <details>
@@ -351,7 +352,7 @@ void policeSiren() {
         tone(BUZZER_PIN, freq);
         delay(10);
     }
-    
+
     // Bajada
     for (int freq = 800; freq >= 400; freq -= 10) {
         tone(BUZZER_PIN, freq);
@@ -363,18 +364,19 @@ void loop() {
     policeSiren();
 }
 ```
+
 </details>
 
 ---
 
 ## ❓ Solución de Problemas
 
-| Problema | Causa | Solución |
-|----------|-------|----------|
-| Sin sonido | Buzzer activo | Usar buzzer pasivo |
-| Sonido débil | Polaridad incorrecta | Invertir conexión |
-| Ruido entre notas | Sin pausa | Agregar noTone() y delay |
-| Frecuencia incorrecta | Error en define | Verificar frecuencias |
+| Problema              | Causa                | Solución                 |
+| --------------------- | -------------------- | ------------------------ |
+| Sin sonido            | Buzzer activo        | Usar buzzer pasivo       |
+| Sonido débil          | Polaridad incorrecta | Invertir conexión        |
+| Ruido entre notas     | Sin pausa            | Agregar noTone() y delay |
+| Frecuencia incorrecta | Error en define      | Verificar frecuencias    |
 
 ---
 

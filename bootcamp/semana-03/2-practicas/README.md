@@ -7,12 +7,12 @@
 
 ## 📋 Ejercicios
 
-| # | Práctica | Nivel | Tiempo | Componentes |
-|---|----------|-------|--------|-------------|
-| 1 | [LED Fade Básico](./01-led-fade-basico.md) | ⭐ | 20 min | 1 LED, 1 Resistencia |
-| 2 | [Control RGB](./02-control-rgb.md) | ⭐⭐ | 25 min | 1 LED RGB, 3 Resistencias |
-| 3 | [Control con Potenciómetro](./03-control-potenciometro.md) | ⭐⭐ | 20 min | 1 LED, 1 Pot, 1 Resistencia |
-| 4 | [Melodía con Buzzer](./04-melodia-buzzer.md) | ⭐⭐⭐ | 25 min | 1 Buzzer pasivo |
+| #   | Práctica                                                   | Nivel  | Tiempo | Componentes                 |
+| --- | ---------------------------------------------------------- | ------ | ------ | --------------------------- |
+| 1   | [LED Fade Básico](./01-led-fade-basico.md)                 | ⭐     | 20 min | 1 LED, 1 Resistencia        |
+| 2   | [Control RGB](./02-control-rgb.md)                         | ⭐⭐   | 25 min | 1 LED RGB, 3 Resistencias   |
+| 3   | [Control con Potenciómetro](./03-control-potenciometro.md) | ⭐⭐   | 20 min | 1 LED, 1 Pot, 1 Resistencia |
+| 4   | [Melodía con Buzzer](./04-melodia-buzzer.md)               | ⭐⭐⭐ | 25 min | 1 Buzzer pasivo             |
 
 ---
 
@@ -33,7 +33,7 @@ Al completar las prácticas:
 Práctica 1     Práctica 2     Práctica 3     Práctica 4
     ⭐      →     ⭐⭐      →     ⭐⭐      →     ⭐⭐⭐
   Básico       Intermedio    Intermedio     Avanzado
-   
+
  • 1 LED       • LED RGB      • Pot + LED    • Buzzer
  • Fade        • 3 canales    • map()        • Arrays
  • analogWrite • setColor()   • analogRead   • tone()
@@ -43,16 +43,16 @@ Práctica 1     Práctica 2     Práctica 3     Práctica 4
 
 ## 🔧 Materiales Totales
 
-| Componente | Cantidad | Prácticas |
-|------------|----------|-----------|
-| Arduino Uno | 1 | Todas |
-| LED Rojo 5mm | 1 | 1, 3 |
-| LED RGB (cátodo común) | 1 | 2 |
-| Resistencia 220Ω | 4 | 1, 2, 3 |
-| Potenciómetro 10kΩ | 1 | 3 |
-| Buzzer pasivo | 1 | 4 |
-| Protoboard | 1 | Todas |
-| Cables jumper | ~15 | Todas |
+| Componente             | Cantidad | Prácticas |
+| ---------------------- | -------- | --------- |
+| Arduino Uno            | 1        | Todas     |
+| LED Rojo 5mm           | 1        | 1, 3      |
+| LED RGB (cátodo común) | 1        | 2         |
+| Resistencia 220Ω       | 4        | 1, 2, 3   |
+| Potenciómetro 10kΩ     | 1        | 3         |
+| Buzzer pasivo          | 1        | 4         |
+| Protoboard             | 1        | Todas     |
+| Cables jumper          | ~15      | Todas     |
 
 ---
 
